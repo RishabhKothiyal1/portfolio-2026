@@ -102,7 +102,7 @@
   full.style.cssText = 'display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:99998;font-family:Poppins,sans-serif;background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 50%,#1a1a1a 100%);align-items:center;justify-content:center;';
   full.innerHTML =
     '<div style="position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;opacity:0.3;">' +
-      '<img src="music.png" alt="" style="width:100%;height:100%;object-fit:cover;filter:blur(40px);transform:scale(1.2);">' +
+      '<img src="assets/images/misc/music.png" alt="" style="width:100%;height:100%;object-fit:cover;filter:blur(40px);transform:scale(1.2);">' +
     '</div>' +
     '<div style="position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(180deg,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.85) 100%);"></div>' +
     '<div style="text-align:center;max-width:420px;width:90%;position:relative;z-index:1;">' +
@@ -110,7 +110,7 @@
         '<button id="fpMinimize" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;"><span class="material-symbols-outlined" style="font-size:20px;">collapse_content</span></button>' +
         '<button id="fpClose" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;"><span class="material-symbols-outlined" style="font-size:20px;">close</span></button>' +
       '</div>' +
-      '<img src="music.png" alt="Tum" style="display:block;width:200px;margin:0 auto 24px;">' +
+      '<img src="assets/images/misc/music.png" alt="Tum" style="display:block;width:200px;margin:0 auto 24px;">' +
       '<div style="font-size:28px;font-weight:700;color:#fff;margin-bottom:4px;">Tum</div>' +
       '<div style="font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:28px;">Rishabh Kothiyal</div>' +
       '<div style="margin-bottom:20px;">' +
