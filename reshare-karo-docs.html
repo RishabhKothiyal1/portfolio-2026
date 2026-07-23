@@ -9,110 +9,9 @@
         rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Poppins', sans-serif; background: #eef0f2; }
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/components.css">
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes scaleIn {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
-        .animate-scale-in { animation: scaleIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
-
-        .doc-section {
-            border: 1.5px solid #1a1a1a;
-            border-radius: 10px;
-            padding: 20px;
-            background: #fff;
-            margin-bottom: 16px;
-        }
-
-        .doc-section h2 {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .doc-section p {
-            font-size: 14px;
-            color: #1a1a1a/80;
-            line-height: 1.7;
-            margin-bottom: 8px;
-        }
-
-        .doc-section code {
-            font-family: 'Courier New', monospace;
-            font-size: 13px;
-            background: #f5f5f5;
-            padding: 2px 6px;
-            border-radius: 4px;
-            border: 1px solid #e0e0e0;
-        }
-
-        .doc-section pre {
-            font-family: 'Courier New', monospace;
-            font-size: 13px;
-            background: #f5f5f5;
-            padding: 14px;
-            border-radius: 8px;
-            border: 1px solid #e0e0e0;
-            overflow-x: auto;
-            margin: 8px 0;
-            line-height: 1.5;
-        }
-
-        .doc-section ul {
-            list-style: none;
-            padding: 0;
-            margin: 8px 0;
-        }
-
-        .doc-section ul li {
-            font-size: 14px;
-            color: #1a1a1a/80;
-            padding: 4px 0;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .doc-section ul li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: #FFD400;
-            font-weight: 700;
-        }
-
-        .badge {
-            display: inline-block;
-            font-size: 11px;
-            font-weight: 500;
-            padding: 2px 8px;
-            border-radius: 6px;
-            background: #FFD400;
-            color: #1a1a1a;
-            margin-right: 4px;
-        }
-
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #FFD400; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #1a1a1a; }
-    </style>
 </head>
 
 <body class="min-h-screen flex items-center justify-center p-4 md:p-8">
@@ -124,11 +23,8 @@
 
             <!-- Back -->
             <div class="opacity-0 animate-fade-in-up delay-100 mb-6">
-                <a href="Projects.html"
-                    style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1.5px solid #1a1a1a;border-radius:8px;text-decoration:none;color:#1a1a1a;font-size:13px;font-weight:500;transition:all 0.2s ease;"
-                    onmouseover="this.style.background='#1a1a1a';this.style.color='#f2f1ee'"
-                    onmouseout="this.style.background='transparent';this.style.color='#1a1a1a'">
-                    <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span> Back to Projects
+                <a href="Projects.html" class="btn-outline">
+                    <span class="material-symbols-outlined icon-sm">arrow_back</span> Back to Projects
                 </a>
             </div>
 
@@ -136,21 +32,21 @@
             <div class="opacity-0 animate-fade-in-up delay-100 mb-8">
                 <span class="text-sm text-[#1a1a1a]/70 tracking-wide inline-block border-b-2 border-[#FFD400]">Documentation</span>
                 <h1 class="font-extrabold text-[#1a1a1a] text-[32px] sm:text-[40px] md:text-[44px] mt-2 leading-[1.1]">
-                    Reshare <span class="text-[#FFD400]" style="text-shadow: -1px -1px 0 #1a1a1a, 1px -1px 0 #1a1a1a, -1px 1px 0 #1a1a1a, 1px 1px 0 #1a1a1a;">Karo</span>
+                    Reshare <span class="text-[#FFD400] highlight-stroke">Karo</span>
                 </h1>
                 <p class="text-sm text-[#1a1a1a]/60 mt-2">A secure and seamless file sharing platform built with React, Node.js, MongoDB, and Express.</p>
             </div>
 
             <!-- Overview -->
             <div class="doc-section opacity-0 animate-fade-in-up delay-200">
-                <h2><span class="material-symbols-outlined" style="font-size:20px;">info</span> Overview</h2>
+                <h2><span class="material-symbols-outlined icon-lg">info</span> Overview</h2>
                 <p>Reshare Karo is a file sharing platform that lets users upload files and share them instantly with a generated link. Built with a focus on security, speed, and simplicity — no accounts required.</p>
                 <p>Upload any file, get a shareable link, and send it to anyone. The recipient can download the file directly from the link without any registration.</p>
             </div>
 
             <!-- Features -->
             <div class="doc-section opacity-0 animate-fade-in-up delay-200">
-                <h2><span class="material-symbols-outlined" style="font-size:20px;">checklist</span> Features</h2>
+                <h2><span class="material-symbols-outlined icon-lg">checklist</span> Features</h2>
                 <ul>
                     <li>Drag-and-drop file upload interface</li>
                     <li>Instant shareable link generation</li>
@@ -163,8 +59,8 @@
 
             <!-- Tech Stack -->
             <div class="doc-section opacity-0 animate-fade-in-up delay-200">
-                <h2><span class="material-symbols-outlined" style="font-size:20px;">code</span> Tech Stack</h2>
-                <div style="margin-bottom: 8px;">
+                <h2><span class="material-symbols-outlined icon-lg">code</span> Tech Stack</h2>
+                <div class="badge-wrap">
                     <span class="badge">React</span>
                     <span class="badge">Node.js</span>
                     <span class="badge">MongoDB</span>
@@ -175,8 +71,8 @@
 
             <!-- Usage -->
             <div class="doc-section opacity-0 animate-fade-in-up delay-200">
-                <h2><span class="material-symbols-outlined" style="font-size:20px;">play_arrow</span> How to Use</h2>
-                <ol style="list-style:decimal;padding-left:20px;font-size:14px;color:#1a1a1a/80;line-height:1.7;">
+                <h2><span class="material-symbols-outlined icon-lg">play_arrow</span> How to Use</h2>
+                <ol class="doc-ol">
                     <li>Open Reshare Karo in your browser.</li>
                     <li>Drag your file into the upload area or click to browse.</li>
                     <li>Wait for the upload to complete.</li>
@@ -187,7 +83,7 @@
 
             <!-- API -->
             <div class="doc-section opacity-0 animate-fade-in-up delay-200">
-                <h2><span class="material-symbols-outlined" style="font-size:20px;">api</span> API Reference</h2>
+                <h2><span class="material-symbols-outlined icon-lg">api</span> API Reference</h2>
                 <p><code>POST /api/upload</code> — Upload a file</p>
                 <pre>FormData: { file: File }</pre>
                 <p><strong>Response:</strong></p>
@@ -202,19 +98,13 @@
 
             <!-- Links -->
             <div class="doc-section opacity-0 animate-fade-in-up delay-300">
-                <h2><span class="material-symbols-outlined" style="font-size:20px;">link</span> Links</h2>
-                <div style="display:flex;flex-wrap:wrap;gap:10px;">
-                    <a href="https://resharekaro.qzz.io/" target="_blank"
-                        style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1.5px solid #1a1a1a;border-radius:8px;text-decoration:none;color:#1a1a1a;font-size:13px;font-weight:500;transition:all 0.2s ease;"
-                        onmouseover="this.style.background='#1a1a1a';this.style.color='#f2f1ee'"
-                        onmouseout="this.style.background='transparent';this.style.color='#1a1a1a'">
-                        <span class="material-symbols-outlined" style="font-size:16px;">open_in_new</span> Live Demo
+                <h2><span class="material-symbols-outlined icon-lg">link</span> Links</h2>
+                <div class="links-wrap">
+                    <a href="https://resharekaro.qzz.io/" target="_blank" class="btn-outline">
+                        <span class="material-symbols-outlined icon-sm">open_in_new</span> Live Demo
                     </a>
-                    <a href="https://github.com/RishabhKothiyal1/reshare-karo" target="_blank"
-                        style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1.5px solid #1a1a1a;border-radius:8px;text-decoration:none;color:#1a1a1a;font-size:13px;font-weight:500;transition:all 0.2s ease;"
-                        onmouseover="this.style.background='#1a1a1a';this.style.color='#f2f1ee'"
-                        onmouseout="this.style.background='transparent';this.style.color='#1a1a1a'">
-                        <span class="material-symbols-outlined" style="font-size:16px;">code</span> GitHub
+                    <a href="https://github.com/RishabhKothiyal1/reshare-karo" target="_blank" class="btn-outline">
+                        <span class="material-symbols-outlined icon-sm">code</span> GitHub
                     </a>
                 </div>
             </div>

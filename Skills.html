@@ -8,57 +8,10 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/components.css">
 
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #eef0f2;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes scaleIn {
-            from {
-                transform: scale(0.9);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .animate-fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        .animate-scale-in {
-            animation: scaleIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-        }
-
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
-        .delay-400 { animation-delay: 0.4s; }
-        .delay-500 { animation-delay: 0.5s; }
-        .delay-600 { animation-delay: 0.6s; }
-        .delay-700 { animation-delay: 0.7s; }
-
         .skill-tag {
             display: inline-flex;
             align-items: center;
@@ -106,19 +59,7 @@
             margin-bottom: 24px;
         }
 
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #FFD400;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #1a1a1a;
-        }
+
     </style>
 </head>
 
@@ -133,9 +74,9 @@
             <div class="opacity-0 animate-fade-in-up delay-100 mb-10 relative">
                 <span class="text-sm text-[#1a1a1a]/70 tracking-wide inline-block border-b-2 border-[#FFD400]">2026 | Skills & Background</span>
                 <h1 class="font-extrabold text-[#1a1a1a] text-[32px] sm:text-[40px] md:text-[48px] mt-2 leading-[1.1]">
-                    What I <span class="text-[#FFD400]" style="text-shadow: -1px -1px 0 #1a1a1a, 1px -1px 0 #1a1a1a, -1px 1px 0 #1a1a1a, 1px 1px 0 #1a1a1a;">Know</span>
+                    What I <span class="text-[#FFD400] highlight-stroke">Know</span>
                 </h1>
-                <img src="what i know.png" alt="" style="width: 240px; height: auto; position: absolute; top: -72px; right: -64px;">
+                <img src="what i know.png" alt="" class="skill-corner-img">
             </div>
 
             <!-- Skills Grid -->
@@ -229,7 +170,7 @@
                     <div class="mt-6 space-y-6">
                         <div class="edu-card">
                             <div class="flex items-start gap-3">
-                                <img src="gehu-logo.png" alt="" style="width:56px;height:56px;border-radius:50%;border:2px solid #1a1a1a;object-fit:cover;flex-shrink:0;margin-top:4px;">
+                                <img src="gehu-logo.png" alt="" class="edu-logo">
                                 <div>
                                     <div class="text-sm font-semibold text-[#1a1a1a]/60">2022 - 2025</div>
                                     <h3 class="font-bold text-[#1a1a1a] text-[16px]">Graphic Era Hill University</h3>
@@ -240,7 +181,7 @@
 
                         <div class="edu-card">
                             <div class="flex items-start gap-3">
-                                <img src="vanasthali-logo.png" alt="" style="width:56px;height:56px;border-radius:50%;border:2px solid #1a1a1a;object-fit:cover;flex-shrink:0;margin-top:4px;">
+                                <img src="vanasthali-logo.png" alt="" class="edu-logo">
                                 <div>
                                     <div class="text-sm font-semibold text-[#1a1a1a]/60">2018 - 2022</div>
                                     <h3 class="font-bold text-[#1a1a1a] text-[16px]">Vanasthali Public School</h3>
@@ -251,7 +192,7 @@
 
                         <div class="edu-card">
                             <div class="flex items-start gap-3">
-                                <img src="dmps-logo.jpg" alt="" style="width:56px;height:56px;border-radius:50%;border:2px solid #1a1a1a;object-fit:cover;flex-shrink:0;margin-top:4px;">
+                                <img src="dmps-logo.jpg" alt="" class="edu-logo">
                                 <div>
                                     <div class="text-sm font-semibold text-[#1a1a1a]/60">2006 - 2018</div>
                                     <h3 class="font-bold text-[#1a1a1a] text-[16px]">Dayawati Modi Public School</h3>

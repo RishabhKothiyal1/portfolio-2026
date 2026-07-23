@@ -9,96 +9,9 @@
         rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/components.css">
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Poppins', sans-serif; background: #eef0f2; }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(24px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes scaleIn {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
-        .animate-scale-in { animation: scaleIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
-        .delay-400 { animation-delay: 0.4s; }
-        .delay-500 { animation-delay: 0.5s; }
-
-        .blog-body h2 {
-            font-size: 22px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-top: 40px;
-            margin-bottom: 16px;
-            padding-bottom: 8px;
-            border-bottom: 3px solid #FFD400;
-            display: inline-block;
-        }
-
-        .blog-body h3 {
-            font-size: 17px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-top: 28px;
-            margin-bottom: 10px;
-        }
-
-        .blog-body p {
-            font-size: 15px;
-            line-height: 1.8;
-            color: #1a1a1a/85;
-            margin-bottom: 16px;
-        }
-
-        .blog-body .highlight {
-            background: #FFD400/20;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 500;
-        }
-
-        .blog-body blockquote {
-            border-left: 4px solid #FFD400;
-            padding: 16px 20px;
-            margin: 20px 0;
-            background: #fafafa;
-            border-radius: 0 8px 8px 0;
-            font-size: 16px;
-            font-weight: 500;
-            color: #1a1a1a;
-            line-height: 1.7;
-        }
-
-        .blog-body .session-card {
-            border: 1.5px solid #1a1a1a;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            background: #fff;
-            transition: all 0.3s ease;
-        }
-
-        .blog-body .session-card:hover {
-            box-shadow: 6px 6px 0px #FFD400;
-            transform: translateY(-2px);
-        }
-
-        .blog-body .session-card .speaker {
-            font-size: 13px;
-            font-weight: 600;
-            color: #FFD400;
-            text-shadow: -1px -1px 0 #1a1a1a, 1px -1px 0 #1a1a1a, -1px 1px 0 #1a1a1a, 1px 1px 0 #1a1a1a;
-            letter-spacing: 0.5px;
-            margin-bottom: 6px;
-        }
-
         .blog-body ul {
             list-style: none;
             padding: 0;
@@ -121,53 +34,6 @@
             color: #FFD400;
             font-weight: 700;
         }
-
-        .blog-fig {
-            margin: 28px 0;
-            border: 1.5px solid #1a1a1a;
-            border-radius: 10px;
-            overflow: hidden;
-            background: #fff;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 0 0px #FFD400;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .blog-fig.in-view {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        .blog-fig:hover {
-            box-shadow: 6px 6px 0px #FFD400;
-            transform: translateY(-3px);
-        }
-
-        .blog-fig.in-view:hover {
-            transform: translateY(-3px);
-        }
-
-        .blog-fig img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .blog-fig figcaption {
-            font-size: 12px;
-            color: #1a1a1a/60;
-            padding: 10px 14px;
-            border-top: 1px solid #e0e0e0;
-            line-height: 1.5;
-            font-style: normal;
-        }
-
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #FFD400; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #1a1a1a; }
     </style>
 </head>
 
@@ -180,16 +46,13 @@
         <!-- Header -->
         <div class="opacity-0 animate-fade-in-up delay-100 mb-8">
             <div style="display:flex;align-items:center;margin-bottom:16px;">
-                <a href="event-blogs.html"
-                    style="display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:500;color:#1a1a1a/60;text-decoration:none;transition:color 0.2s;"
-                    onmouseover="this.style.color='#1a1a1a'"
-                    onmouseout="this.style.color='#1a1a1a/60'">
-                    <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span> Back to Blogs
+                <a href="event-blogs.html" class="btn-back">
+                    <span class="material-symbols-outlined btn-icon">arrow_back</span> Back to Blogs
                 </a>
-                <span class="text-sm text-[#1a1a1a]/70 tracking-wide border-b-2 border-[#FFD400]" style="margin-left:auto;margin-right:-8px;">18 June, 2026</span>
+                <span class="text-sm text-[#1a1a1a]/70 tracking-wide border-b-2 border-[#FFD400] blog-logo">18 June, 2026</span>
             </div>
             <h1 class="font-extrabold text-[#1a1a1a] text-[24px] sm:text-[34px] md:text-[40px] mt-3 leading-[1.15]">
-                Microsoft<img src="build.png" alt="Build" style="height:1.3em;width:auto;display:inline-block;vertical-align:middle;margin:0 0px;margin-top:-14px;"><span class="text-[#FFD400]" style="text-shadow: -1px -1px 0 #1a1a1a, 1px -1px 0 #1a1a1a, -1px 1px 0 #1a1a1a, 1px 1px 0 #1a1a1a;margin-left:1px;">//localhost: Noida</span>
+                Microsoft<img src="build.png" alt="Build" style="height:1.3em;width:auto;display:inline-block;vertical-align:middle;margin:0 0px;margin-top:-14px;"><span class="highlight-stroke" style="margin-left:1px;">//localhost: Noida</span>
             </h1>
             <p class="text-sm text-[#1a1a1a]/60 mt-1">Exploring the next generation of AI, cloud, and developer innovation.</p>
         </div>
@@ -202,10 +65,10 @@
                     <img id="msbuild-hero-img" src="microsoftoffice.jpeg" alt="Microsoft Build //localhost: Noida" loading="lazy" style="width:100%;height:auto;display:block;transition:opacity 0.4s ease;">
                 </div>
                 <div style="display:flex;align-items:center;justify-content:center;gap:10px;padding:10px 14px;border-top:1px solid #e0e0e0;">
-                    <span class="msbuild-hero-dot active" data-img="microsoftoffice.jpeg" style="width:10px;height:10px;border-radius:50%;background:#FFD400;border:1.5px solid #1a1a1a;cursor:pointer;transition:all 0.2s;"></span>
-                    <span class="msbuild-hero-dot" data-img="build event.jpeg" style="width:10px;height:10px;border-radius:50%;background:#ddd;border:1.5px solid #1a1a1a;cursor:pointer;transition:all 0.2s;"></span>
+                    <span class="msbuild-hero-dot active gallery-dot gallery-dot--active" data-img="microsoftoffice.jpeg"></span>
+                    <span class="msbuild-hero-dot gallery-dot gallery-dot--inactive" data-img="build event.jpeg"></span>
                 </div>
-                <figcaption style="padding:6px 14px 10px;border-top:1px solid #e0e0e0;font-size:12px;color:#1a1a1a/60;line-height:1.5;">Microsoft Build //localhost: Noida — A day dedicated to exploring the future of AI, cloud computing, and developer innovation.</figcaption>
+                <figcaption class="figcap">Microsoft Build //localhost: Noida — A day dedicated to exploring the future of AI, cloud computing, and developer innovation.</figcaption>
             </div>
 
             <p>Technology conferences are more than just product announcements—they are places where ideas are exchanged, communities are built, and the future of software development begins to take shape.</p>
@@ -226,7 +89,7 @@
                 <div style="position:relative;width:100%;overflow:hidden;">
                     <img src="build intro 1.jpg" alt="Registration area at Microsoft Build //localhost: Noida" loading="lazy" style="width:100%;height:auto;display:block;">
                 </div>
-                <figcaption style="padding:10px 14px;border-top:1px solid #e0e0e0;font-size:12px;color:#1a1a1a/60;line-height:1.5;">The excitement began right from the registration area as developers and technology enthusiasts gathered for a day full of learning and innovation.</figcaption>
+                <figcaption class="figcap">The excitement began right from the registration area as developers and technology enthusiasts gathered for a day full of learning and innovation.</figcaption>
             </div>
 
             <h2>The Evolution of AI: From Assistants to Intelligent Systems</h2>
@@ -251,7 +114,7 @@
                 <div style="position:relative;width:100%;overflow:hidden;">
                     <img id="msbuild-tech-img" src="build 4.jpg" alt="Technical sessions at Microsoft Build //localhost: Noida" loading="lazy" style="width:100%;height:auto;display:block;transition:opacity 0.4s ease;">
                 </div>
-                <figcaption style="padding:10px 14px;border-top:1px solid #e0e0e0;font-size:12px;color:#1a1a1a/60;line-height:1.5;">Technical sessions explored how AI is evolving from traditional assistants into intelligent systems capable of solving complex real-world problems.</figcaption>
+                <figcaption class="figcap">Technical sessions explored how AI is evolving from traditional assistants into intelligent systems capable of solving complex real-world problems.</figcaption>
             </div>
 
             <h2>Azure Cobalt 200 Virtual Machines — Microsoft's AI Infrastructure</h2>
@@ -295,7 +158,7 @@
                 <div style="position:relative;width:100%;overflow:hidden;">
                     <img id="msbuild-azure-img" src="azure cobalt 200.jpeg" alt="Azure AI Foundry session at Microsoft Build" loading="lazy" style="width:100%;height:auto;display:block;transition:opacity 0.4s ease;">
                 </div>
-                <figcaption style="padding:10px 14px;border-top:1px solid #e0e0e0;font-size:12px;color:#1a1a1a/60;line-height:1.5;">Learning how Azure AI Foundry simplifies the development and deployment of enterprise-grade AI applications.</figcaption>
+                <figcaption class="figcap">Learning how Azure AI Foundry simplifies the development and deployment of enterprise-grade AI applications.</figcaption>
             </div>
 
             <h2>Microsoft Discovery — Accelerating Scientific Research</h2>
@@ -310,7 +173,7 @@
                 <div style="position:relative;width:100%;overflow:hidden;">
                     <img src="build event 1.jpeg" alt="Microsoft Discovery session" loading="lazy" style="width:100%;height:auto;display:block;">
                 </div>
-                <figcaption style="padding:10px 14px;border-top:1px solid #e0e0e0;font-size:12px;color:#1a1a1a/60;line-height:1.5;">Exploring how AI is accelerating scientific research and opening new possibilities for innovation.</figcaption>
+                <figcaption class="figcap">Exploring how AI is accelerating scientific research and opening new possibilities for innovation.</figcaption>
             </div>
 
             <h2>CoreUtils for Windows</h2>
@@ -346,7 +209,7 @@
                 <div style="position:relative;width:100%;overflow:hidden;">
                     <img src="agent1.jpeg" alt="Agentic AI architecture presentation" loading="lazy" style="width:100%;height:auto;display:block;">
                 </div>
-                <figcaption style="padding:10px 14px;border-top:1px solid #e0e0e0;font-size:12px;color:#1a1a1a/60;line-height:1.5;">One of the most exciting concepts discussed at the event—Agentic AI, where intelligent agents reason, plan, retrieve information, and use tools before generating responses. (sorry for bad picture quality i was sitting at back)</figcaption>
+                <figcaption class="figcap">One of the most exciting concepts discussed at the event—Agentic AI, where intelligent agents reason, plan, retrieve information, and use tools before generating responses. (sorry for bad picture quality i was sitting at back)</figcaption>
             </div>
 
             <h2>Learning Beyond the Sessions</h2>
@@ -382,11 +245,11 @@
                     <img id="msbuild-group-img" src="group.jpeg" alt="Group photo with attendees at Microsoft Build" loading="lazy" style="width:100%;height:auto;display:block;transition:opacity 0.4s ease;">
                 </div>
                 <div style="display:flex;align-items:center;justify-content:center;gap:10px;padding:10px 14px;border-top:1px solid #e0e0e0;">
-                    <span class="msbuild-group-dot active" data-img="group.jpeg" style="width:10px;height:10px;border-radius:50%;background:#FFD400;border:1.5px solid #1a1a1a;cursor:pointer;transition:all 0.2s;"></span>
-                    <span class="msbuild-group-dot" data-img="group 2.jpeg" style="width:10px;height:10px;border-radius:50%;background:#ddd;border:1.5px solid #1a1a1a;cursor:pointer;transition:all 0.2s;"></span>
-                    <span class="msbuild-group-dot" data-img="group3.jpeg" style="width:10px;height:10px;border-radius:50%;background:#ddd;border:1.5px solid #1a1a1a;cursor:pointer;transition:all 0.2s;"></span>
+                    <span class="msbuild-group-dot active gallery-dot gallery-dot--active" data-img="group.jpeg"></span>
+                    <span class="msbuild-group-dot gallery-dot gallery-dot--inactive" data-img="group 2.jpeg"></span>
+                    <span class="msbuild-group-dot gallery-dot gallery-dot--inactive" data-img="group3.jpeg"></span>
                 </div>
-                <figcaption style="padding:6px 14px 10px;border-top:1px solid #e0e0e0;font-size:12px;color:#1a1a1a/60;line-height:1.5;">Ending the day with new connections, fresh ideas, and unforgettable memories from Microsoft Build //localhost: Noida.</figcaption>
+                <figcaption class="figcap">Ending the day with new connections, fresh ideas, and unforgettable memories from Microsoft Build //localhost: Noida.</figcaption>
             </div>
 
             <h2>Key Takeaways</h2>
@@ -418,11 +281,8 @@
 
         <!-- Back to top -->
         <div style="text-align:center;margin-top:48px;" class="opacity-0 animate-fade-in-up delay-500">
-            <a href="event-blogs.html"
-                style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border:1.5px solid #1a1a1a;border-radius:8px;text-decoration:none;color:#1a1a1a;font-size:13px;font-weight:500;transition:all 0.2s ease;"
-                onmouseover="this.style.background='#1a1a1a';this.style.color='#f2f1ee'"
-                onmouseout="this.style.background='transparent';this.style.color='#1a1a1a'">
-                <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span> Back to All Blogs
+            <a href="event-blogs.html" class="btn-outline btn-outline-lg">
+                <span class="material-symbols-outlined btn-icon">arrow_back</span> Back to All Blogs
             </a>
         </div>
 

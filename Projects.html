@@ -8,7 +8,9 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Poppins', sans-serif; background: #eef0f2; }
@@ -180,7 +182,7 @@
             <div class="opacity-0 animate-fade-in-up delay-100 mb-8">
                 <span class="text-sm text-[#1a1a1a]/70 tracking-wide inline-block border-b-2 border-[#FFD400]">2026 | Projects</span>
                 <h1 class="font-extrabold text-[#1a1a1a] text-[32px] sm:text-[40px] md:text-[48px] mt-2 leading-[1.1] whitespace-nowrap">
-                    My <span class="text-[#FFD400]" style="text-shadow: -1px -1px 0 #1a1a1a, 1px -1px 0 #1a1a1a, -1px 1px 0 #1a1a1a, 1px 1px 0 #1a1a1a;">Projects</span>
+                    My <span class="highlight-stroke">Projects</span>
                 </h1>
             </div>
 
@@ -188,9 +190,9 @@
             <div class="folder opacity-0 animate-fade-in-up delay-200">
                 <div class="folder-header" id="folderToggle">
                     <span class="arrow material-symbols-outlined">chevron_right</span>
-                    <span class="material-symbols-outlined" style="font-size:20px;">folder</span>
+                    <span class="material-symbols-outlined icon-md">folder</span>
                     <span class="label">Projects</span>
-                    <span id="folderClose" class="material-symbols-outlined" style="margin-left:auto;cursor:pointer;font-size:18px;display:none;user-select:none;">close</span>
+                    <span id="folderClose" class="material-symbols-outlined folder-close">close</span>
                 </div>
                 <div class="folder-body" id="folderBody">
                     <div class="folder-inner">
@@ -386,46 +388,7 @@
 
     </div>
 
-    <script>
-        function folderOpen(open) {
-            const body = document.getElementById('folderBody');
-            const arrow = document.querySelector('.folder-header .arrow');
-            const close = document.getElementById('folderClose');
-            if (open) {
-                body.classList.add('open');
-                arrow.classList.add('open');
-                close.style.display = 'block';
-            } else {
-                body.classList.remove('open');
-                arrow.classList.remove('open');
-                close.style.display = 'none';
-                document.querySelectorAll('.sub-folder-body').forEach(sb => sb.classList.remove('open'));
-                document.querySelectorAll('.sub-folder-header .arrow').forEach(a => a.classList.remove('open'));
-            }
-            window.__folderLock = open;
-        }
-
-        document.getElementById('folderToggle').addEventListener('click', () => {
-            const body = document.getElementById('folderBody');
-            folderOpen(!body.classList.contains('open'));
-        });
-
-        document.getElementById('folderClose').addEventListener('click', (e) => {
-            e.stopPropagation();
-            folderOpen(false);
-        });
-
-        document.querySelectorAll('.sub-folder-header').forEach(header => {
-            header.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const id = header.dataset.target;
-                const body = document.getElementById(id);
-                const arrow = header.querySelector('.arrow');
-                body.classList.toggle('open');
-                arrow.classList.toggle('open');
-            });
-        });
-    </script>
+    <script src="assets/js/accordion.js"></script>
     <script src="router.js"></script>
     <script src="nav-manager.js"></script>
     <script src="player.js"></script>

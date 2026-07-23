@@ -1,0 +1,180 @@
+:root {
+  --black: #1a1a1a;
+  --yellow: #FFD400;
+  --bg: #eef0f2;
+  --bg-dark: #f2f1ee;
+  --white: #fff;
+  --gray-60: rgba(26,26,26,0.6);
+  --gray-80: rgba(26,26,26,0.8);
+  --font: 'Poppins', sans-serif;
+  --border: 1.5px solid var(--black);
+  --radius: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 14px;
+  --shadow-card: 12px 12px 0px rgba(26,26,26,1);
+  --shadow-btn: 6px 6px 0px var(--yellow);
+  --transition: all 0.2s ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--black);
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: var(--yellow); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--black); }
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+.animate-scale-in { animation: scaleIn 0.6s cubic-bezier(0.175,0.885,0.32,1.275) forwards; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+.opacity-0 { opacity: 0; }
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+
+/* Text highlight yellow stroke */
+.highlight-stroke {
+  color: var(--yellow);
+  text-shadow: -1px -1px 0 var(--black), 1px -1px 0 var(--black),
+               -1px 1px 0 var(--black), 1px 1px 0 var(--black);
+}
+
+/* Badge / tag */
+.badge, .tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--yellow);
+  color: var(--black);
+  margin-right: 4px;
+}
+
+.tag {
+  background: transparent;
+  border: var(--border);
+  border-radius: 100px;
+  font-size: 10px;
+  padding: 2px 10px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+/* Button outline */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--black);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  background: transparent;
+  transition: var(--transition);
+}
+.btn-outline:hover {
+  background: var(--black);
+  color: #f2f1ee;
+}
+.btn-outline--white-bg:hover { background: var(--black); color: #f2f1ee; }
+
+.btn-outline-lg {
+  padding: 10px 24px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.btn-icon { font-size: 16px; }
+
+/* Section title with underline */
+.section-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-60);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  display: inline-block;
+  border-bottom: 2px solid var(--yellow);
+  padding-bottom: 4px;
+  margin-bottom: 24px;
+}
+
+/* Card wrapper */
+.card {
+  width: 100%;
+  max-width: 1100px;
+  background: var(--white);
+  border: 2px solid var(--black);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.card-padding { padding: 40px; }
+@media (max-width: 640px) { .card-padding { padding: 24px; } }
+@media (min-width: 641px) and (max-width: 768px) { .card-padding { padding: 32px; } }
+
+/* Section wrapper inside card */
+.section {
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  background: var(--white);
+  margin-bottom: 16px;
+}
+
+.section h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Content pages specific */
+.content-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 16px;
+}
+@media (min-width: 768px) { .content-page { padding: 32px; } }

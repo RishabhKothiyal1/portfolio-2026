@@ -9,144 +9,8 @@
         rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Poppins', sans-serif; background: #eef0f2; }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(24px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes scaleIn {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
-        .animate-scale-in { animation: scaleIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
-        .delay-400 { animation-delay: 0.4s; }
-        .delay-500 { animation-delay: 0.5s; }
-
-        .blog-body h2 {
-            font-size: 22px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-top: 40px;
-            margin-bottom: 16px;
-            padding-bottom: 8px;
-            border-bottom: 3px solid #FFD400;
-            display: inline-block;
-        }
-
-        .blog-body h3 {
-            font-size: 17px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-top: 28px;
-            margin-bottom: 10px;
-        }
-
-        .blog-body p {
-            font-size: 15px;
-            line-height: 1.8;
-            color: #1a1a1a/85;
-            margin-bottom: 16px;
-        }
-
-        .blog-body .highlight {
-            background: #FFD400/20;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 500;
-        }
-
-        .blog-body blockquote {
-            border-left: 4px solid #FFD400;
-            padding: 16px 20px;
-            margin: 20px 0;
-            background: #fafafa;
-            border-radius: 0 8px 8px 0;
-            font-size: 16px;
-            font-weight: 500;
-            color: #1a1a1a;
-            line-height: 1.7;
-            font-style: italic;
-        }
-
-        .blog-body .session-card {
-            border: 1.5px solid #1a1a1a;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            background: #fff;
-            transition: all 0.3s ease;
-        }
-
-        .blog-body .session-card:hover {
-            box-shadow: 6px 6px 0px #FFD400;
-            transform: translateY(-2px);
-        }
-
-        .blog-fig {
-            margin: 28px 0;
-            border: 1.5px solid #1a1a1a;
-            border-radius: 10px;
-            overflow: hidden;
-            background: #fff;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 0 0px #FFD400;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .blog-fig.in-view {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        .blog-fig:hover {
-            box-shadow: 6px 6px 0px #FFD400;
-            transform: translateY(-3px);
-        }
-
-        .blog-fig.in-view:hover {
-            transform: translateY(-3px);
-        }
-
-        .blog-fig img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .blog-fig figcaption {
-            font-size: 12px;
-            color: #1a1a1a/60;
-            padding: 10px 14px;
-            border-top: 1px solid #e0e0e0;
-            line-height: 1.5;
-            font-style: normal;
-        }
-
-        .blog-body .session-card .speaker {
-            font-size: 13px;
-            font-weight: 600;
-            color: #FFD400;
-            text-shadow: -1px -1px 0 #1a1a1a, 1px -1px 0 #1a1a1a, -1px 1px 0 #1a1a1a, 1px 1px 0 #1a1a1a;
-            letter-spacing: 0.5px;
-            margin-bottom: 6px;
-        }
-
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #FFD400; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #1a1a1a; }
-    </style>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/components.css">
 </head>
 
 <body class="min-h-screen flex items-center justify-center p-4 md:p-8" style="background:#eef0f2;font-family:'Poppins',sans-serif;">
@@ -158,16 +22,13 @@
         <!-- Header -->
         <div class="opacity-0 animate-fade-in-up delay-100 mb-8">
             <div style="display:flex;align-items:center;margin-bottom:16px;">
-                <a href="event-blogs.html"
-                    style="display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:500;color:#1a1a1a/60;text-decoration:none;transition:color 0.2s;"
-                    onmouseover="this.style.color='#1a1a1a'"
-                    onmouseout="this.style.color='#1a1a1a/60'">
-                    <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span> Back to Blogs
+                <a href="event-blogs.html" class="btn-back">
+                    <span class="material-symbols-outlined btn-icon">arrow_back</span> Back to Blogs
                 </a>
-                <span class="text-sm text-[#1a1a1a]/70 tracking-wide border-b-2 border-[#FFD400]" style="margin-left:auto;margin-right:-8px;">December 6, 2025</span>
+                <span class="text-sm text-[#1a1a1a]/70 tracking-wide border-b-2 border-[#FFD400] blog-logo">December 6, 2025</span>
             </div>
             <h1 class="font-extrabold text-[#1a1a1a] text-[24px] sm:text-[36px] md:text-[42px] mt-3 leading-[1.15]" style="white-space:nowrap;">
-                My First Experience at <span class="text-[#FFD400]" style="text-shadow: -1px -1px 0 #1a1a1a, 1px -1px 0 #1a1a1a, -1px 1px 0 #1a1a1a, 1px 1px 0 #1a1a1a;">GDG Noida DevFest 2025</span> <img src="gdg.png" alt="" style="width:90px;height:90px;display:inline-block;vertical-align:middle;margin-left:-4px;margin-top:-6px;">
+                My First Experience at                 <span class="highlight-stroke">GDG Noida DevFest 2025</span> <img src="gdg.png" alt="" style="width:90px;height:90px;display:inline-block;vertical-align:middle;margin-left:-4px;margin-top:-6px;">
             </h1>
         </div>
 
@@ -285,11 +146,8 @@
 
         <!-- Back to top -->
         <div style="text-align:center;margin-top:48px;" class="opacity-0 animate-fade-in-up delay-500">
-            <a href="event-blogs.html"
-                style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border:1.5px solid #1a1a1a;border-radius:8px;text-decoration:none;color:#1a1a1a;font-size:13px;font-weight:500;transition:all 0.2s ease;"
-                onmouseover="this.style.background='#1a1a1a';this.style.color='#f2f1ee'"
-                onmouseout="this.style.background='transparent';this.style.color='#1a1a1a'">
-                <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span> Back to All Blogs
+            <a href="event-blogs.html" class="btn-outline btn-outline-lg">
+                <span class="material-symbols-outlined btn-icon">arrow_back</span> Back to All Blogs
             </a>
         </div>
 
