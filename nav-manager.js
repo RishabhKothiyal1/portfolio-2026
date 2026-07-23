@@ -12,7 +12,10 @@
 
   function getPageName() {
     var path = location.pathname.split('/').pop() || 'index';
-    return path.replace(/\.html$/, '') || 'index';
+    var name = path.replace(/\.html$/, '');
+    if (name === 'index') return name;
+    var match = pageOrder.find(function(p) { return p.toLowerCase() === name.toLowerCase(); });
+    return match || name;
   }
 
   function getNext() {
