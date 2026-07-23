@@ -1,18 +1,18 @@
 (function() {
   var pageOrder = [
-    'landingpage.html',
-    'About.html',
-    'Skills.html',
-    'Certifications.html',
-    'Projects.html',
-    'event-blogs.html'
+    'index',
+    'About',
+    'Skills',
+    'Certifications',
+    'Projects',
+    'event-blogs'
   ];
   var currentPage = '';
   var locked = false;
 
   function getPageName() {
-    var path = location.pathname.split('/').pop() || 'landingpage.html';
-    return path;
+    var path = location.pathname.split('/').pop() || 'index';
+    return path.replace(/\.html$/, '') || 'index';
   }
 
   function getNext() {
@@ -42,7 +42,7 @@
     locked = false;
 
     var isLinear = pageOrder.indexOf(currentPage) >= 0;
-    var isLanding = currentPage === 'landingpage.html';
+    var isLanding = currentPage === 'index';
 
     if (!isLinear) return;
 
