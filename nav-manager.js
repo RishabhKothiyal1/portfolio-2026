@@ -1,10 +1,10 @@
 (function() {
   var pageOrder = [
     'index',
-    'About',
-    'Skills',
-    'Certifications',
-    'Projects',
+    'about',
+    'skills',
+    'certifications',
+    'projects',
     'event-blogs'
   ];
   var currentPage = '';
@@ -31,6 +31,7 @@
   function navigateTo(url) {
     if (!url || locked) return;
     locked = true;
+    url = url.toLowerCase();
     if (window.__routerNavigate) {
       window.__routerNavigate(url);
     } else {
