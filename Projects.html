@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Poppins', sans-serif; background: #eef0f2; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-scale-in { animation: scaleIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+
+        .folder {
+            border: 1.5px solid #1a1a1a;
+            border-radius: 12px;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        .folder-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 20px;
+            background: #fafafa;
+            border-bottom: 1.5px solid #1a1a1a;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            user-select: none;
+        }
+
+        .folder-header:hover { background: #f0f0f0; }
+
+        .folder-header .arrow { font-size: 20px; transition: transform 0.3s ease; }
+        .folder-header .arrow.open { transform: rotate(90deg); }
+        .folder-header .label { font-size: 16px; font-weight: 600; color: #1a1a1a; }
+        .folder-body { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(.22,1,.36,1); }
+        .folder-body.open {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        .folder-inner { padding: 16px 20px; }
+
+        .sub-folder {
+            border: 1.5px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            overflow: hidden;
+        }
+
+        .sub-folder:last-child { margin-bottom: 0; }
+
+        .sub-folder-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            background: #fafafa;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            user-select: none;
+        }
+
+        .sub-folder-header:hover { background: #f0f0f0; }
+        .sub-folder-header .arrow { font-size: 16px; transition: transform 0.3s ease; }
+        .sub-folder-header .arrow.open { transform: rotate(90deg); }
+        .sub-folder-header .label { font-size: 13px; font-weight: 600; color: #1a1a1a; }
+        .sub-folder-body { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(.22,1,.36,1); }
+        .sub-folder-body.open { max-height: 400px; }
+
+        .sub-folder-inner {
+            padding: 12px 14px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .project-item {
+            border: 1.5px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 14px;
+            background: #fff;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 6px 6px 0px #FFD400;
+            border-color: #FFD400;
+        }
+
+        .project-item h4 { font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
+        .project-item p { font-size: 12px; color: #1a1a1a/70; line-height: 1.5; margin-bottom: 8px; }
+
+        .project-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 2px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .project-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            font-size: 11px;
+            font-weight: 500;
+            padding: 4px 10px;
+            border: 1px solid #1a1a1a;
+            border-radius: 6px;
+            color: #1a1a1a;
+            text-decoration: none;
+            background: #fff;
+            transition: all 0.2s ease;
+            line-height: 1;
+            height: 28px;
+            box-sizing: border-box;
+            vertical-align: middle;
+        }
+
+        .project-links a:hover {
+            background: #1a1a1a;
+            color: #f2f1ee;
+        }
+
+        .project-links a:hover .material-symbols-outlined {
+            color: #f2f1ee;
+        }
+
+        .project-links a .material-symbols-outlined {
+            font-size: 12px;
+            color: #1a1a1a;
+        }
+
+        .project-item .tag {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 500;
+            padding: 2px 8px;
+            border: 1px solid #1a1a1a;
+            border-radius: 10px;
+            color: #1a1a1a;
+            background: #f5f5f5;
+            margin-right: 3px;
+            margin-bottom: 3px;
+        }
+
+        .cert-item {
+            border: 1.5px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 14px;
+            background: #fff;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .cert-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 6px 6px 0px #FFD400;
+            border-color: #FFD400;
+        }
+
+        .cert-item .icon { font-size: 18px; color: #1a1a1a; flex-shrink: 0; }
+        .cert-item .name { font-size: 13px; font-weight: 400; color: #1a1a1a; }
+
+        .sub-folder-inner a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .sub-folder-inner a + a { margin-top: 8px; }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #FFD400; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #1a1a1a; }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-4 md:p-8">
+
+    <div
+        class="w-full max-w-[1100px] bg-white border-2 border-[#1a1a1a] rounded-2xl overflow-hidden shadow-[12px_12px_0px_rgba(26,26,26,1)] animate-scale-in min-h-[200px] sm:min-h-[240px] md:min-h-[300px]">
+
+        <div class="p-6 sm:p-10 md:p-14" style="position: relative;">
+
+            <img src="projects.png" alt="" style="position: absolute; right: 12px; top: 0; width: 300px; height: auto;">
+
+            <!-- Header -->
+            <div class="opacity-0 animate-fade-in-up delay-100 mb-8">
+                <span class="text-sm text-[#1a1a1a]/70 tracking-wide inline-block border-b-2 border-[#FFD400]">2026 | Projects</span>
+                <h1 class="font-extrabold text-[#1a1a1a] text-[32px] sm:text-[40px] md:text-[48px] mt-2 leading-[1.1] whitespace-nowrap">
+                    My <span class="text-[#FFD400]" style="text-shadow: -1px -1px 0 #1a1a1a, 1px -1px 0 #1a1a1a, -1px 1px 0 #1a1a1a, 1px 1px 0 #1a1a1a;">Projects</span>
+                </h1>
+            </div>
+
+            <!-- Folder -->
+            <div class="folder opacity-0 animate-fade-in-up delay-200">
+                <div class="folder-header" id="folderToggle">
+                    <span class="arrow material-symbols-outlined">chevron_right</span>
+                    <span class="material-symbols-outlined" style="font-size:20px;">folder</span>
+                    <span class="label">Projects</span>
+                    <span id="folderClose" class="material-symbols-outlined" style="margin-left:auto;cursor:pointer;font-size:18px;display:none;user-select:none;">close</span>
+                </div>
+                <div class="folder-body" id="folderBody">
+                    <div class="folder-inner">
+
+                        <div class="sub-folder">
+                            <div class="sub-folder-header" data-target="sub-doodle">
+                                <span class="arrow material-symbols-outlined">chevron_right</span>
+                                <span class="material-symbols-outlined" style="font-size:16px;">draw</span>
+                                <span class="label">Do Doodle</span>
+                            </div>
+                            <div class="sub-folder-body" id="sub-doodle">
+                                <div class="sub-folder-inner">
+                                    <div class="project-item">
+                                        <h4>Do Doodle</h4>
+                                        <p>A fun and interactive doodling application.</p>
+                                        <div>
+                                            <span class="tag">JavaScript</span>
+                                            <span class="tag">Canvas</span>
+                                            <span class="tag">HTML5</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/RishabhKothiyal1/do-doodle" target="_blank" style="margin-top:4px;"> <span class="material-symbols-outlined" style="font-size:11px;">terminal</span> GitHub</a>
+                                            <a href="https://do-doodle.netlify.app" target="_blank"> <span class="material-symbols-outlined" style="font-size:11px;">open_in_new</span> Live Demo</a>
+                                            <a href="do-doodle-docs.html"><span class="material-symbols-outlined" style="font-size:11px;">description</span> Docs</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sub-folder">
+                            <div class="sub-folder-header" data-target="sub-reshare">
+                                <span class="arrow material-symbols-outlined">chevron_right</span>
+                                <span class="material-symbols-outlined" style="font-size:16px;">share</span>
+                                <span class="label">Reshare Karo</span>
+                            </div>
+                            <div class="sub-folder-body" id="sub-reshare">
+                                <div class="sub-folder-inner">
+                                    <div class="project-item">
+                                        <h4>Reshare Karo</h4>
+                                        <p>A secure and seamless file sharing platform. Upload your files and share them instantly with a generated link.</p>
+                                        <div>
+                                            <span class="tag">React</span>
+                                            <span class="tag">Node.js</span>
+                                            <span class="tag">MongoDB</span>
+                                            <span class="tag">Express</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/RishabhKothiyal1/reshare-karo" target="_blank" style="margin-top:4px;"> <span class="material-symbols-outlined" style="font-size:11px;">terminal</span> GitHub</a>
+                                            <a href="https://resharekaro.qzz.io/" target="_blank"> <span class="material-symbols-outlined" style="font-size:11px;">open_in_new</span> Live Demo</a>
+                                            <a href="reshare-karo-docs.html"><span class="material-symbols-outlined" style="font-size:11px;">description</span> Docs</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sub-folder">
+                            <div class="sub-folder-header" data-target="sub-tribe">
+                                <span class="arrow material-symbols-outlined">chevron_right</span>
+                                <span class="material-symbols-outlined" style="font-size:16px;">forum</span>
+                                <span class="label">TribeChat</span>
+                            </div>
+                            <div class="sub-folder-body" id="sub-tribe">
+                                <div class="sub-folder-inner">
+                                    <div class="project-item">
+                                        <h4>TribeChat</h4>
+                                        <p>A containerized messaging platform using Docker and WebSockets (Socket.io) for instant, low-latency communication. Focused on scalability and real-time performance.</p>
+                                        <div>
+                                            <span class="tag">Docker</span>
+                                            <span class="tag">MongoDB</span>
+                                            <span class="tag">Socket.io</span>
+                                            <span class="tag">Render</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/RishabhKothiyal1/tribe" target="_blank" style="margin-top:4px;"> <span class="material-symbols-outlined" style="font-size:11px;">terminal</span> GitHub</a>
+                                            <a href="https://tribechat.netlify.app" target="_blank"> <span class="material-symbols-outlined" style="font-size:11px;">open_in_new</span> Live Demo</a>
+                                            <a href="tribechat-docs.html"><span class="material-symbols-outlined" style="font-size:11px;">description</span> Docs</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sub-folder">
+                            <div class="sub-folder-header" data-target="sub-streamie">
+                                <span class="arrow material-symbols-outlined">chevron_right</span>
+                                <span class="material-symbols-outlined" style="font-size:16px;">play_circle</span>
+                                <span class="label">Streamie</span>
+                            </div>
+                            <div class="sub-folder-body" id="sub-streamie">
+                                <div class="sub-folder-inner">
+                                    <div class="project-item">
+                                        <h4>Streamie</h4>
+                                        <p>A seamless web-based streaming platform for movies and series. Integrates multiple external APIs for dynamic content delivery.</p>
+                                        <div>
+                                            <span class="tag">JavaScript</span>
+                                            <span class="tag">REST API</span>
+                                            <span class="tag">HTML/CSS</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/RishabhKothiyal1/streamie" target="_blank" style="margin-top:4px;"> <span class="material-symbols-outlined" style="font-size:11px;">terminal</span> GitHub</a>
+                                            <a href="#"> <span class="material-symbols-outlined" style="font-size:11px;">open_in_new</span> Live Demo</a>
+                                            <a href="streamie-docs.html"><span class="material-symbols-outlined" style="font-size:11px;">description</span> Docs</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sub-folder">
+                            <div class="sub-folder-header" data-target="sub-mouse">
+                                <span class="arrow material-symbols-outlined">chevron_right</span>
+                                <span class="material-symbols-outlined" style="font-size:16px;">gesture</span>
+                                <span class="label">Render Virtual Mouse</span>
+                            </div>
+                            <div class="sub-folder-body" id="sub-mouse">
+                                <div class="sub-folder-inner">
+                                    <div class="project-item">
+                                        <h4>Render Virtual Mouse</h4>
+                                        <p>Control your cursor with hand gestures using Computer Vision. An innovative human-computer interface experiment replacing physical hardware with AI.</p>
+                                        <div>
+                                            <span class="tag">Python</span>
+                                            <span class="tag">OpenCV</span>
+                                            <span class="tag">MediaPipe</span>
+                                            <span class="tag">AI/ML</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/RishabhKothiyal1/Virtual-Mouse-Control" target="_blank" style="margin-top:4px;"> <span class="material-symbols-outlined" style="font-size:11px;">terminal</span> GitHub</a>
+                                            <a href="render-virtual-mouse-docs.html"><span class="material-symbols-outlined" style="font-size:11px;">description</span> Docs</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sub-folder">
+                            <div class="sub-folder-header" data-target="sub-url">
+                                <span class="arrow material-symbols-outlined">chevron_right</span>
+                                <span class="material-symbols-outlined" style="font-size:16px;">link</span>
+                                <span class="label">URL Shortener</span>
+                            </div>
+                            <div class="sub-folder-body" id="sub-url">
+                                <div class="sub-folder-inner">
+                                    <div class="project-item">
+                                        <h4>URL Shortener</h4>
+                                        <p>Transforms long URLs into short, shareable links. Fast, minimalist, and purely functional. An essential utility built for speed and reliability.</p>
+                                        <div>
+                                            <span class="tag">JavaScript</span>
+                                            <span class="tag">HTML5</span>
+                                            <span class="tag">CSS3</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/RishabhKothiyal1/URL-Shortener" target="_blank" style="margin-top:4px;"> <span class="material-symbols-outlined" style="font-size:11px;">terminal</span> GitHub</a>
+                                            <a href="https://rshort.netlify.app" target="_blank"> <span class="material-symbols-outlined" style="font-size:11px;">open_in_new</span> Live Demo</a>
+                                            <a href="url-shortener-docs.html"><span class="material-symbols-outlined" style="font-size:11px;">description</span> Docs</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        function folderOpen(open) {
+            const body = document.getElementById('folderBody');
+            const arrow = document.querySelector('.folder-header .arrow');
+            const close = document.getElementById('folderClose');
+            if (open) {
+                body.classList.add('open');
+                arrow.classList.add('open');
+                close.style.display = 'block';
+            } else {
+                body.classList.remove('open');
+                arrow.classList.remove('open');
+                close.style.display = 'none';
+                document.querySelectorAll('.sub-folder-body').forEach(sb => sb.classList.remove('open'));
+                document.querySelectorAll('.sub-folder-header .arrow').forEach(a => a.classList.remove('open'));
+            }
+            window.__folderLock = open;
+        }
+
+        document.getElementById('folderToggle').addEventListener('click', () => {
+            const body = document.getElementById('folderBody');
+            folderOpen(!body.classList.contains('open'));
+        });
+
+        document.getElementById('folderClose').addEventListener('click', (e) => {
+            e.stopPropagation();
+            folderOpen(false);
+        });
+
+        document.querySelectorAll('.sub-folder-header').forEach(header => {
+            header.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const id = header.dataset.target;
+                const body = document.getElementById(id);
+                const arrow = header.querySelector('.arrow');
+                body.classList.toggle('open');
+                arrow.classList.toggle('open');
+            });
+        });
+    </script>
+    <script src="router.js"></script>
+    <script src="nav-manager.js"></script>
+
+</body>
+
+</html>
