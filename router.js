@@ -29,14 +29,11 @@
     if (!url) url = '/';
 
     fetch(url).then(function(r) { return r.text(); }).then(function(html) {
-      var tmp = d.createElement('div');
-      tmp.innerHTML = html;
+      var titleMatch = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+      if (titleMatch) d.title = titleMatch[1];
 
-      var newTitle = tmp.querySelector('title');
-      if (newTitle) d.title = newTitle.textContent;
-
-      var bodyContent = tmp.querySelector('body');
-      var newHTML = bodyContent ? bodyContent.innerHTML : '';
+      var bodyMatch = html.match(/<body[^>]*>([\s\S]*)<\/body>/i);
+      var newHTML = bodyMatch ? bodyMatch[1] : html;
 
       content.innerHTML = newHTML;
 
