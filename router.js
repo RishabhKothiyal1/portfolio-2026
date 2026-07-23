@@ -1,5 +1,7 @@
 (function() {
   var d = document;
+  var loadedScripts = {};
+  var pageStyles = [];
 
   function isInternal(url) {
     var a = d.createElement('a');
@@ -40,6 +42,29 @@
       var a = d.createElement('a');
       a.href = url;
       history.pushState({}, '', a.pathname + a.search + a.hash);
+
+      pageStyles.forEach(function(s) { if (s.parentNode) s.parentNode.removeChild(s); });
+      pageStyles = [];
+
+      var headMatch = html.match(/<head[^>]*>([\s\S]*?)<\/head>/i);
+      if (headMatch) {
+        var tmp = d.createElement('div');
+        tmp.innerHTML = headMatch[1];
+        tmp.querySelectorAll('style').forEach(function(s) {
+          var ns = d.createElement('style');
+          ns.textContent = s.textContent;
+          d.head.appendChild(ns);
+          pageStyles.push(ns);
+        });
+        tmp.querySelectorAll('script[src]').forEach(function(s) {
+          var src = s.getAttribute('src');
+          if (loadedScripts[src]) return;
+          loadedScripts[src] = true;
+          var ns = d.createElement('script');
+          ns.src = src;
+          d.head.appendChild(ns);
+        });
+      }
 
       content.querySelectorAll('script').forEach(function(s) {
         if (s.src && (s.src.indexOf('player.js') > -1 || s.src.indexOf('router.js') > -1 || s.src.indexOf('nav-manager.js') > -1)) return;
