@@ -51,7 +51,7 @@
         }
       });
 
-      var event = new CustomEvent('pagechange', { detail: { url: url } });
+      var event = new CustomEvent('pagechange', { bubbles: true, detail: { url: url } });
       d.dispatchEvent(event);
     }).catch(function() {
       location.href = url;
