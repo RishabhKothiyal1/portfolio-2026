@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Poppins', sans-serif; background: #eef0f2; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-scale-in { animation: scaleIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+
+        .blog-body h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #FFD400;
+            display: inline-block;
+        }
+
+        .blog-body h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-top: 28px;
+            margin-bottom: 10px;
+        }
+
+        .blog-body p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #1a1a1a/85;
+            margin-bottom: 16px;
+        }
+
+        .blog-body .highlight {
+            background: #FFD400/20;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .blog-body blockquote {
+            border-left: 4px solid #FFD400;
+            padding: 16px 20px;
+            margin: 20px 0;
+            background: #fafafa;
+            border-radius: 0 8px 8px 0;
+            font-size: 16px;
+            font-weight: 500;
+            color: #1a1a1a;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .blog-body .session-card {
+            border: 1.5px solid #1a1a1a;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .blog-body .session-card:hover {
+            box-shadow: 6px 6px 0px #FFD400;
+            transform: translateY(-2px);
+        }
+
+        .blog-body .session-card .speaker {
+            font-size: 13px;
+            font-weight: 600;
+            color: #FFD400;
+            text-shadow: -1px -1px 0 #1a1a1a, 1px -1px 0 #1a1a1a, -1px 1px 0 #1a1a1a, 1px 1px 0 #1a1a1a;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .blog-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0;
+        }
+
+        .blog-body ul li {
+            font-size: 14px;
+            color: #1a1a1a/80;
+            padding: 5px 0;
+            padding-left: 24px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .blog-body ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #FFD400;
+            font-weight: 700;
+        }
+
+        .blog-fig {
+            margin: 28px 0;
+            border: 1.5px solid #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #fff;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 0px #FFD400;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .blog-fig.in-view {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .blog-fig:hover {
+            box-shadow: 6px 6px 0px #FFD400;
+            transform: translateY(-3px);
+        }
+
+        .blog-fig.in-view:hover {
+            transform: translateY(-3px);
+        }
+
+        .blog-fig img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .blog-fig figcaption {
+            font-size: 12px;
+            color: #1a1a1a/60;
+            padding: 10px 14px;
+            border-top: 1px solid #e0e0e0;
+            line-height: 1.5;
+            font-style: normal;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #FFD400; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #1a1a1a; }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-4 md:p-8" style="background:#eef0f2;font-family:'Poppins',sans-serif;">
+
+    <div class="w-full max-w-[1150px] bg-white border-2 border-[#1a1a1a] rounded-2xl overflow-hidden shadow-[12px_12px_0px_rgba(26,26,26,1)] animate-scale-in">
+
+    <div style="max-width:1000px;margin:0;padding:60px 40px 80px;">
+
+        <!-- Header -->
+        <div class="opacity-0 animate-fade-in-up delay-100 mb-8">
+            <div style="display:flex;align-items:center;margin-bottom:16px;">
+                <a href="event-blogs.html"
+                    style="display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:500;color:#1a1a1a/60;text-decoration:none;transition:color 0.2s;"
+                    onmouseover="this.style.color='#1a1a1a'"
+                    onmouseout="this.style.color='#1a1a1a/60'">
+                    <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span> Back to Blogs
+                </a>
+                <span class="text-sm text-[#1a1a1a]/70 tracking-wide border-b-2 border-[#FFD400]" style="margin-left:auto;margin-right:-8px;">13 December 2025</span>
+            </div>
+            <h1 class="font-extrabold text-[#1a1a1a] text-[24px] sm:text-[36px] md:text-[42px] mt-3 leading-[1.15]" style="white-space:nowrap;">
+                AI Manthan 2025 at <img src="google.png" alt="Google" style="height:1.1em;width:auto;display:inline-block;vertical-align:middle;margin-left:4px;"> Gurugram
+            </h1>
+            <p class="text-sm text-[#1a1a1a]/60 mt-1">Hosted by GDG Cloud New Delhi</p>
+        </div>
+
+        <!-- Content -->
+        <div class="blog-body opacity-0 animate-fade-in-up delay-200">
+
+            <p>Some events leave you with notes. Others leave you with ideas that continue to grow long after the event ends.</p>
+
+            <p><span class="highlight">AI Manthan 2025</span>, hosted by GDG Cloud New Delhi at the Google office in Gurugram, was one of those experiences for me. From insightful technical sessions to discussions around design, product thinking, and the future of AI systems, the event offered a complete learning experience that went beyond presentations and slides.</p>
+
+            <p>Walking into the Google office itself was exciting, but what truly made the day memorable was the quality of the conversations, the speakers, and the community. It was a gathering of developers, designers, AI enthusiasts, and students who shared the same curiosity about where technology is heading.</p>
+
+            <h2>Arriving at Google Gurugram</h2>
+
+            <p>Stepping into the Google office instantly set the tone for the day. The energy was incredible, with attendees networking, exchanging ideas, and eagerly waiting for the sessions to begin.</p>
+
+            <p>Seeing hundreds of passionate people in one place, all excited to learn and discuss artificial intelligence, reminded me why community events like these are so valuable. They bring together people from different backgrounds with one common goal—to learn, build, and grow.</p>
+
+            <div class="blog-fig" style="padding:0;">
+                <div style="position:relative;width:100%;max-height:400px;overflow:hidden;">
+                    <img id="arrival-img" src="google office.jpg" alt="Google Office Gurugram venue for AI Manthan 2025" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block;transition:opacity 0.4s ease;">
+                </div>
+                <div style="display:flex;align-items:center;justify-content:center;gap:10px;padding:10px 14px;border-top:1px solid #e0e0e0;">
+                    <span class="arrival-dot active" data-img="google office.jpg" style="width:10px;height:10px;border-radius:50%;background:#FFD400;border:1.5px solid #1a1a1a;cursor:pointer;transition:all 0.2s;"></span>
+                    <span class="arrival-dot" data-img="arriving img google.jpg" style="width:10px;height:10px;border-radius:50%;background:#ddd;border:1.5px solid #1a1a1a;cursor:pointer;transition:all 0.2s;"></span>
+                    <span class="arrival-dot" data-img="registration desk.jpg" style="width:10px;height:10px;border-radius:50%;background:#ddd;border:1.5px solid #1a1a1a;cursor:pointer;transition:all 0.2s;"></span>
+                </div>
+                <figcaption style="padding:6px 14px 10px;border-top:1px solid #e0e0e0;font-size:12px;color:#1a1a1a/60;line-height:1.5;">The Google Gurugram office — an inspiring setting for a day of AI-focused learning.</figcaption>
+            </div>
+
+            <h2>A Well-Balanced Technical Experience</h2>
+
+            <p>One thing I genuinely appreciated about AI Manthan 2025 was how balanced the event felt.</p>
+
+            <p>Instead of focusing on only one aspect of artificial intelligence, the sessions covered multiple perspectives:</p>
+
+            <ul>
+                <li>Large Language Models</li>
+                <li>Agentic AI Systems</li>
+                <li>Product Thinking</li>
+                <li>Design Principles</li>
+                <li>AI Applications</li>
+                <li>Developer Tools</li>
+                <li>Practical Workshops</li>
+                <li>Industry Discussions</li>
+            </ul>
+
+            <p>This made the event valuable regardless of whether you were interested in software engineering, AI research, design, or product development.</p>
+
+            <p>Each session built upon a different piece of the AI ecosystem, making the entire experience feel thoughtfully planned rather than a collection of unrelated talks.</p>
+
+            <figure class="blog-fig">
+                <img src="main stage google.jpg" alt="Main stage at AI Manthan 2025" loading="lazy">
+                <figcaption>The main stage — every session brought a fresh perspective on AI.</figcaption>
+            </figure>
+
+            <h2>Understanding LLMs and Agent-Based Systems</h2>
+
+            <div class="session-card">
+                <div class="speaker">Nikhil Sama Sir</div>
+                <p>The discussion explored Large Language Models and agent-based system design—not simply explaining how modern AI models work, but focusing on how intelligent systems should actually be designed.</p>
+                <p>Rather than treating AI as just another API, the session emphasized building structured systems where reasoning, planning, and execution work together.</p>
+                <p>A few important ideas that resonated with me included:</p>
+                <ul>
+                    <li>Thinking in terms of workflows instead of isolated prompts.</li>
+                    <li>Designing agents that can make decisions and complete tasks.</li>
+                    <li>Breaking complex problems into smaller, manageable steps.</li>
+                    <li>Building AI systems that are reliable, maintainable, and scalable.</li>
+                </ul>
+                <p>The session reinforced an important lesson:</p>
+                <blockquote>Great AI products are not built only with powerful models—they are built with thoughtful system design.</blockquote>
+                <p>As someone interested in building AI-powered applications, this perspective was incredibly valuable.</p>
+            </div>
+
+            <figure class="blog-fig">
+                <img src="nikhil sama.jpg" alt="Nikhil Sama's session on LLMs and Agent-Based Systems" loading="lazy">
+                <figcaption>Nikhil Sama breaking down agent-based system design.</figcaption>
+            </figure>
+
+            <h2>Design That Speaks Without Speaking</h2>
+
+            <div class="session-card">
+                <div class="speaker">Joy Banerjee Sir</div>
+                <p>The focus shifted from algorithms to something equally important—design.</p>
+                <p>One statement that stayed with me throughout the day was the idea that:</p>
+                <blockquote>Good design guides users naturally instead of demanding their attention.</blockquote>
+                <p>The session highlighted how thoughtful interfaces influence user behavior, simplify interactions, and create trust.</p>
+                <p>It served as a reminder that successful products are not only technically strong but also intuitive and enjoyable to use.</p>
+                <p>As developers, it's easy to focus solely on functionality, but this session demonstrated why design deserves equal attention when building products people genuinely love.</p>
+            </div>
+
+            <figure class="blog-fig">
+                <img src="joy sir google.jpg" alt="Joy Banerjee's design session at AI Manthan" loading="lazy">
+                <figcaption>Joy Banerjee exploring the intersection of design and user behavior.</figcaption>
+            </figure>
+
+            <h2>Exploring the Future with Ravian AI</h2>
+
+            <div class="session-card">
+                <div class="speaker">Lokesh Kumar Sir & SuryaPratap Singh Rathore Sir</div>
+                <p>One of the most interesting parts of the event was the introduction to <span class="highlight">Ravian AI</span>.</p>
+                <p>Instead of viewing AI as a tool that simply generates responses, the session explored a broader vision where AI systems can:</p>
+                <ul>
+                    <li>Observe</li>
+                    <li>Plan</li>
+                    <li>Decide</li>
+                    <li>Execute</li>
+                    <li>Adapt</li>
+                </ul>
+                <p>The discussion shifted the focus from conversational AI to intelligent digital systems capable of acting within software environments.</p>
+                <p>This perspective opened up exciting possibilities for how AI can be integrated into future applications—not merely answering questions but actively assisting users in accomplishing complex tasks.</p>
+                <p>It was fascinating to see how rapidly this space is evolving.</p>
+            </div>
+
+            <figure class="blog-fig">
+                <img src="ravian ai.jpg" alt="Ravian AI presentation at AI Manthan" loading="lazy">
+                <figcaption>Lokesh Kumar and SuryaPratap Singh Rathore presenting the vision behind Ravian AI.</figcaption>
+            </figure>
+
+            <h2>Industry Insights Through the Panel Discussion</h2>
+
+            <div class="session-card">
+                <div class="speaker">Aman Bandvi Sir & Joy Banerjee Sir</div>
+                <p>The panel discussion provided a refreshing industry perspective.</p>
+                <p>Instead of theoretical concepts, the conversation centered around practical challenges faced while building products in today's AI landscape.</p>
+                <p>Topics included:</p>
+                <ul>
+                    <li>Emerging AI trends</li>
+                    <li>Product development strategies</li>
+                    <li>Current industry practices</li>
+                    <li>Career growth</li>
+                    <li>Real-world expectations</li>
+                </ul>
+                <p>Listening to professionals openly discuss both opportunities and challenges made the session particularly valuable.</p>
+                <p>It reminded me that continuous learning and adaptability remain some of the most important skills in technology.</p>
+            </div>
+
+            <figure class="blog-fig">
+                <img src="aman and joy sir.jpg" alt="Panel discussion at AI Manthan 2025" loading="lazy">
+                <figcaption>Aman Bandvi and Joy Banerjee sharing practical industry insights.</figcaption>
+            </figure>
+
+            <h2>Chrome DevTools Workshop</h2>
+
+            <div class="session-card">
+                <div class="speaker">Saurabh Rajpal Sir</div>
+                <p>The day concluded with an engaging Chrome DevTools workshop.</p>
+                <p>Although Chrome DevTools is something many developers use regularly, the workshop introduced several techniques that can significantly improve debugging and development workflows.</p>
+                <p>The session was:</p>
+                <ul>
+                    <li>Practical</li>
+                    <li>Beginner-friendly</li>
+                    <li>Interactive</li>
+                    <li>Easy to follow</li>
+                </ul>
+                <p>It served as a great reminder that mastering the tools we already have can often make us far more productive than constantly searching for new ones.</p>
+            </div>
+
+            <figure class="blog-fig">
+                <img src="saurabh sir.jpg" alt="Chrome DevTools workshop at AI Manthan" loading="lazy">
+                <figcaption>Saurabh Rajpal conducting the hands-on Chrome DevTools workshop.</figcaption>
+            </figure>
+
+            <h2>Learning Beyond the Stage</h2>
+
+            <p>While the sessions were excellent, one of the best parts of the event happened outside the auditorium.</p>
+
+            <p>Between talks and during breaks, I had the opportunity to interact with fellow developers, students, designers, and AI enthusiasts.</p>
+
+            <p>These conversations were filled with discussions about:</p>
+
+            <ul>
+                <li>Side projects</li>
+                <li>Open source</li>
+                <li>Career paths</li>
+                <li>AI tools</li>
+                <li>Startups</li>
+                <li>Future collaborations</li>
+            </ul>
+
+            <p>Networking at community events isn't simply about exchanging LinkedIn profiles—it's about sharing experiences, learning from others, and discovering perspectives you might never encounter otherwise.</p>
+
+            <p>Those conversations were just as valuable as the sessions themselves.</p>
+
+            <div class="blog-fig" style="padding:0;">
+                <div style="position:relative;width:100%;overflow:hidden;">
+                    <img id="networking-img" src="networking 1.jpg" alt="Networking at AI Manthan 2025" loading="lazy" style="width:100%;height:auto;display:block;transition:opacity 0.4s ease;">
+                </div>
+                <div style="display:flex;align-items:center;justify-content:center;gap:10px;padding:10px 14px;border-top:1px solid #e0e0e0;">
+                    <span class="networking-dot active" data-img="networking 1.jpg" style="width:10px;height:10px;border-radius:50%;background:#FFD400;border:1.5px solid #1a1a1a;cursor:pointer;transition:all 0.2s;"></span>
+                    <span class="networking-dot" data-img="networking 3.jpg" style="width:10px;height:10px;border-radius:50%;background:#ddd;border:1.5px solid #1a1a1a;cursor:pointer;transition:all 0.2s;"></span>
+                </div>
+                <figcaption style="padding:6px 14px 10px;border-top:1px solid #e0e0e0;font-size:12px;color:#1a1a1a/60;line-height:1.5;">The conversations between sessions were as enriching as the talks themselves.</figcaption>
+            </div>
+
+            <h2>Appreciation for the Organizers</h2>
+
+            <p>Events like AI Manthan require an incredible amount of planning behind the scenes.</p>
+
+            <p>A heartfelt thank you to <span class="highlight">GDG Cloud New Delhi</span> for organizing such a well-structured event.</p>
+
+            <p>Special appreciation goes to <span class="highlight">Abdullah Shahid</span> and <span class="highlight">Mohd Kafeel Khan</span> for ensuring everything—from registrations and scheduling to audience engagement—ran smoothly throughout the day.</p>
+
+            <p>Their efforts created an environment where learning felt effortless and enjoyable.</p>
+
+            <figure class="blog-fig">
+                <img src="networrking2.jpg" alt="AI Manthan 2025 organizers and volunteers" loading="lazy">
+                <figcaption>The team behind AI Manthan 2025 — their hard work made the event seamless.</figcaption>
+            </figure>
+
+            <h2>My Key Takeaways</h2>
+
+            <p>Looking back, a few lessons stand out the most:</p>
+
+            <ul>
+                <li>AI systems should be designed thoughtfully, not just powered by large models.</li>
+                <li>Great products combine engineering with exceptional design.</li>
+                <li>Agentic AI represents an exciting direction for the future.</li>
+                <li>Developer productivity often comes from mastering existing tools.</li>
+                <li>Community events remain one of the best places to learn, network, and grow.</li>
+            </ul>
+
+            <p>Every session contributed something different, making the overall experience incredibly well-rounded.</p>
+
+            <h2>Final Thoughts</h2>
+
+            <p>AI Manthan 2025 wasn't just another technology conference—it was a day filled with learning, inspiration, and meaningful conversations.</p>
+
+            <p>I left the Google office with pages of notes, several new ideas for future projects, and an even stronger motivation to continue exploring artificial intelligence and modern software development.</p>
+
+            <p>A huge thank you once again to <span class="highlight">GDG Cloud New Delhi</span>, all the speakers, volunteers, and organizers for creating such an impactful experience.</p>
+
+            <p>I'm looking forward to attending more community events like this, continuing to learn from experts, and connecting with people who share the same passion for technology.</p>
+
+            <p>Until the next event, happy building!</p>
+
+        </div>
+
+        <!-- Back to top -->
+        <div style="text-align:center;margin-top:48px;" class="opacity-0 animate-fade-in-up delay-500">
+            <a href="event-blogs.html"
+                style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border:1.5px solid #1a1a1a;border-radius:8px;text-decoration:none;color:#1a1a1a;font-size:13px;font-weight:500;transition:all 0.2s ease;"
+                onmouseover="this.style.background='#1a1a1a';this.style.color='#f2f1ee'"
+                onmouseout="this.style.background='transparent';this.style.color='#1a1a1a'">
+                <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span> Back to All Blogs
+            </a>
+        </div>
+
+    </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.arrival-dot').forEach(dot => {
+            dot.addEventListener('click', () => {
+                const img = document.getElementById('arrival-img');
+                img.style.opacity = '0';
+                setTimeout(() => {
+                    img.src = dot.dataset.img;
+                    img.style.opacity = '1';
+                }, 200);
+                document.querySelectorAll('.arrival-dot').forEach(d => d.style.background = '#ddd');
+                dot.style.background = '#FFD400';
+            });
+        });
+
+        const figs = document.querySelectorAll('.blog-fig');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        figs.forEach(f => observer.observe(f));
+
+        document.querySelectorAll('.networking-dot').forEach(dot => {
+            dot.addEventListener('click', () => {
+                const img = document.getElementById('networking-img');
+                img.style.opacity = '0';
+                setTimeout(() => {
+                    img.src = dot.dataset.img;
+                    img.style.opacity = '1';
+                }, 200);
+                document.querySelectorAll('.networking-dot').forEach(d => d.style.background = '#ddd');
+                dot.style.background = '#FFD400';
+            });
+        });
+
+    </script>
+    <script src="router.js"></script>
+    <script src="nav-manager.js"></script>
+    <script src="player.js"></script>
+</body>
+
+</html>

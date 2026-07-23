@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Poppins', sans-serif; background: #eef0f2; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-scale-in { animation: scaleIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+
+        .blog-body h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #FFD400;
+            display: inline-block;
+        }
+
+        .blog-body h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-top: 28px;
+            margin-bottom: 10px;
+        }
+
+        .blog-body p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #1a1a1a/85;
+            margin-bottom: 16px;
+        }
+
+        .blog-body .highlight {
+            background: #FFD400/20;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .blog-body blockquote {
+            border-left: 4px solid #FFD400;
+            padding: 16px 20px;
+            margin: 20px 0;
+            background: #fafafa;
+            border-radius: 0 8px 8px 0;
+            font-size: 16px;
+            font-weight: 500;
+            color: #1a1a1a;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .blog-body .session-card {
+            border: 1.5px solid #1a1a1a;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .blog-body .session-card:hover {
+            box-shadow: 6px 6px 0px #FFD400;
+            transform: translateY(-2px);
+        }
+
+        .blog-fig {
+            margin: 28px 0;
+            border: 1.5px solid #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #fff;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 0px #FFD400;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .blog-fig.in-view {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .blog-fig:hover {
+            box-shadow: 6px 6px 0px #FFD400;
+            transform: translateY(-3px);
+        }
+
+        .blog-fig.in-view:hover {
+            transform: translateY(-3px);
+        }
+
+        .blog-fig img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .blog-fig figcaption {
+            font-size: 12px;
+            color: #1a1a1a/60;
+            padding: 10px 14px;
+            border-top: 1px solid #e0e0e0;
+            line-height: 1.5;
+            font-style: normal;
+        }
+
+        .blog-body .session-card .speaker {
+            font-size: 13px;
+            font-weight: 600;
+            color: #FFD400;
+            text-shadow: -1px -1px 0 #1a1a1a, 1px -1px 0 #1a1a1a, -1px 1px 0 #1a1a1a, 1px 1px 0 #1a1a1a;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #FFD400; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #1a1a1a; }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-4 md:p-8" style="background:#eef0f2;font-family:'Poppins',sans-serif;">
+
+    <div class="w-full max-w-[1150px] bg-white border-2 border-[#1a1a1a] rounded-2xl overflow-hidden shadow-[12px_12px_0px_rgba(26,26,26,1)] animate-scale-in">
+
+    <div style="max-width:1000px;margin:0;padding:60px 40px 80px;">
+
+        <!-- Header -->
+        <div class="opacity-0 animate-fade-in-up delay-100 mb-8">
+            <div style="display:flex;align-items:center;margin-bottom:16px;">
+                <a href="event-blogs.html"
+                    style="display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:500;color:#1a1a1a/60;text-decoration:none;transition:color 0.2s;"
+                    onmouseover="this.style.color='#1a1a1a'"
+                    onmouseout="this.style.color='#1a1a1a/60'">
+                    <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span> Back to Blogs
+                </a>
+                <span class="text-sm text-[#1a1a1a]/70 tracking-wide border-b-2 border-[#FFD400]" style="margin-left:auto;margin-right:-8px;">December 6, 2025</span>
+            </div>
+            <h1 class="font-extrabold text-[#1a1a1a] text-[24px] sm:text-[36px] md:text-[42px] mt-3 leading-[1.15]" style="white-space:nowrap;">
+                My First Experience at <span class="text-[#FFD400]" style="text-shadow: -1px -1px 0 #1a1a1a, 1px -1px 0 #1a1a1a, -1px 1px 0 #1a1a1a, 1px 1px 0 #1a1a1a;">GDG Noida DevFest 2025</span> <img src="gdg.png" alt="" style="width:90px;height:90px;display:inline-block;vertical-align:middle;margin-left:-4px;margin-top:-6px;">
+            </h1>
+        </div>
+
+        <!-- Content -->
+        <div class="blog-body opacity-0 animate-fade-in-up delay-200">
+
+            <figure class="blog-fig">
+                <img src="devfest1.jpg" alt="Wide shot of the GDG Noida DevFest 2025 venue stage" loading="lazy">
+                <figcaption>The main stage at GDG Noida DevFest 2025 — the energy was electric from the moment we walked in.</figcaption>
+            </figure>
+
+            <p>Attending <span class="highlight">GDG Noida DevFest 2025</span> was something I had been looking forward to for quite some time, and it definitely lived up to my expectations.</p>
+
+            <p>It was my first DevFest, so I wasn't exactly sure what the day would be like. As soon as I reached the venue, I could feel the excitement. The place was full of developers, designers, founders, students, and tech enthusiasts who were all there to learn and meet people with similar interests. The atmosphere was energetic, and every conversation seemed to teach me something new.</p>
+
+            <p>By the end of the day, I came back with a notebook full of ideas, a lot of inspiration, and a fresh perspective on where technology is heading.</p>
+
+            <figure class="blog-fig">
+                <img src="devfest 3.jpg" alt="Attendee name badges at DevFest" loading="lazy">
+                <figcaption>Name badges of fellow attendees — every badge represented a story and a shared passion for tech.</figcaption>
+            </figure>
+
+            <h2>Sessions That Stood Out</h2>
+
+            <div class="session-card">
+                <div class="speaker">AI Swarms — Aashish Pahwa</div>
+                <p>This was one of my favorite sessions of the event.</p>
+                <p>Before attending the talk, I mostly thought of AI as interacting with a single language model. The session introduced the idea of multiple AI agents working together, where each agent has a specific responsibility such as planning, executing tasks, or reviewing results.</p>
+                <p>What I found most interesting was how practical the concept felt. The discussion around self-correcting workflows and human checkpoints made it easy to imagine how these systems could be used in real products.</p>
+                <figure class="blog-fig">
+                    <img src="devfest ashish pahwa.jpg" alt="Aashish Pahwa presenting on AI Swarms" loading="lazy">
+                    <figcaption>Aashish Pahwa breaking down how multiple AI agents can collaborate on complex tasks.</figcaption>
+                </figure>
+                <p>I left the session with a completely different perspective on how AI applications are evolving.</p>
+            </div>
+
+            <div class="session-card">
+                <div class="speaker">Product Market Fit — Shruti Tiwari</div>
+                <p>This session reminded me that AI can be useful much earlier than the development phase.</p>
+                <p>Shruti explained how founders and product teams can use AI to validate ideas, understand customer needs, and analyze market trends before spending months building something.</p>
+                <p>One simple idea stayed with me throughout the day.</p>
+                <blockquote>Building the right product is often more important than simply building a product.</blockquote>
+            </div>
+
+            <div class="session-card">
+                <div class="speaker">Design & Nature — Joy Banerjee</div>
+                <p>This was probably the most unique session I attended.</p>
+                <p>Instead of talking only about interfaces or design trends, Joy Banerjee shared how nature influences the way people think, behave, and interact with products.</p>
+                <figure class="blog-fig">
+                    <img src="devfest joy banerjee.jpg" alt="Joy Banerjee presenting on Design and Nature" loading="lazy">
+                    <figcaption>Joy Banerjee drawing unexpected parallels between natural patterns and product design.</figcaption>
+                </figure>
+                <p>Listening to someone connect natural patterns with product design was something I had never experienced before. It made me realize that good design is not only about making something look beautiful. It is about creating experiences that feel natural and intuitive.</p>
+            </div>
+
+            <h2>The Best Part Was Meeting People</h2>
+
+            <p>The sessions were amazing, but the conversations between them were just as valuable.</p>
+
+            <p>During breaks, I got the chance to interact with students, developers, designers, and startup founders. Everyone was open to sharing their experiences, discussing ideas, and talking about technology.</p>
+
+            <p>Since it was my first DevFest, I expected to feel a little nervous, but the community was incredibly welcoming. By the end of the day, I had met people who were just as passionate about building and learning as I was.</p>
+
+            <figure class="blog-fig">
+                <img src="devfest 4.jpg" alt="Group selfie with fellow attendees at DevFest" loading="lazy">
+                <figcaption>A group selfie with some of the amazing people I met — the community made the event unforgettable.</figcaption>
+            </figure>
+
+            <h2>Winning a Goodie Bag</h2>
+
+            <p>One of the most unexpected moments of the day was winning a <span class="highlight">GDG Noida goodie bag</span>.</p>
+
+            <figure class="blog-fig">
+                <img src="goodie.jpeg" alt="GDG Noida DevFest goodie bag" loading="lazy">
+                <figcaption>The goodie bag I won — a small surprise that made the day even more special.</figcaption>
+            </figure>
+
+            <p>It was a small surprise, but it made the experience even more memorable. I still have it, and every time I look at it, it reminds me of everything I learned that day.</p>
+
+            <h2>What Was in the Swag Bag?</h2>
+
+            <p>Curiosity got the better of me, so I had to see what was inside.</p>
+
+            <figure class="blog-fig">
+                <img src="what was in goodie.jpeg" alt="Contents of the GDG Noida DevFest goodie bag" loading="lazy">
+                <figcaption>The goodie bag contents — stickers, a notebook, a pen, and a lot of excitement.</figcaption>
+            </figure>
+
+            <p>The bag had some cool stickers, a notebook, a pen, and a few other goodies. Honestly, it wasn't about what was inside — it was the fact that I won it. (And no, the MacBook in the photo was not part of the swag, unfortunately. A man can dream.)</p>
+
+            <h2>Finally Meeting Mona</h2>
+
+            <p>Another fun moment was finally seeing <span class="highlight">Mona</span>, GitHub's mascot, in person.</p>
+
+            <p>It might seem like a small thing, but after seeing Mona on GitHub for years, it was exciting to see the mascot at the event. It was one of those little moments that made the day even more enjoyable.</p>
+
+            <figure class="blog-fig">
+                <img src="devfest2.jpg" alt="Photo with GitHub mascot Mona at DevFest" loading="lazy">
+                <figcaption>Finally meeting Mona in person — a small but memorable highlight of the day.</figcaption>
+            </figure>
+
+            <h2>Looking Back</h2>
+
+            <p>When I think about DevFest now, I don't just remember the technical sessions.</p>
+
+            <p>I remember the people I met, the conversations I had, the ideas I wrote down, the excitement of winning a goodie bag, and the feeling of being surrounded by a community that genuinely loves technology.</p>
+
+            <p>A huge thank you to the entire <span class="highlight">GDG Noida</span> team and all the volunteers for organizing such a wonderful event. Everything was managed smoothly, and it was clear how much effort had gone into making the experience enjoyable for everyone.</p>
+
+            <p>My first DevFest gave me new ideas, new connections, and plenty of motivation to keep learning.</p>
+
+            <p>I'm already looking forward to attending many more community events in the future.</p>
+
+        </div>
+
+        <!-- Back to top -->
+        <div style="text-align:center;margin-top:48px;" class="opacity-0 animate-fade-in-up delay-500">
+            <a href="event-blogs.html"
+                style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border:1.5px solid #1a1a1a;border-radius:8px;text-decoration:none;color:#1a1a1a;font-size:13px;font-weight:500;transition:all 0.2s ease;"
+                onmouseover="this.style.background='#1a1a1a';this.style.color='#f2f1ee'"
+                onmouseout="this.style.background='transparent';this.style.color='#1a1a1a'">
+                <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span> Back to All Blogs
+            </a>
+        </div>
+
+    </div>
+    </div>
+
+    <script>
+        const figs = document.querySelectorAll('.blog-fig');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        figs.forEach(f => observer.observe(f));
+
+    </script>
+    <script src="router.js"></script>
+    <script src="nav-manager.js"></script>
+    <script src="player.js"></script>
+</body>
+
+</html>

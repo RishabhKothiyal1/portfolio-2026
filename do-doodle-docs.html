@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Poppins', sans-serif; background: #eef0f2; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-scale-in { animation: scaleIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+
+        .doc-section {
+            border: 1.5px solid #1a1a1a;
+            border-radius: 10px;
+            padding: 20px;
+            background: #fff;
+            margin-bottom: 16px;
+        }
+
+        .doc-section h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .doc-section p {
+            font-size: 14px;
+            color: #1a1a1a/80;
+            line-height: 1.7;
+            margin-bottom: 8px;
+        }
+
+        .doc-section code {
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .doc-section pre {
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            background: #f5f5f5;
+            padding: 14px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            overflow-x: auto;
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+
+        .doc-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 8px 0;
+        }
+
+        .doc-section ul li {
+            font-size: 14px;
+            color: #1a1a1a/80;
+            padding: 4px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .doc-section ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #FFD400;
+            font-weight: 700;
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 500;
+            padding: 2px 8px;
+            border-radius: 6px;
+            background: #FFD400;
+            color: #1a1a1a;
+            margin-right: 4px;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #FFD400; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #1a1a1a; }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-4 md:p-8">
+
+    <div
+        class="w-full max-w-[800px] bg-white border-2 border-[#1a1a1a] rounded-2xl overflow-hidden shadow-[12px_12px_0px_rgba(26,26,26,1)] animate-scale-in">
+
+        <div class="p-6 sm:p-10 md:p-14">
+
+            <!-- Back -->
+            <div class="opacity-0 animate-fade-in-up delay-100 mb-6">
+                <a href="Projects.html"
+                    style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1.5px solid #1a1a1a;border-radius:8px;text-decoration:none;color:#1a1a1a;font-size:13px;font-weight:500;transition:all 0.2s ease;"
+                    onmouseover="this.style.background='#1a1a1a';this.style.color='#f2f1ee'"
+                    onmouseout="this.style.background='transparent';this.style.color='#1a1a1a'">
+                    <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span> Back to Projects
+                </a>
+            </div>
+
+            <!-- Header -->
+            <div class="opacity-0 animate-fade-in-up delay-100 mb-8">
+                <span class="text-sm text-[#1a1a1a]/70 tracking-wide inline-block border-b-2 border-[#FFD400]">Documentation</span>
+                <h1 class="font-extrabold text-[#1a1a1a] text-[32px] sm:text-[40px] md:text-[44px] mt-2 leading-[1.1]">
+                    Do <span class="text-[#FFD400]" style="text-shadow: -1px -1px 0 #1a1a1a, 1px -1px 0 #1a1a1a, -1px 1px 0 #1a1a1a, 1px 1px 0 #1a1a1a;">Doodle</span>
+                </h1>
+                <p class="text-sm text-[#1a1a1a]/60 mt-2">A fun and interactive doodling application for the browser.</p>
+            </div>
+
+            <!-- Showcase -->
+            <div style="text-align:center;margin-bottom:24px;" class="opacity-0 animate-fade-in-up delay-200">
+                <img src="do-doodle_showcase.png" alt="Do Doodle showcase" style="width:100%;max-width:600px;height:auto;border-radius:8px;border:2px solid #1a1a1a;box-shadow:6px 6px 0px #FFD400;">
+            </div>
+
+            <!-- Overview -->
+            <div class="doc-section opacity-0 animate-fade-in-up delay-200">
+                <h2><span class="material-symbols-outlined" style="font-size:20px;">info</span> Overview</h2>
+                <p>Do Doodle is a lightweight, browser-based drawing application that lets you sketch, doodle, and create artwork directly in your browser. Built with vanilla JavaScript, it provides a clean canvas with essential drawing tools for quick and creative expression.</p>
+                <p>No installations, no accounts — just open and start doodling.</p>
+            </div>
+
+            <!-- Features -->
+            <div class="doc-section opacity-0 animate-fade-in-up delay-200">
+                <h2><span class="material-symbols-outlined" style="font-size:20px;">checklist</span> Features</h2>
+                <ul>
+                    <li>Freehand drawing on a clean, responsive canvas</li>
+                    <li>Adjustable brush size and color picker</li>
+                    <li>Clear canvas to start fresh anytime</li>
+                    <li>Undo support to revert strokes</li>
+                    <li>Download your doodle as an image</li>
+                    <li>Full-screen canvas mode for immersive drawing</li>
+                    <li>Fully responsive — works on desktop and mobile</li>
+                </ul>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="doc-section opacity-0 animate-fade-in-up delay-200">
+                <h2><span class="material-symbols-outlined" style="font-size:20px;">code</span> Tech Stack</h2>
+                <div style="margin-bottom: 8px;">
+                    <span class="badge">JavaScript</span>
+                    <span class="badge">HTML5 Canvas</span>
+                    <span class="badge">CSS3</span>
+                </div>
+                <p>Built entirely with vanilla web technologies. The HTML5 Canvas API handles all rendering, while vanilla JavaScript manages drawing state, tool interactions, and export functionality.</p>
+            </div>
+
+            <!-- Usage -->
+            <div class="doc-section opacity-0 animate-fade-in-up delay-200">
+                <h2><span class="material-symbols-outlined" style="font-size:20px;">play_arrow</span> How to Use</h2>
+                <ol style="list-style:decimal;padding-left:20px;font-size:14px;color:#1a1a1a/80;line-height:1.7;">
+                    <li>Open Do Doodle in your browser.</li>
+                    <li>Select a brush color and size from the toolbar.</li>
+                    <li>Click and drag on the canvas to start drawing.</li>
+                    <li>Use undo to remove the last stroke if needed.</li>
+                    <li>Click <strong>Download</strong> to save your artwork as a PNG.</li>
+                </ol>
+            </div>
+
+            <!-- API -->
+            <div class="doc-section opacity-0 animate-fade-in-up delay-200">
+                <h2><span class="material-symbols-outlined" style="font-size:20px;">api</span> API Reference</h2>
+                <p>Do Doodle exposes helper functions for programmatic control via the browser console:</p>
+                <p><code>setColor('#FF0000')</code> — Change brush color</p>
+                <pre>setColor('#FFD400');</pre>
+                <p><code>setBrushSize(size)</code> — Set brush thickness (2–50)</p>
+                <pre>setBrushSize(12);</pre>
+                <p><code>clearCanvas()</code> — Clear all drawings</p>
+                <pre>clearCanvas();</pre>
+                <p><code>downloadDrawing()</code> — Export canvas as PNG</p>
+                <pre>downloadDrawing();</pre>
+            </div>
+
+            <!-- Links -->
+            <div class="doc-section opacity-0 animate-fade-in-up delay-300">
+                <h2><span class="material-symbols-outlined" style="font-size:20px;">link</span> Links</h2>
+                <div style="display:flex;flex-wrap:wrap;gap:10px;">
+                    <a href="https://do-doodle.netlify.app" target="_blank"
+                        style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1.5px solid #1a1a1a;border-radius:8px;text-decoration:none;color:#1a1a1a;font-size:13px;font-weight:500;transition:all 0.2s ease;"
+                        onmouseover="this.style.background='#1a1a1a';this.style.color='#f2f1ee'"
+                        onmouseout="this.style.background='transparent';this.style.color='#1a1a1a'">
+                        <span class="material-symbols-outlined" style="font-size:16px;">open_in_new</span> Live Demo
+                    </a>
+                    <a href="https://github.com/RishabhKothiyal1/do-doodle" target="_blank"
+                        style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1.5px solid #1a1a1a;border-radius:8px;text-decoration:none;color:#1a1a1a;font-size:13px;font-weight:500;transition:all 0.2s ease;"
+                        onmouseover="this.style.background='#1a1a1a';this.style.color='#f2f1ee'"
+                        onmouseout="this.style.background='transparent';this.style.color='#1a1a1a'">
+                        <span class="material-symbols-outlined" style="font-size:16px;">code</span> GitHub
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="router.js"></script>
+    <script src="nav-manager.js"></script>
+    <script src="player.js"></script>
+</body>
+
+</html>

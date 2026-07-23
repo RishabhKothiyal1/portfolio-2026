@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #eef0f2;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-scale-in {
+            animation: scaleIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
+        .delay-700 { animation-delay: 0.7s; }
+
+        .folder {
+            border: 1.5px solid #1a1a1a;
+            border-radius: 12px;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        .folder-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 20px;
+            background: #fafafa;
+            border-bottom: 1.5px solid #1a1a1a;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            user-select: none;
+        }
+
+        .folder-header:hover {
+            background: #f0f0f0;
+        }
+
+        .folder-header .arrow {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .folder-header .arrow.open {
+            transform: rotate(90deg);
+        }
+
+        .folder-header .label {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .folder-header .count {
+            font-size: 12px;
+            color: #1a1a1a/50;
+            background: #e8e8e8;
+            padding: 1px 10px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .folder-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(.22,1,.36,1);
+        }
+
+        .folder-body.open {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .folder-inner {
+            padding: 16px 20px;
+        }
+
+        .sub-folder {
+            border: 1.5px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            overflow: hidden;
+        }
+
+        .sub-folder:last-child {
+            margin-bottom: 0;
+        }
+
+        .sub-folder-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            background: #fafafa;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            user-select: none;
+        }
+
+        .sub-folder-header:hover {
+            background: #f0f0f0;
+        }
+
+        .sub-folder-header .arrow {
+            font-size: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .sub-folder-header .arrow.open {
+            transform: rotate(90deg);
+        }
+
+        .sub-folder-header .label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .sub-folder-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(.22,1,.36,1);
+        }
+
+        .sub-folder-body.open {
+            max-height: 1000px;
+        }
+
+        .sub-folder-inner {
+            padding: 12px 14px;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .cert-item {
+            border: 1.5px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 14px;
+            background: #fff;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 12px;
+            font-weight: 500;
+            color: #1a1a1a;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .cert-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 6px 6px 0px #FFD400;
+            border-color: #FFD400;
+        }
+
+        .cert-item .icon {
+            font-size: 16px;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #FFD400; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #1a1a1a; }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-4 md:p-8">
+
+    <div
+        class="w-full max-w-[1100px] bg-white border-2 border-[#1a1a1a] rounded-2xl overflow-hidden shadow-[12px_12px_0px_rgba(26,26,26,1)] animate-scale-in min-h-[200px] sm:min-h-[240px] md:min-h-[300px]">
+
+        <div class="p-6 sm:p-10 md:p-14" style="position: relative;">
+            <img src="certifications.png" alt="" style="position: absolute; right: 12px; top: 0; width: 280px; height: auto;">
+
+            <!-- Header -->
+            <div class="opacity-0 animate-fade-in-up delay-100 mb-8">
+                <span class="text-sm text-[#1a1a1a]/70 tracking-wide inline-block border-b-2 border-[#FFD400]">2026 | Certifications</span>
+                <h1 class="font-extrabold text-[#1a1a1a] text-[32px] sm:text-[40px] md:text-[48px] mt-2 leading-[1.1] whitespace-nowrap">
+                    My <span class="text-[#FFD400]" style="text-shadow: -1px -1px 0 #1a1a1a, 1px -1px 0 #1a1a1a, -1px 1px 0 #1a1a1a, 1px 1px 0 #1a1a1a;">Certificates</span>
+                </h1>
+            </div>
+
+            <!-- Folder -->
+            <div class="folder opacity-0 animate-fade-in-up delay-200">
+                <div class="folder-header" id="folderToggle">
+                    <span class="arrow material-symbols-outlined">chevron_right</span>
+                    <span class="material-symbols-outlined" style="font-size:20px;">folder</span>
+                    <span class="label">Certificates</span>
+                    <span class="count">26</span>
+                    <span id="folderClose" class="material-symbols-outlined" style="margin-left:auto;cursor:pointer;font-size:18px;display:none;user-select:none;">close</span>
+                </div>
+                <div class="folder-body" id="folderBody">
+                    <div class="folder-inner">
+
+                        <div class="sub-folder">
+                            <div class="sub-folder-header" data-target="sub-google">
+                                <span class="arrow material-symbols-outlined">chevron_right</span>
+                                <span class="material-symbols-outlined" style="font-size:16px;">description</span>
+                                <span class="label">Google</span>
+                            </div>
+                            <div class="sub-folder-body" id="sub-google">
+                                <div class="sub-folder-inner" style="display:flex;flex-direction:column;gap:6px;">
+                                    <a href="https://www.skills.google/public_profiles/8e9b9d93-856d-481c-a62a-68dbd9653231/badges/9122409" target="_blank" style="text-decoration:none;color:inherit;"><span class="cert-item"><img src="certificate.png" alt="" class="icon" style="width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:middle;"> Introduction to Generative AI</span></a>
+                                    <a href="https://www.skills.google/public_profiles/8e9b9d93-856d-481c-a62a-68dbd9653231/badges/9122568" target="_blank" style="text-decoration:none;color:inherit;"><span class="cert-item"><img src="certificate.png" alt="" class="icon" style="width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:middle;"> Introduction to Large Language Models</span></a>
+                                    <a href="https://www.skills.google/public_profiles/8e9b9d93-856d-481c-a62a-68dbd9653231/badges/21309924" target="_blank" style="text-decoration:none;color:inherit;"><span class="cert-item"><img src="certificate.png" alt="" class="icon" style="width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:middle;"> Encoder-Decoder Architecture</span></a>
+                                    <a href="https://www.skills.google/public_profiles/8e9b9d93-856d-481c-a62a-68dbd9653231/badges/9122621" target="_blank" style="text-decoration:none;color:inherit;"><span class="cert-item"><img src="certificate.png" alt="" class="icon" style="width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:middle;"> Introduction to Responsible AI</span></a>
+                                    <a href="https://www.skills.google/public_profiles/8e9b9d93-856d-481c-a62a-68dbd9653231/badges/21202971" target="_blank" style="text-decoration:none;color:inherit;"><span class="cert-item"><img src="certificate.png" alt="" class="icon" style="width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:middle;"> Introduction to Data Analytics in Google Cloud</span></a>
+                                    <a href="https://www.skills.google/public_profiles/8e9b9d93-856d-481c-a62a-68dbd9653231/badges/21309453" target="_blank" style="text-decoration:none;color:inherit;"><span class="cert-item"><img src="certificate.png" alt="" class="icon" style="width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:middle;"> Design Foundations for Streaming</span></a>
+                                    <a href="https://www.skills.google/public_profiles/8e9b9d93-856d-481c-a62a-68dbd9653231/badges/21334719" target="_blank" style="text-decoration:none;color:inherit;"><span class="cert-item"><img src="certificate.png" alt="" class="icon" style="width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:middle;"> GDC Platform Introduction</span></a>
+                                    <a href="https://www.skills.google/public_profiles/8e9b9d93-856d-481c-a62a-68dbd9653231/badges/21455507" target="_blank" style="text-decoration:none;color:inherit;"><span class="cert-item"><img src="certificate.png" alt="" class="icon" style="width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:middle;"> Compute, Network, and Storage in GDC</span></a>
+                                    <a href="https://www.skills.google/public_profiles/8e9b9d93-856d-481c-a62a-68dbd9653231/badges/21200324" target="_blank" style="text-decoration:none;color:inherit;"><span class="cert-item"><img src="certificate.png" alt="" class="icon" style="width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:middle;"> Security Command Center Fundamentals</span></a>
+                                    <a href="https://www.skills.google/public_profiles/8e9b9d93-856d-481c-a62a-68dbd9653231/badges/21482348" target="_blank" style="text-decoration:none;color:inherit;"><span class="cert-item"><img src="certificate.png" alt="" class="icon" style="width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:middle;"> Introduction to Security Principles</span></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sub-folder">
+                            <div class="sub-folder-header" data-target="sub-deloitte">
+                                <span class="arrow material-symbols-outlined">chevron_right</span>
+                                <span class="material-symbols-outlined" style="font-size:16px;">description</span>
+                                <span class="label">Deloitte</span>
+                            </div>
+                            <div class="sub-folder-body" id="sub-deloitte">
+                                <div class="sub-folder-inner" style="display:flex;flex-direction:column;gap:6px;">
+                                    <a href="https://www.theforage.com/completion-certificates/9PBTqmSxAf6zZTseP/E9pA6qsdbeyEkp3ti_9PBTqmSxAf6zZTseP_kmgQwY2Ndohi4GA6v_1751658594614_completion_certificate.pdf" target="_blank" style="text-decoration:none;color:inherit;">
+                                        <span class="cert-item"><img src="certificate.png" alt="" class="icon" style="width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:middle;"> Deloitte Australia - Cyber Job Simulation</span>
+                                    </a>
+                                    <a href="https://www.theforage.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_kmgQwY2Ndohi4GA6v_1751566784281_completion_certificate.pdf" target="_blank" style="text-decoration:none;color:inherit;">
+                                        <span class="cert-item"><img src="certificate.png" alt="" class="icon" style="width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:middle;"> Deloitte Australia - Data Analytics Job Simulation</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sub-folder">
+                            <div class="sub-folder-header" data-target="sub-aws">
+                                <span class="arrow material-symbols-outlined">chevron_right</span>
+                                <span class="material-symbols-outlined" style="font-size:16px;">description</span>
+                                <span class="label">AWS</span>
+                            </div>
+                            <div class="sub-folder-body" id="sub-aws">
+                                <div class="sub-folder-inner">
+                                    <a href="https://www.theforage.com/completion-certificates/pmnMSL4QiQ9JCgE3W/kkE9HyeNcw6rwCRGw_pmnMSL4QiQ9JCgE3W_kmgQwY2Ndohi4GA6v_1751660321623_completion_certificate.pdf" target="_blank" style="text-decoration:none;color:inherit;">
+                                        <span class="cert-item"><img src="certificate.png" alt="" class="icon" style="width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:middle;"> AWS - Solutions Architecture Job Simulation</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sub-folder">
+                            <div class="sub-folder-header" data-target="sub-wells-fargo">
+                                <span class="arrow material-symbols-outlined">chevron_right</span>
+                                <span class="material-symbols-outlined" style="font-size:16px;">description</span>
+                                <span class="label">Wells Fargo</span>
+                            </div>
+                            <div class="sub-folder-body" id="sub-wells-fargo">
+                                <div class="sub-folder-inner">
+                                    <a href="https://www.theforage.com/completion-certificates/nkmk7gJitYs4TBvoA/9Wvq4L2WCFQDyyPp3_nkmk7gJitYs4TBvoA_kmgQwY2Ndohi4GA6v_1750271918342_completion_certificate.pdf" target="_blank" style="text-decoration:none;color:inherit;">
+                                        <span class="cert-item"><img src="certificate.png" alt="" class="icon" style="width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:middle;"> Wells Fargo - Software Engineering Job Simulation</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sub-folder">
+                            <div class="sub-folder-header" data-target="sub-anthropic">
+                                <span class="arrow material-symbols-outlined">chevron_right</span>
+                                <span class="material-symbols-outlined" style="font-size:16px;">description</span>
+                                <span class="label">Anthropic</span>
+                            </div>
+                            <div class="sub-folder-body" id="sub-anthropic">
+                                <div class="sub-folder-inner">
+                                    <a href="https://drive.google.com/file/d/1TFCWvtY5RbGTZU7IIHu8EK6A0MSM7OeY/view?usp=sharing" target="_blank" style="text-decoration:none;color:inherit;">
+                                        <span class="cert-item"><img src="certificate.png" alt="" class="icon" style="width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:middle;"> Introduction to Model Context Protocol</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sub-folder">
+                            <div class="sub-folder-header" data-target="sub-iit-madras">
+                                <span class="arrow material-symbols-outlined">chevron_right</span>
+                                <span class="material-symbols-outlined" style="font-size:16px;">description</span>
+                                <span class="label">IIT Madras</span>
+                            </div>
+                            <div class="sub-folder-body" id="sub-iit-madras">
+                                <div class="sub-folder-inner">
+                                    <a href="https://drive.google.com/file/d/1WD3Q8YyqYSxzEV1xXxeCY55_Am7kc2Bv/view?usp=sharing" target="_blank" style="text-decoration:none;color:inherit;">
+                                        <span class="cert-item"><img src="certificate.png" alt="" class="icon" style="width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:middle;"> Python Course on Multiple Languages</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sub-folder">
+                            <div class="sub-folder-header" data-target="sub-iit-bombay">
+                                <span class="arrow material-symbols-outlined">chevron_right</span>
+                                <span class="material-symbols-outlined" style="font-size:16px;">description</span>
+                                <span class="label">IIT Bombay</span>
+                            </div>
+                            <div class="sub-folder-body" id="sub-iit-bombay">
+                                <div class="sub-folder-inner">
+                                    <a href="https://drive.google.com/file/d/1rUbdxvTRHK5t3VoaoZTci5swl_-gkCv4/view?usp=sharing" target="_blank" style="text-decoration:none;color:inherit;">
+                                        <span class="cert-item"><img src="certificate.png" alt="" class="icon" style="width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:middle;"> Java Training & Assessment</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sub-folder">
+                            <div class="sub-folder-header" data-target="sub-iit-delhi">
+                                <span class="arrow material-symbols-outlined">chevron_right</span>
+                                <span class="material-symbols-outlined" style="font-size:16px;">description</span>
+                                <span class="label">IIT Delhi</span>
+                            </div>
+                            <div class="sub-folder-body" id="sub-iit-delhi">
+                                <div class="sub-folder-inner">
+                                    <a href="https://drive.google.com/file/d/17t59gsdzHnb2pyEzLPmFNuFCLbT6TpFa/view?usp=sharing" target="_blank" style="text-decoration:none;color:inherit;">
+                                        <span class="cert-item"><img src="certificate.png" alt="" class="icon" style="width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:middle;"> Blockchain for Beginners (Techgyan Technologies)</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sub-folder">
+                            <div class="sub-folder-header" data-target="sub-hcl-guvi">
+                                <span class="arrow material-symbols-outlined">chevron_right</span>
+                                <span class="material-symbols-outlined" style="font-size:16px;">description</span>
+                                <span class="label">HCL GUVI</span>
+                            </div>
+                            <div class="sub-folder-body" id="sub-hcl-guvi">
+                                <div class="sub-folder-inner" style="display:flex;flex-direction:column;gap:6px;">
+                                    <a href="https://www.guvi.in/verify-certificate?id=01Q60L027651a46r5t" target="_blank" style="text-decoration:none;color:inherit;">
+                                        <span class="cert-item"><img src="certificate.png" alt="" class="icon" style="width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:middle;"> Introduction to Data Engineering and Bigdata</span>
+                                    </a>
+                                    <a href="https://www.guvi.in/verify-certificate?id=4613d513zs8E9jFf63" target="_blank" style="text-decoration:none;color:inherit;">
+                                        <span class="cert-item"><img src="certificate.png" alt="" class="icon" style="width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:middle;"> Game development using PyGame</span>
+                                    </a>
+                                    <a href="https://www.guvi.in/verify-certificate?id=AJ16690krl36O123z8" target="_blank" style="text-decoration:none;color:inherit;">
+                                        <span class="cert-item"><img src="certificate.png" alt="" class="icon" style="width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:middle;"> Python</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sub-folder">
+                            <div class="sub-folder-header" data-target="sub-hackathon">
+                                <span class="arrow material-symbols-outlined">chevron_right</span>
+                                <span class="material-symbols-outlined" style="font-size:16px;">emoji_events</span>
+                                <span class="label">Hackathon</span>
+                            </div>
+                            <div class="sub-folder-body" id="sub-hackathon">
+                                <div class="sub-folder-inner" style="display:flex;flex-direction:column;gap:6px;">
+                                    <a href="https://drive.google.com/file/d/1U1hictdIi0JWH-Xuf03AmrNg3d-AAycu/view?usp=sharing" target="_blank" style="text-decoration:none;color:inherit;">
+                                        <span class="cert-item"><img src="certificate.png" alt="" class="icon" style="width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:middle;"> Co-dev club Graphic Era</span>
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/1e9x6-i9RrOH5xj8H8APUqEZ4EuoI7JQj/view?usp=sharing" target="_blank" style="text-decoration:none;color:inherit;">
+                                        <span class="cert-item"><img src="certificate.png" alt="" class="icon" style="width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:middle;"> Hackathon 3.0 (UPES - CSA Student Chapter)</span>
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/139QsJu0XijqBrmB3kfICtWI0fggDpDV7/view?usp=sharing" target="_blank" style="text-decoration:none;color:inherit;">
+                                        <span class="cert-item"><img src="certificate.png" alt="" class="icon" style="width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:middle;"> TechSprint-48</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sub-folder">
+                            <div class="sub-folder-header" data-target="sub-events">
+                                <span class="arrow material-symbols-outlined">chevron_right</span>
+                                <span class="material-symbols-outlined" style="font-size:16px;">celebration</span>
+                                <span class="label">Events</span>
+                            </div>
+                            <div class="sub-folder-body" id="sub-events">
+                                <div class="sub-folder-inner" style="display:flex;flex-direction:column;gap:6px;">
+                                    <a href="https://drive.google.com/file/d/1KmTPlRasnpMJOAXwrxpZ10R87LgDYNxo/view?usp=sharing" target="_blank" style="text-decoration:none;color:inherit;">
+                                        <span class="cert-item"><img src="certificate.png" alt="" class="icon" style="width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:middle;"> AI Manthan Agent at Work — Google Office, Gurugram</span>
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/1mypw4mxDtlHWSZSX6P8XnZaQmhcQGIj1/view?usp=sharing" target="_blank" style="text-decoration:none;color:inherit;">
+                                        <span class="cert-item"><img src="certificate.png" alt="" class="icon" style="width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:middle;"> Beyond the Browser: Angular Meets Generative AI — D4 Community</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+        function folderOpen(open) {
+            const body = document.getElementById('folderBody');
+            const arrow = document.querySelector('.folder-header .arrow');
+            const close = document.getElementById('folderClose');
+            if (open) {
+                body.classList.add('open');
+                arrow.classList.add('open');
+                close.style.display = 'block';
+            } else {
+                body.classList.remove('open');
+                arrow.classList.remove('open');
+                close.style.display = 'none';
+                document.querySelectorAll('.sub-folder-body').forEach(sb => sb.classList.remove('open'));
+                document.querySelectorAll('.sub-folder-header .arrow').forEach(a => a.classList.remove('open'));
+            }
+            window.__folderLock = open;
+        }
+
+        document.getElementById('folderToggle').addEventListener('click', () => {
+            const body = document.getElementById('folderBody');
+            folderOpen(!body.classList.contains('open'));
+        });
+
+        document.getElementById('folderClose').addEventListener('click', (e) => {
+            e.stopPropagation();
+            folderOpen(false);
+        });
+
+        document.querySelectorAll('.sub-folder-header').forEach(header => {
+            header.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const id = header.dataset.target;
+                const body = document.getElementById(id);
+                const arrow = header.querySelector('.arrow');
+                body.classList.toggle('open');
+                arrow.classList.toggle('open');
+            });
+        });
+    </script>
+    <script src="router.js"></script>
+    <script src="nav-manager.js"></script>
+    <script src="player.js"></script>
+</body>
+
+</html>
