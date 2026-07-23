@@ -50,16 +50,41 @@
 
     if (!isLinear) return;
 
+    var navTimer = null;
+
+    function scheduleNav(dir) {
+      if (navTimer) return;
+      navTimer = setTimeout(function() {
+        navTimer = null;
+        if (locked || window.__folderLock) return;
+        var stillAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 5;
+        var stillAtTop = window.scrollY <= 5;
+        if (dir > 0 && stillAtBottom) {
+          var next = getNext();
+          if (next) navigateTo(next);
+        } else if (dir < 0 && stillAtTop && !isLanding) {
+          var prev = getPrev();
+          if (prev) navigateTo(prev);
+        }
+      }, 500);
+    }
+
+    function cancelNav() {
+      if (navTimer) { clearTimeout(navTimer); navTimer = null; }
+    }
+
     var handler = function(e) {
       if (locked || window.__folderLock) return;
-      var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 10;
-      var atTop = window.scrollY <= 10;
+      var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 5;
+      var atTop = window.scrollY <= 5;
       if (e.deltaY > 0 && atBottom) {
-        var next = getNext();
-        if (next) navigateTo(next);
+        scheduleNav(1);
       } else if (e.deltaY < 0 && atTop && !isLanding) {
-        var prev = getPrev();
-        if (prev) navigateTo(prev);
+        scheduleNav(-1);
+      } else if (e.deltaY > 0 && !atBottom) {
+        cancelNav();
+      } else if (e.deltaY < 0 && !atTop) {
+        cancelNav();
       }
     };
 
@@ -87,6 +112,7 @@
 
     // Store cleanup
     window.__navCleanup = function() {
+      cancelNav();
       window.removeEventListener('wheel', handler);
       window.removeEventListener('touchstart', touchHandler);
       window.removeEventListener('touchend', touchEndHandler);
