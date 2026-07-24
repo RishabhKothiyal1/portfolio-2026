@@ -1,0 +1,57 @@
+import type { Project } from '../types'
+
+export const projects: Project[] = [
+  {
+    title: 'Do Doodle',
+    description: 'A fun and interactive doodling application.',
+    tags: ['JavaScript', 'Canvas', 'HTML5'],
+    icon: '🎨',
+    github: 'https://github.com/RishabhKothiyal1/do-doodle',
+    live: 'https://do-doodle.netlify.app',
+    docs: '/docs/do-doodle',
+  },
+  {
+    title: 'Reshare Karo',
+    description: 'A secure and seamless file sharing platform. Upload your files and share them instantly with a generated link.',
+    tags: ['React', 'Node.js', 'MongoDB', 'Express'],
+    icon: '📤',
+    github: 'https://github.com/RishabhKothiyal1/reshare-karo',
+    live: 'https://resharekaro.qzz.io/',
+    docs: '/docs/reshare-karo',
+  },
+  {
+    title: 'TribeChat',
+    description: 'A containerized messaging platform using Docker and WebSockets (Socket.io) for instant, low-latency communication.',
+    tags: ['Docker', 'MongoDB', 'Socket.io', 'Render'],
+    icon: '💬',
+    github: 'https://github.com/RishabhKothiyal1/tribe',
+    live: 'https://tribechat.netlify.app',
+    docs: '/docs/tribechat',
+  },
+  {
+    title: 'Streamie',
+    description: 'A seamless web-based streaming platform for movies and series. Integrates multiple external APIs for dynamic content delivery.',
+    tags: ['JavaScript', 'REST API', 'HTML/CSS'],
+    icon: '🎬',
+    github: 'https://github.com/RishabhKothiyal1/streamie',
+    live: '#',
+    docs: '/docs/streamie',
+  },
+  {
+    title: 'Render Virtual Mouse',
+    description: 'Control your cursor with hand gestures using Computer Vision. An innovative human-computer interface experiment.',
+    tags: ['Python', 'OpenCV', 'MediaPipe', 'AI/ML'],
+    icon: '🖱️',
+    github: 'https://github.com/RishabhKothiyal1/Virtual-Mouse-Control',
+    docs: '/docs/render-virtual-mouse',
+  },
+  {
+    title: 'URL Shortener',
+    description: 'Transforms long URLs into short, shareable links. Fast, minimalist, and purely functional.',
+    tags: ['JavaScript', 'HTML5', 'CSS3'],
+    icon: '🔗',
+    github: 'https://github.com/RishabhKothiyal1/URL-Shortener',
+    live: 'https://rshort.netlify.app',
+    docs: '/docs/url-shortener',
+  },
+]

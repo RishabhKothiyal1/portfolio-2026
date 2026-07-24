@@ -1,0 +1,7 @@
+export { navLinks } from './navigation'
+export { skillCategories, education, experience } from './skills'
+export type { Education, Experience } from './skills'
+export { projects } from './projects'
+export { certificateCategories } from './certificates'
+export { aboutData } from './about'
+export { blogs } from './blogs'
