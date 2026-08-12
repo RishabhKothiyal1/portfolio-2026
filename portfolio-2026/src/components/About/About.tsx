@@ -172,6 +172,7 @@ export default function About() {
               : isDesktop
                 ? '48px 56px'
                 : '32px 20px',
+            minWidth: 0,
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -456,6 +457,29 @@ export default function About() {
           }
           #about > div > div:last-child {
             display: none !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .qr-scroll a {
+            width: 110px !important;
+            min-width: 110px !important;
+          }
+          .qr-scroll a svg {
+            width: 60px !important;
+            height: 60px !important;
+          }
+          .qr-scroll a span {
+            font-size: 11px !important;
+          }
+        }
+        @media (max-width: 360px) {
+          .qr-scroll a {
+            width: 100px !important;
+            min-width: 100px !important;
+          }
+          .qr-scroll a svg {
+            width: 52px !important;
+            height: 52px !important;
           }
         }
       `}</style>
