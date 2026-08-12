@@ -101,7 +101,7 @@ export default function Certificates() {
 
         {!isMobile && (
           <img
-            src="/certifications.png"
+            src="/jojo.png"
             alt="Certificates"
             style={{
               position: 'absolute',
