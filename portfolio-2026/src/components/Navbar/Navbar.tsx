@@ -100,6 +100,12 @@ export default function Navbar() {
             font-size: 11px !important;
           }
         }
+        @media (max-width: 380px) {
+          .main-navbar .nav-link {
+            padding: 4px 8px !important;
+            font-size: 10px !important;
+          }
+        }
       `}</style>
     </>
   )

@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { scrollToSection } from '../../utils'
+import { useBreakpoint } from '../../hooks'
 
 export default function Hero({ showLoader }: { showLoader: boolean }) {
   const sectionRef = useRef<HTMLElement>(null)
@@ -8,13 +9,7 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
   const subtitleRef = useRef<HTMLParagraphElement>(null)
   const ctaRef = useRef<HTMLDivElement>(null)
   const bgRef = useRef<HTMLDivElement>(null)
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768)
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+  const { isSmall, isMobile, isTablet, isDesktop } = useBreakpoint()
 
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' }, delay: showLoader ? 2.2 : 0 })
@@ -78,9 +73,13 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
         alignItems: 'center',
         justifyContent: 'center',
         position: 'relative',
-        overflow: 'hidden',
+        overflow: 'visible',
         background: '#f2f1ee',
-        padding: '80px 24px 40px',
+        padding: isSmall
+          ? '72px 12px 32px'
+          : isMobile || isTablet
+            ? '80px 16px 32px'
+            : '80px 24px 40px',
       }}
     >
       <div
@@ -105,11 +104,17 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
           border: '2px solid #1a1a1a',
           borderRadius: '16px',
           boxShadow: '12px 12px 0px rgba(26, 26, 26, 1)',
-          padding: isMobile ? '40px 24px' : '80px 64px',
+          padding: isSmall
+            ? '24px 12px'
+            : isMobile
+              ? '40px 20px'
+              : isTablet
+                ? '48px 32px'
+                : '80px 64px',
         }}
       >
 
-      <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', maxWidth: '1200px', width: '100%', display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 420px', alignItems: 'center', gap: '40px' }}>
+      <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', maxWidth: '1200px', width: '100%', display: 'grid', gridTemplateColumns: isDesktop ? '1fr 420px' : '1fr', alignItems: 'center', gap: isTablet ? '32px' : '40px' }}>
         <div>
         <p
           style={{
@@ -128,15 +133,20 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
           ref={titleRef}
           style={{
             fontFamily: "'Playfair Display', serif",
-            fontSize: isMobile ? '32px' : 'clamp(36px, 6vw, 64px)',
+            fontSize: isSmall
+              ? 'clamp(22px, 8vw, 26px)'
+              : isMobile
+                ? 'clamp(26px, 7vw, 34px)'
+                : isTablet
+                  ? 'clamp(32px, 6vw, 44px)'
+                  : 'clamp(36px, 6vw, 64px)',
             fontWeight: 700,
             color: '#FFD400',
             textShadow:
               '-2px -2px 0 #1a1a1a, 2px -2px 0 #1a1a1a, -2px 2px 0 #1a1a1a, 2px 2px 0 #1a1a1a',
-            letterSpacing: isMobile ? '2px' : '4px',
-            lineHeight: 1.1,
+            letterSpacing: isSmall ? '1px' : isMobile ? '2px' : '4px',
+            lineHeight: 1.15,
             margin: '0 0 24px',
-            whiteSpace: 'nowrap',
           }}
         >
           Rishabh Kothiyal
@@ -145,7 +155,7 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
         <p
           ref={subtitleRef}
           style={{
-            fontSize: 'clamp(16px, 2.5vw, 22px)',
+            fontSize: isSmall ? '14px' : 'clamp(16px, 2.5vw, 22px)',
             color: '#1a1a1a',
             opacity: 0.8,
             fontWeight: 400,
@@ -165,12 +175,12 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
           <button
             onClick={() => scrollToSection('about')}
             style={{
-              padding: '12px 32px',
+              padding: isSmall ? '10px 20px' : '12px 32px',
               background: '#1a1a1a',
               color: '#f2f1ee',
               border: '2px solid #1a1a1a',
               borderRadius: '30px',
-              fontSize: '15px',
+              fontSize: isSmall ? '13px' : '15px',
               fontWeight: 600,
               cursor: 'pointer',
               transition: 'all 0.2s ease',
@@ -191,12 +201,12 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
           <button
             onClick={() => scrollToSection('projects')}
             style={{
-              padding: '12px 32px',
+              padding: isSmall ? '10px 20px' : '12px 32px',
               background: 'transparent',
               color: '#1a1a1a',
               border: '2px solid #1a1a1a',
               borderRadius: '30px',
-              fontSize: '15px',
+              fontSize: isSmall ? '13px' : '15px',
               fontWeight: 600,
               cursor: 'pointer',
               transition: 'all 0.2s ease',

@@ -3,6 +3,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { QRCodeSVG } from 'qrcode.react'
 import { aboutData } from '../../data'
+import { useBreakpoint } from '../../hooks'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -15,6 +16,7 @@ function QRCodeTicket({ label, url }: { label: string; url: string }) {
       style={{
         position: 'relative',
         width: '140px',
+        minWidth: '140px',
         border: '1.5px solid #1a1a1a',
         borderRadius: '10px',
         background: '#fff',
@@ -92,6 +94,7 @@ export default function About() {
   const sectionRef = useRef<HTMLElement>(null)
   const leftRef = useRef<HTMLDivElement>(null)
   const rightRef = useRef<HTMLDivElement>(null)
+  const { isSmall, isMobile, isTablet, isDesktop } = useBreakpoint()
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -141,7 +144,7 @@ export default function About() {
       style={{
         minHeight: '100vh',
         background: '#f2f1ee',
-        padding: '80px 0 40px',
+        padding: isSmall ? '64px 12px 32px' : isMobile ? '80px 16px 40px' : '80px 24px 40px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -157,17 +160,22 @@ export default function About() {
           boxShadow: '12px 12px 0px rgba(26, 26, 26, 1)',
           overflow: 'hidden',
           display: 'grid',
-          gridTemplateColumns: '1fr 42%',
-          minHeight: '600px',
+          gridTemplateColumns: isDesktop ? '1fr 42%' : '1fr',
+          minHeight: isDesktop ? '600px' : 'auto',
         }}
       >
         <div
           ref={leftRef}
           style={{
-            padding: '48px 56px',
+            padding: isSmall
+              ? '20px 12px'
+              : isDesktop
+                ? '48px 56px'
+                : '32px 20px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
+            textAlign: isMobile || isTablet ? 'left' : 'inherit',
           }}
         >
           <div>
@@ -240,10 +248,10 @@ export default function About() {
               I'm Rishabh Kothiyal.
             </h3>
 
-            <div className="about-animate" style={{ maxWidth: '600px' }}>
+            <div className="about-animate" style={{ maxWidth: '600px', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
               <p
                 style={{
-                  fontSize: '15px',
+                  fontSize: isSmall ? '12.5px' : isMobile ? '13px' : '15px',
                   lineHeight: 1.8,
                   color: '#1a1a1a',
                   margin: '0 0 16px',
@@ -264,7 +272,7 @@ export default function About() {
 
               <p
                 style={{
-                  fontSize: '15px',
+                  fontSize: isSmall ? '12.5px' : isMobile ? '13px' : '15px',
                   lineHeight: 1.8,
                   color: '#1a1a1a',
                   margin: '0 0 16px',
@@ -313,7 +321,7 @@ export default function About() {
 
               <p
                 style={{
-                  fontSize: '15px',
+                  fontSize: isSmall ? '12.5px' : isMobile ? '13px' : '15px',
                   lineHeight: 1.8,
                   color: '#1a1a1a',
                   margin: 0,
@@ -366,12 +374,16 @@ export default function About() {
             </div>
 
             <div
-              className="about-animate"
+              className="about-animate qr-scroll"
               style={{
                 marginTop: '28px',
                 display: 'flex',
                 gap: '12px',
-                flexWrap: 'wrap',
+                flexWrap: 'nowrap',
+                overflowX: 'auto',
+                WebkitOverflowScrolling: 'touch',
+                margin: '28px -16px 0',
+                padding: '0 16px 4px',
               }}
             >
               <QRCodeTicket label="LinkedIn" url={aboutData.social[0].url} />
@@ -428,7 +440,14 @@ export default function About() {
         .mobile-image {
           display: none;
         }
-        @media (max-width: 768px) {
+        .qr-scroll::-webkit-scrollbar {
+          display: none;
+        }
+        .qr-scroll {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        @media (max-width: 1100px) {
           .mobile-image {
             display: block !important;
           }

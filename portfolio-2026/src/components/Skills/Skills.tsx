@@ -3,11 +3,13 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { skillCategories, education, experience } from '../../data'
 import type { Education, Experience } from '../../data'
+import { useBreakpoint } from '../../hooks'
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function Skills() {
   const sectionRef = useRef<HTMLElement>(null)
+  const { isSmall, isMobile, isTablet, isDesktop } = useBreakpoint()
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -39,7 +41,7 @@ export default function Skills() {
       style={{
         minHeight: '100vh',
         background: '#fff',
-        padding: '80px 16px 40px',
+        padding: isSmall ? '64px 10px 32px' : isMobile ? '80px 16px 40px' : '80px 24px 40px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -54,12 +56,12 @@ export default function Skills() {
           borderRadius: '16px',
           boxShadow: '12px 12px 0px rgba(26, 26, 26, 1)',
           overflow: 'visible',
-          padding: '56px 64px',
+          padding: isSmall ? '20px 10px' : isMobile ? '24px 16px' : isTablet ? '40px 32px' : '56px 64px',
           position: 'relative',
         }}
       >
         {/* Header */}
-        <div className="skill-animate" style={{ marginBottom: '40px', position: 'relative', padding: '0 260px 0 0' }}>
+        <div className="skill-animate" style={{ marginBottom: '40px', position: 'relative', padding: isDesktop ? '0 260px 0 0' : '0' }}>
           <span
             style={{
               fontSize: '13px',
@@ -93,37 +95,39 @@ export default function Skills() {
           </h2>
 
           {/* Decorative illustration */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '-55px',
-              right: '0',
-              width: '240px',
-              height: '240px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              pointerEvents: 'none',
-            }}
-          >
-            <img
-              src="/skills-illustration.png"
-              alt=""
+          {isDesktop && (
+            <div
               style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'contain',
+                position: 'absolute',
+                top: '-55px',
+                right: '0',
+                width: '240px',
+                height: '240px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                pointerEvents: 'none',
               }}
-            />
-          </div>
+            >
+              <img
+                src="/skills-illustration.png"
+                alt=""
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'contain',
+                }}
+              />
+            </div>
+          )}
         </div>
 
         {/* Skills Grid */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)',
-            gap: '32px 48px',
+            gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
+            gap: isSmall ? '24px 16px' : isMobile ? '28px 20px' : '32px 48px',
             marginBottom: '48px',
           }}
         >
@@ -204,8 +208,8 @@ export default function Skills() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)',
-            gap: '40px 48px',
+            gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
+            gap: isSmall ? '32px 16px' : '40px 48px',
           }}
         >
           {/* Education */}

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { projects } from '../../data'
+import { useBreakpoint } from '../../hooks'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -51,13 +52,7 @@ export default function Projects() {
   const sectionRef = useRef<HTMLElement>(null)
   const [openFolder, setOpenFolder] = useState(false)
   const [openSubFolders, setOpenSubFolders] = useState<Record<string, boolean>>({})
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768)
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+  const { isSmall, isMobile, isTablet } = useBreakpoint()
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -93,7 +88,7 @@ export default function Projects() {
       style={{
         minHeight: '100vh',
         background: '#f2f1ee',
-        padding: '100px 24px',
+        padding: isSmall ? '64px 10px' : isMobile ? '80px 16px' : isTablet ? '80px 24px' : '100px 24px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -106,7 +101,7 @@ export default function Projects() {
         border: '2px solid #1a1a1a',
         borderRadius: '16px',
         boxShadow: '12px 12px 0px rgba(26, 26, 26, 1)',
-        padding: '48px 56px',
+        padding: isSmall ? '20px 10px' : isMobile ? '24px 16px' : isTablet ? '32px 24px' : '48px 56px',
         overflow: 'hidden',
         position: 'relative',
       }}>
@@ -178,7 +173,7 @@ export default function Projects() {
               display: 'flex',
               alignItems: 'center',
               gap: '10px',
-              padding: '16px 20px',
+              padding: isSmall ? '12px 12px' : '16px 20px',
               background: '#fafafa',
               borderBottom: '1.5px solid #1a1a1a',
               cursor: 'pointer',
@@ -209,7 +204,7 @@ export default function Projects() {
               transition: 'max-height 0.5s cubic-bezier(.22,1,.36,1)',
             }}
           >
-            <div style={{ padding: '16px 20px' }}>
+            <div style={{ padding: isSmall ? '12px 10px' : '16px 20px' }}>
               {projects.map((project) => (
                 <div
                   key={project.title}
@@ -226,7 +221,7 @@ export default function Projects() {
                       display: 'flex',
                       alignItems: 'center',
                       gap: '8px',
-                      padding: '10px 14px',
+                      padding: isSmall ? '8px 10px' : '10px 14px',
                       background: '#fafafa',
                       cursor: 'pointer',
                       userSelect: 'none',

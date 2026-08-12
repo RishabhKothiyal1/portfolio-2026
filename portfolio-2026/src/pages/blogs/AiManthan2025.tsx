@@ -91,9 +91,7 @@ export default function AiManthan2025() {
   const navigate = useNavigate()
 
   return (
-    <div
-      style={{
-        minHeight: '100vh',
+    <div className="page-shell" style={{ minHeight: '100vh',
         background: '#f2f1ee',
         display: 'flex',
         alignItems: 'center',
@@ -102,17 +100,14 @@ export default function AiManthan2025() {
         fontFamily: "'Poppins', sans-serif",
       }}
     >
-      <div
-        style={{
-          width: '100%',
-          maxWidth: 1150,
+      <div className="page-card" style={{ width: '100%', maxWidth: 1150,
           background: '#fff',
           border: '2px solid #1a1a1a',
           borderRadius: 16,
           boxShadow: '12px 12px 0px rgba(26,26,26,1)',
         }}
       >
-        <div style={{ maxWidth: 1000, margin: 0, padding: '60px 40px 80px' }}>
+        <div className="page-content" style={{ maxWidth: 1000, margin: 0, padding: '60px 40px 80px' }}>
           {/* Header */}
           <div style={{ marginBottom: 32 }}>
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: 16 }}>
@@ -238,7 +233,7 @@ export default function AiManthan2025() {
 
             {/* Understanding LLMs and Agent-Based Systems */}
             <h2 style={heading}>Understanding LLMs and Agent-Based Systems</h2>
-            <div style={sessionCard}>
+            <div className="blog-session-card" style={sessionCard}>
               <div style={speaker}>Nikhil Sama Sir</div>
               <p style={paragraph}>
                 The discussion explored Large Language Models and agent-based system design &#8212; not simply explaining how modern AI models work, but focusing on how intelligent systems should actually be designed.
@@ -272,7 +267,7 @@ export default function AiManthan2025() {
 
             {/* Design That Speaks Without Speaking */}
             <h2 style={heading}>Design That Speaks Without Speaking</h2>
-            <div style={sessionCard}>
+            <div className="blog-session-card" style={sessionCard}>
               <div style={speaker}>Joy Banerjee Sir</div>
               <p style={paragraph}>
                 The focus shifted from algorithms to something equally important &#8212; design.
@@ -302,7 +297,7 @@ export default function AiManthan2025() {
 
             {/* Exploring the Future with Ravian AI */}
             <h2 style={heading}>Exploring the Future with Ravian AI</h2>
-            <div style={sessionCard}>
+            <div className="blog-session-card" style={sessionCard}>
               <div style={speaker}>Lokesh Kumar Sir & SuryaPratap Singh Rathore Sir</div>
               <p style={paragraph}>
                 One of the most interesting parts of the event was the introduction to <span style={highlight}>Ravian AI</span>.
@@ -335,7 +330,7 @@ export default function AiManthan2025() {
 
             {/* Industry Insights Through the Panel Discussion */}
             <h2 style={heading}>Industry Insights Through the Panel Discussion</h2>
-            <div style={sessionCard}>
+            <div className="blog-session-card" style={sessionCard}>
               <div style={speaker}>Aman Bandvi Sir & Joy Banerjee Sir</div>
               <p style={paragraph}>
                 The panel discussion provided a refreshing industry perspective.
@@ -368,7 +363,7 @@ export default function AiManthan2025() {
 
             {/* Chrome DevTools Workshop */}
             <h2 style={heading}>Chrome DevTools Workshop</h2>
-            <div style={sessionCard}>
+            <div className="blog-session-card" style={sessionCard}>
               <div style={speaker}>Saurabh Rajpal Sir</div>
               <p style={paragraph}>
                 The day concluded with an engaging Chrome DevTools workshop.

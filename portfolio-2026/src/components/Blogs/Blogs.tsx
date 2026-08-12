@@ -1,20 +1,15 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { blogs } from '../../data'
+import { useBreakpoint } from '../../hooks'
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function Blogs() {
   const sectionRef = useRef<HTMLElement>(null)
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768)
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+  const { isSmall, isMobile, isTablet } = useBreakpoint()
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -47,7 +42,7 @@ export default function Blogs() {
       style={{
         minHeight: '100vh',
         background: '#fff',
-        padding: '100px 24px',
+        padding: isSmall ? '64px 10px' : isMobile ? '80px 16px' : isTablet ? '80px 24px' : '100px 24px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -60,7 +55,7 @@ export default function Blogs() {
         border: '2px solid #1a1a1a',
         borderRadius: '16px',
         boxShadow: '12px 12px 0px rgba(26, 26, 26, 1)',
-        padding: isMobile ? '24px 16px' : '48px 56px',
+        padding: isSmall ? '20px 10px' : isMobile ? '24px 16px' : isTablet ? '32px 24px' : '48px 56px',
       }}>
         <div style={{ marginBottom: '48px', textAlign: 'center' }}>
           <span
@@ -101,7 +96,9 @@ export default function Blogs() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(280px, 1fr))',
+            gridTemplateColumns: isMobile
+              ? '1fr'
+              : 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))',
             gap: '24px',
           }}
         >

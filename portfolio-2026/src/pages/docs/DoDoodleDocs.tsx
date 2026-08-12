@@ -93,7 +93,7 @@ export default function DoDoodleDocs() {
 
   return (
     <div style={{ minHeight: '100vh', background: '#f2f1ee', padding: '32px 16px', fontFamily: "'Poppins', sans-serif" }}>
-      <div style={{ maxWidth: 800, margin: '0 auto', background: '#fff', border: '2px solid #1a1a1a', borderRadius: 16, boxShadow: '12px 12px 0px rgba(26,26,26,1)', padding: '56px 24px' }}>
+      <div className="page-card" style={{ maxWidth: 800, margin: '0 auto', background: '#fff', border: '2px solid #1a1a1a', borderRadius: 16, boxShadow: '12px 12px 0px rgba(26,26,26,1)', padding: '56px 24px' }}>
         <div style={{ marginBottom: 24 }}>
           <button onClick={() => navigate(-1)} style={{ ...linkBtnStyle, display: 'inline-flex', cursor: 'pointer', background: 'transparent' }}>
             ← Back to Portfolio
@@ -108,13 +108,13 @@ export default function DoDoodleDocs() {
           <p style={{ fontSize: 14, color: 'rgba(26,26,26,0.6)', marginTop: 8 }}>A fun and interactive doodling application for the browser.</p>
         </div>
 
-        <div style={docSectionStyle}>
+        <div className="doc-section" style={docSectionStyle}>
           <h2 style={h2Style}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 16v-4" /><path d="M12 8h.01" /></svg> Overview</h2>
           <p style={pStyle}>Do Doodle is a lightweight, browser-based drawing application that lets you sketch, doodle, and create artwork directly in your browser. Built with vanilla JavaScript, it provides a clean canvas with essential drawing tools for quick and creative expression.</p>
           <p style={pStyle}>No installations, no accounts — just open and start doodling.</p>
         </div>
 
-        <div style={docSectionStyle}>
+        <div className="doc-section" style={docSectionStyle}>
           <h2 style={h2Style}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Features</h2>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
             {features.map((f, i) => (
@@ -126,7 +126,7 @@ export default function DoDoodleDocs() {
           </ul>
         </div>
 
-        <div style={docSectionStyle}>
+        <div className="doc-section" style={docSectionStyle}>
           <h2 style={h2Style}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg> Tech Stack</h2>
           <div style={{ marginBottom: 8 }}>
             <span style={badgeStyle}>JavaScript</span>
@@ -136,7 +136,7 @@ export default function DoDoodleDocs() {
           <p style={pStyle}>Built entirely with vanilla web technologies. The HTML5 Canvas API handles all rendering, while vanilla JavaScript manages drawing state, tool interactions, and export functionality.</p>
         </div>
 
-        <div style={docSectionStyle}>
+        <div className="doc-section" style={docSectionStyle}>
           <h2 style={h2Style}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="5 3 19 12 5 21 5 3" /></svg> How to Use</h2>
           <ol style={{ listStyle: 'decimal', paddingLeft: 20, fontSize: 14, color: 'rgba(26,26,26,0.8)', lineHeight: 1.7 }}>
             <li>Open Do Doodle in your browser.</li>
@@ -147,7 +147,7 @@ export default function DoDoodleDocs() {
           </ol>
         </div>
 
-        <div style={docSectionStyle}>
+        <div className="doc-section" style={docSectionStyle}>
           <h2 style={h2Style}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22v-5" /><path d="M9 8V2" /><path d="M15 8V2" /><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z" /></svg> API Reference</h2>
           <p style={pStyle}>Do Doodle exposes helper functions for programmatic control via the browser console:</p>
           {apiFunctions.map((fn, i) => (
@@ -158,7 +158,7 @@ export default function DoDoodleDocs() {
           ))}
         </div>
 
-        <div style={docSectionStyle}>
+        <div className="doc-section" style={docSectionStyle}>
           <h2 style={h2Style}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></svg> Links</h2>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
             <a href="https://do-doodle.netlify.app" target="_blank" rel="noopener noreferrer" style={linkBtnStyle}>Live Demo →</a>

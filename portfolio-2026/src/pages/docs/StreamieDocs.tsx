@@ -64,7 +64,7 @@ export default function StreamieDocs() {
 
   return (
     <div style={{ minHeight: '100vh', background: '#f2f1ee', padding: '32px 16px', fontFamily: "'Poppins', sans-serif" }}>
-      <div style={{ maxWidth: 800, margin: '0 auto', background: '#fff', border: '2px solid #1a1a1a', borderRadius: 16, boxShadow: '12px 12px 0px rgba(26,26,26,1)', padding: '56px 24px' }}>
+      <div className="page-card" style={{ maxWidth: 800, margin: '0 auto', background: '#fff', border: '2px solid #1a1a1a', borderRadius: 16, boxShadow: '12px 12px 0px rgba(26,26,26,1)', padding: '56px 24px' }}>
         <div style={{ marginBottom: 24 }}>
           <button onClick={() => navigate(-1)} style={{ ...linkBtnStyle, display: 'inline-flex', cursor: 'pointer', background: 'transparent' }}>Back to Portfolio</button>
         </div>
@@ -77,12 +77,12 @@ export default function StreamieDocs() {
           <p style={{ fontSize: 14, color: 'rgba(26,26,26,0.6)', marginTop: 8 }}>Live streaming platform for content creators.</p>
         </div>
 
-        <div style={docSectionStyle}>
+        <div className="doc-section" style={docSectionStyle}>
           <h2 style={h2Style}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 16v-4" /><path d="M12 8h.01" /></svg> Overview</h2>
           <p style={pStyle}>Streamie is a live streaming platform that allows content creators to broadcast live video, interact with viewers through real-time chat, and manage their streaming schedule.</p>
         </div>
 
-        <div style={docSectionStyle}>
+        <div className="doc-section" style={docSectionStyle}>
           <h2 style={h2Style}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Features</h2>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
             {features.map((f, i) => (
@@ -94,7 +94,7 @@ export default function StreamieDocs() {
           </ul>
         </div>
 
-        <div style={docSectionStyle}>
+        <div className="doc-section" style={docSectionStyle}>
           <h2 style={h2Style}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg> Tech Stack</h2>
           <div style={{ marginBottom: 8 }}>
             <span style={badgeStyle}>React</span>
@@ -106,7 +106,7 @@ export default function StreamieDocs() {
           <p style={pStyle}>WebRTC handles peer-to-peer video streaming, with Express and MongoDB managing stream metadata and user data.</p>
         </div>
 
-        <div style={docSectionStyle}>
+        <div className="doc-section" style={docSectionStyle}>
           <h2 style={h2Style}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></svg> Links</h2>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
             <a href="https://streamie.netlify.app" target="_blank" rel="noopener noreferrer" style={linkBtnStyle}>Live Demo</a>

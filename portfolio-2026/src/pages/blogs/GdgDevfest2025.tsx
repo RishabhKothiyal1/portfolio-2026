@@ -83,9 +83,7 @@ export default function GdgDevfest2025() {
   const navigate = useNavigate()
 
   return (
-    <div
-      style={{
-        minHeight: '100vh',
+    <div className="page-shell" style={{ minHeight: '100vh',
         background: '#f2f1ee',
         display: 'flex',
         alignItems: 'center',
@@ -94,17 +92,14 @@ export default function GdgDevfest2025() {
         fontFamily: "'Poppins', sans-serif",
       }}
     >
-      <div
-        style={{
-          width: '100%',
-          maxWidth: 1150,
+      <div className="page-card" style={{ width: '100%', maxWidth: 1150,
           background: '#fff',
           border: '2px solid #1a1a1a',
           borderRadius: 16,
           boxShadow: '12px 12px 0px rgba(26,26,26,1)',
         }}
       >
-        <div style={{ maxWidth: 1000, margin: 0, padding: '60px 40px 80px' }}>
+        <div className="page-content" style={{ maxWidth: 1000, margin: 0, padding: '60px 40px 80px' }}>
           {/* Header */}
           <div style={{ marginBottom: 32 }}>
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: 16 }}>
@@ -205,7 +200,7 @@ export default function GdgDevfest2025() {
             {/* Sessions That Stood Out */}
             <h2 style={heading}>Sessions That Stood Out</h2>
 
-            <div style={sessionCard}>
+            <div className="blog-session-card" style={sessionCard}>
               <div style={speaker}>AI Swarms &#8212; Aashish Pahwa</div>
               <p style={paragraph}>
                 This was one of my favorite sessions of the event.
@@ -227,7 +222,7 @@ export default function GdgDevfest2025() {
               </p>
             </div>
 
-            <div style={sessionCard}>
+            <div className="blog-session-card" style={sessionCard}>
               <div style={speaker}>Product Market Fit &#8212; Shruti Tiwari</div>
               <p style={paragraph}>
                 This session reminded me that AI can be useful much earlier than the development phase.
@@ -241,7 +236,7 @@ export default function GdgDevfest2025() {
               </blockquote>
             </div>
 
-            <div style={sessionCard}>
+            <div className="blog-session-card" style={sessionCard}>
               <div style={speaker}>Design & Nature &#8212; Joy Banerjee</div>
               <p style={paragraph}>
                 This was probably the most unique session I attended.

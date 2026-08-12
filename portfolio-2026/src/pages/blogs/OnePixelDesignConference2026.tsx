@@ -91,9 +91,7 @@ export default function OnePixelDesignConference2026() {
   const navigate = useNavigate()
 
   return (
-    <div
-      style={{
-        minHeight: '100vh',
+    <div className="page-shell" style={{ minHeight: '100vh',
         background: '#f2f1ee',
         display: 'flex',
         alignItems: 'center',
@@ -102,17 +100,14 @@ export default function OnePixelDesignConference2026() {
         fontFamily: "'Poppins', sans-serif",
       }}
     >
-      <div
-        style={{
-          width: '100%',
-          maxWidth: 1150,
+      <div className="page-card" style={{ width: '100%', maxWidth: 1150,
           background: '#fff',
           border: '2px solid #1a1a1a',
           borderRadius: 16,
           boxShadow: '12px 12px 0px rgba(26,26,26,1)',
         }}
       >
-        <div style={{ maxWidth: 1000, margin: 0, padding: '60px 40px 80px' }}>
+        <div className="page-content" style={{ maxWidth: 1000, margin: 0, padding: '60px 40px 80px' }}>
           {/* Header */}
           <div style={{ marginBottom: 32 }}>
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: 16 }}>
@@ -222,7 +217,7 @@ export default function OnePixelDesignConference2026() {
 
             {/* Peter Dohyung Lee */}
             <h2 style={heading}>Peter Dohyung Lee: Why Timing Matters</h2>
-            <div style={sessionCard}>
+            <div className="blog-session-card" style={sessionCard}>
               <div style={speaker}>Peter Dohyung Lee</div>
               <p style={paragraph}>
                 One of the sessions that stayed with me the most was by Peter Dohyung Lee.
@@ -254,7 +249,7 @@ export default function OnePixelDesignConference2026() {
 
             {/* A Memorable Interaction with Mayur Chaudhary */}
             <h2 style={heading}>A Memorable Interaction with Mayur Chaudhary</h2>
-            <div style={sessionCard}>
+            <div className="blog-session-card" style={sessionCard}>
               <div style={speaker}>Mayur Chaudhary</div>
               <p style={paragraph}>
                 One of the most enjoyable moments came during Mayur Chaudhary's session.
@@ -319,7 +314,7 @@ export default function OnePixelDesignConference2026() {
 
             {/* Industry Panel Discussion */}
             <h2 style={heading}>Industry Panel Discussion</h2>
-            <div style={sessionCard}>
+            <div className="blog-session-card" style={sessionCard}>
               <div style={speaker}>Panel: Kumar Rohit Chandra, Priyanka Srinivasagopalan, Anmol Arora, Vanshita Singh</div>
               <p style={paragraph}>
                 The conference concluded with a panel discussion featuring experienced industry professionals.

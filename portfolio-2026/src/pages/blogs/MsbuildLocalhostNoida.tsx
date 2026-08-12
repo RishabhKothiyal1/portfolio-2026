@@ -91,9 +91,7 @@ export default function MsbuildLocalhostNoida() {
   const navigate = useNavigate()
 
   return (
-    <div
-      style={{
-        minHeight: '100vh',
+    <div className="page-shell" style={{ minHeight: '100vh',
         background: '#f2f1ee',
         display: 'flex',
         alignItems: 'center',
@@ -102,17 +100,14 @@ export default function MsbuildLocalhostNoida() {
         fontFamily: "'Poppins', sans-serif",
       }}
     >
-      <div
-        style={{
-          width: '100%',
-          maxWidth: 1150,
+      <div className="page-card" style={{ width: '100%', maxWidth: 1150,
           background: '#fff',
           border: '2px solid #1a1a1a',
           borderRadius: 16,
           boxShadow: '12px 12px 0px rgba(26,26,26,1)',
         }}
       >
-        <div style={{ maxWidth: 1000, margin: 0, padding: '60px 40px 80px' }}>
+        <div className="page-content" style={{ maxWidth: 1000, margin: 0, padding: '60px 40px 80px' }}>
           {/* Header */}
           <div style={{ marginBottom: 32 }}>
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: 16 }}>
@@ -252,7 +247,7 @@ export default function MsbuildLocalhostNoida() {
 
             {/* Azure Cobalt 200 */}
             <h2 style={heading}>Azure Cobalt 200 Virtual Machines</h2>
-            <div style={sessionCard}>
+            <div className="blog-session-card" style={sessionCard}>
               <div style={speaker}>Technical Session</div>
               <p style={paragraph}>
                 One of the most technically fascinating sessions introduced <span style={highlight}>Azure Cobalt 200 Virtual Machines</span>.
@@ -278,7 +273,7 @@ export default function MsbuildLocalhostNoida() {
 
             {/* Azure AI Foundry */}
             <h2 style={heading}>Azure AI Foundry</h2>
-            <div style={sessionCard}>
+            <div className="blog-session-card" style={sessionCard}>
               <div style={speaker}>Technical Session</div>
               <p style={paragraph}>
                 Another major highlight was <span style={highlight}>Azure AI Foundry</span>.
@@ -338,7 +333,7 @@ export default function MsbuildLocalhostNoida() {
 
             {/* Agentic AI */}
             <h2 style={heading}>Agentic AI &#8212; The Highlight of the Event</h2>
-            <div style={sessionCard}>
+            <div className="blog-session-card" style={sessionCard}>
               <div style={speaker}>Key Concept</div>
               <p style={paragraph}>
                 The concept that fascinated me the most throughout the conference was <span style={highlight}>Agentic AI</span>.
