@@ -100,7 +100,7 @@ export default function Skills() {
               style={{
                 position: 'absolute',
                 top: '-55px',
-                right: '0',
+                right: '-60px',
                 width: '240px',
                 height: '240px',
                 display: 'flex',
