@@ -105,7 +105,7 @@ export default function Certificates() {
             alt="Certificates"
             style={{
               position: 'absolute',
-              right: '12px',
+              right: '4px',
               top: '-20px',
               width: '300px',
               height: 'auto',
