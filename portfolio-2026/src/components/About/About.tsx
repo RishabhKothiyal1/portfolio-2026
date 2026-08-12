@@ -146,14 +146,14 @@ export default function About() {
         background: '#f2f1ee',
         padding: isSmall ? '64px 12px 32px' : isMobile ? '80px 16px 40px' : '80px 24px 40px',
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        flexDirection: 'column',
       }}
     >
       <div
         style={{
           maxWidth: '1400px',
           width: '100%',
+          margin: 'auto',
           background: '#fff',
           border: '2px solid #1a1a1a',
           borderRadius: '16px',
