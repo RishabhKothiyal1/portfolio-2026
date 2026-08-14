@@ -17,7 +17,7 @@ export const aboutData = {
     { platform: 'LinkedIn', url: 'https://linkedin.com/in/rishabhkothiyal', icon: 'linkedin' },
     { platform: 'Instagram', url: 'https://www.instagram.com/rishabh_kothiyal/', icon: 'instagram' },
   ],
-  resumeUrl: 'https://drive.google.com/file/d/1QH7G3BYZQqRqCNNs8YdldL8nfnRPGuTZ/view',
+  resumeUrl: 'https://drive.google.com/file/d/1H82Rkn9QuX1uuS4R_siDLX9HgpaodEFt/view?usp=sharing',
   education: {
     degree: 'Bachelor of Computer Applications (BCA)',
     university: 'Graphic Era Hill University, Dehradun',
