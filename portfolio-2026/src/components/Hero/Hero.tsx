@@ -97,6 +97,35 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
       <div
         style={{
           position: 'relative',
+          zIndex: 2,
+          width: '100%',
+          maxWidth: '1400px',
+          marginBottom: '-40px',
+          overflow: 'visible',
+        }}
+      >
+        <TextLoop
+          text="Portfolio 2026"
+          shape="wave"
+          speed={90}
+          direction="forward"
+          separator="✦"
+          curviness={90}
+          fontSize={isSmall ? 20 : isMobile ? 28 : isTablet ? 36 : 42}
+          fontWeight={800}
+          letterSpacing={2}
+          uppercase
+          color="#1a1a1a"
+          ribbon
+          ribbonColor="#FFD400"
+          ribbonWidth={isSmall ? 40 : 60}
+          pauseOnHover
+        />
+      </div>
+
+      <div
+        style={{
+          position: 'relative',
           zIndex: 1,
           textAlign: 'center',
           maxWidth: '1400px',
@@ -117,25 +146,6 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
 
       <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', maxWidth: '1200px', width: '100%', display: 'grid', gridTemplateColumns: isDesktop ? '1fr 420px' : '1fr', alignItems: 'center', gap: isTablet ? '32px' : '40px' }}>
         <div>
-        <TextLoop
-          text="Portfolio 2026"
-          shape="wave"
-          speed={90}
-          direction="forward"
-          separator="✦"
-          curviness={90}
-          fontSize={isSmall ? 20 : isMobile ? 28 : isTablet ? 36 : 42}
-          fontWeight={800}
-          letterSpacing={2}
-          uppercase
-          color="#1a1a1a"
-          ribbon
-          ribbonColor="#FFD400"
-          ribbonWidth={isSmall ? 40 : 60}
-          pauseOnHover
-          style={{ marginBottom: isSmall ? '20px' : '32px' }}
-        />
-
         <h1
           ref={titleRef}
           style={{
