@@ -165,11 +165,11 @@ button {
 }
 
 .encrypted {
-  opacity: 0.6;
-  color: #c8a800;
+  opacity: 0.4;
+  color: #555;
 }
 
 .revealed {
   opacity: 1;
-  color: #FFD400;
+  color: #1a1a1a;
 }
