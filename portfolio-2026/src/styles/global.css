@@ -223,6 +223,20 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   background: #e0c000;
 }
 
+/* Global text colors in dark mode */
+html.dark h1, html.dark h2, html.dark h3, html.dark h4 {
+  color: #e0e0e0;
+}
+
+html.dark p, html.dark span, html.dark li, html.dark td, html.dark th {
+  color: #ccc;
+}
+
+html.dark a {
+  color: #FFD400;
+}
+
+/* Navbar dark */
 html.dark .main-navbar {
   background: rgba(17, 17, 17, 0.9) !important;
   border-bottom-color: #333 !important;
@@ -236,6 +250,7 @@ html.dark .main-navbar .nav-link:hover {
   background: #333 !important;
 }
 
+/* Home section dark */
 html.dark #home {
   background: #111111 !important;
 }
@@ -262,6 +277,13 @@ html.dark .hero-box p {
 
 html.dark .hero-box button {
   border-color: #555 !important;
+}
+
+html.dark .hero-box button[style*="background: rgb(26, 26, 26)"],
+html.dark .hero-box button[style*="background:#1a1a1a"] {
+  background: #FFD400 !important;
+  color: #111 !important;
+  border-color: #FFD400 !important;
 }
 
 /* About section dark */
@@ -292,6 +314,10 @@ html.dark #about span {
   color: #ccc !important;
 }
 
+html.dark #about a {
+  color: #FFD400 !important;
+}
+
 /* Skills section dark */
 html.dark #skills {
   background: #111111 !important;
@@ -300,6 +326,7 @@ html.dark #skills {
 html.dark #skills > div {
   background: #1a1a1a !important;
   border-color: #444 !important;
+  color: #e0e0e0 !important;
 }
 
 /* Certificates section dark */
@@ -310,6 +337,7 @@ html.dark #certificates {
 html.dark #certificates > div {
   background: #1a1a1a !important;
   border-color: #444 !important;
+  color: #e0e0e0 !important;
 }
 
 /* Projects section dark */
@@ -320,6 +348,7 @@ html.dark #projects {
 html.dark #projects > div {
   background: #1a1a1a !important;
   border-color: #444 !important;
+  color: #e0e0e0 !important;
 }
 
 /* Blogs section dark */
@@ -330,6 +359,7 @@ html.dark #blogs {
 html.dark #blogs > div {
   background: #1a1a1a !important;
   border-color: #444 !important;
+  color: #e0e0e0 !important;
 }
 
 /* Footer dark */
@@ -353,4 +383,33 @@ html.dark .encrypted {
 
 html.dark .revealed {
   color: #e0e0e0 !important;
+}
+
+/* Blog/Doc page cards dark */
+html.dark .page-card {
+  background: #1a1a1a !important;
+  border-color: #444 !important;
+  color: #e0e0e0 !important;
+}
+
+html.dark .page-card h1 {
+  color: #FFD400 !important;
+}
+
+html.dark .page-card p {
+  color: #bbb !important;
+}
+
+html.dark .page-card pre {
+  background: #0d0d0d !important;
+  border-color: #333 !important;
+  color: #e0e0e0 !important;
+}
+
+html.dark .page-card code {
+  color: #FFD400 !important;
+}
+
+html.dark .page-shell {
+  background: #111111 !important;
 }
