@@ -98,34 +98,6 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
         style={{
           position: 'relative',
           zIndex: 1,
-          width: '100%',
-          maxWidth: '1200px',
-          marginBottom: isSmall ? '24px' : '40px',
-        }}
-      >
-        <TextLoop
-          text="Portfolio 2026"
-          shape="wave"
-          speed={90}
-          direction="forward"
-          separator="✦"
-          curviness={90}
-          fontSize={isSmall ? 24 : isMobile ? 32 : isTablet ? 40 : 46}
-          fontWeight={800}
-          letterSpacing={2}
-          uppercase
-          color="#1a1a1a"
-          ribbon
-          ribbonColor="#FFD400"
-          ribbonWidth={isSmall ? 50 : 70}
-          pauseOnHover
-        />
-      </div>
-
-      <div
-        style={{
-          position: 'relative',
-          zIndex: 1,
           textAlign: 'center',
           maxWidth: '1400px',
           width: '100%',
@@ -145,18 +117,24 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
 
       <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', maxWidth: '1200px', width: '100%', display: 'grid', gridTemplateColumns: isDesktop ? '1fr 420px' : '1fr', alignItems: 'center', gap: isTablet ? '32px' : '40px' }}>
         <div>
-        <p
-          style={{
-            fontSize: '14px',
-            color: '#1a1a1a',
-            opacity: 0.6,
-            letterSpacing: '3px',
-            textTransform: 'uppercase',
-            marginBottom: '16px',
-          }}
-        >
-          Portfolio 2026
-        </p>
+        <TextLoop
+          text="Portfolio 2026"
+          shape="wave"
+          speed={90}
+          direction="forward"
+          separator="✦"
+          curviness={90}
+          fontSize={isSmall ? 20 : isMobile ? 28 : isTablet ? 36 : 42}
+          fontWeight={800}
+          letterSpacing={2}
+          uppercase
+          color="#1a1a1a"
+          ribbon
+          ribbonColor="#FFD400"
+          ribbonWidth={isSmall ? 40 : 60}
+          pauseOnHover
+          style={{ marginBottom: isSmall ? '20px' : '32px' }}
+        />
 
         <h1
           ref={titleRef}
