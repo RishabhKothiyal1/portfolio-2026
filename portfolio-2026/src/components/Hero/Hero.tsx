@@ -97,35 +97,6 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
       <div
         style={{
           position: 'relative',
-          zIndex: 2,
-          width: '100%',
-          maxWidth: '1400px',
-          marginBottom: '-40px',
-          overflow: 'visible',
-        }}
-      >
-        <TextLoop
-          text="Portfolio 2026"
-          shape="wave"
-          speed={90}
-          direction="forward"
-          separator="✦"
-          curviness={90}
-          fontSize={isSmall ? 20 : isMobile ? 28 : isTablet ? 36 : 42}
-          fontWeight={800}
-          letterSpacing={2}
-          uppercase
-          color="#1a1a1a"
-          ribbon
-          ribbonColor="#FFD400"
-          ribbonWidth={isSmall ? 40 : 60}
-          pauseOnHover
-        />
-      </div>
-
-      <div
-        style={{
-          position: 'relative',
           zIndex: 1,
           textAlign: 'center',
           maxWidth: '1400px',
@@ -134,15 +105,40 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
           border: '2px solid #1a1a1a',
           borderRadius: '16px',
           boxShadow: '12px 12px 0px rgba(26, 26, 26, 1)',
+          overflow: 'hidden',
           padding: isSmall
-            ? '24px 12px'
+            ? '0px 12px 24px'
             : isMobile
-              ? '40px 20px'
+              ? '0px 20px 40px'
               : isTablet
-                ? '48px 32px'
-                : '80px 64px',
+                ? '0px 32px 48px'
+                : '0px 64px 80px',
         }}
       >
+        <div
+          style={{
+            margin: '0 -64px',
+            ...(isSmall ? { margin: '0 -12px' } : isMobile ? { margin: '0 -20px' } : isTablet ? { margin: '0 -32px' } : {}),
+          }}
+        >
+          <TextLoop
+            text="Portfolio 2026"
+            shape="wave"
+            speed={90}
+            direction="forward"
+            separator="✦"
+            curviness={90}
+            fontSize={isSmall ? 20 : isMobile ? 28 : isTablet ? 36 : 42}
+            fontWeight={800}
+            letterSpacing={2}
+            uppercase
+            color="#1a1a1a"
+            ribbon
+            ribbonColor="#FFD400"
+            ribbonWidth={isSmall ? 40 : 60}
+            pauseOnHover
+          />
+        </div>
 
       <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', maxWidth: '1200px', width: '100%', display: 'grid', gridTemplateColumns: isDesktop ? '1fr 420px' : '1fr', alignItems: 'center', gap: isTablet ? '32px' : '40px' }}>
         <div>
