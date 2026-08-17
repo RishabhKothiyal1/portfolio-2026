@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { scrollToSection } from '../../utils'
 import { useBreakpoint } from '../../hooks'
+import TextLoop from '../TextLoop/TextLoop'
 
 export default function Hero({ showLoader }: { showLoader: boolean }) {
   const sectionRef = useRef<HTMLElement>(null)
@@ -92,6 +93,34 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
           pointerEvents: 'none',
         }}
       />
+
+      <div
+        style={{
+          position: 'relative',
+          zIndex: 1,
+          width: '100%',
+          maxWidth: '1200px',
+          marginBottom: isSmall ? '24px' : '40px',
+        }}
+      >
+        <TextLoop
+          text="Portfolio 2026"
+          shape="wave"
+          speed={90}
+          direction="forward"
+          separator="✦"
+          curviness={90}
+          fontSize={isSmall ? 24 : isMobile ? 32 : isTablet ? 40 : 46}
+          fontWeight={800}
+          letterSpacing={2}
+          uppercase
+          color="#1a1a1a"
+          ribbon
+          ribbonColor="#FFD400"
+          ribbonWidth={isSmall ? 50 : 70}
+          pauseOnHover
+        />
+      </div>
 
       <div
         style={{
