@@ -767,8 +767,8 @@ html.dark #skills div[style*="border-top: 1.5px solid #1a1a1a"] {
   border-color: #444 !important;
 }
 
-/* Skills icon images - invert in dark mode */
-html.dark #skills img {
+/* Skills icon images - invert only skill tags, not education or illustration */
+html.dark #skills span img {
   filter: invert(1);
 }
 
