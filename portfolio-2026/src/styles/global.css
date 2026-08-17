@@ -741,6 +741,81 @@ html.dark #skills {
   background: #111111 !important;
 }
 
+/* Skills tags dark mode */
+html.dark #skills span[style*="background: rgb(255, 255, 255)"],
+html.dark #skills span[style*="background:#fff"],
+html.dark #skills span[style*="background: #fff"] {
+  background: #2a2a2a !important;
+  border-color: #555 !important;
+  color: #e0e0e0 !important;
+}
+
+html.dark #skills span[style*="border-color: rgb(26, 26, 26)"],
+html.dark #skills span[style*="border-color:#1a1a1a"],
+html.dark #skills span[style*="border-color: #1a1a1a"] {
+  border-color: #555 !important;
+}
+
+html.dark #skills span[style*="color: rgb(26, 26, 26)"] {
+  color: #e0e0e0 !important;
+}
+
+/* Skills divider dark */
+html.dark #skills div[style*="border-top: 1.5px solid rgb(26, 26, 26)"],
+html.dark #skills div[style*="border-top:1.5px solid #1a1a1a"],
+html.dark #skills div[style*="border-top: 1.5px solid #1a1a1a"] {
+  border-color: #444 !important;
+}
+
+/* Skills icon images - invert in dark mode */
+html.dark #skills img {
+  filter: invert(1);
+}
+
+/* Skills SVG icons in tags */
+html.dark #skills span svg {
+  stroke: #e0e0e0 !important;
+  color: #e0e0e0 !important;
+}
+
+/* Projects image fix - remove overflow hidden on parent */
+html.dark #projects img[style*="position: absolute"] {
+  filter: brightness(1.2) contrast(1.1);
+}
+
+/* Projects folder container dark */
+html.dark #projects .animate-item > div[style*="border: 1.5px solid"],
+html.dark #projects .animate-item > div[style*="border:1.5px solid"] {
+  background: #1a1a1a !important;
+  border-color: #444 !important;
+}
+
+/* Projects folder header dark */
+html.dark #projects [style*="background: rgb(250, 250, 250)"],
+html.dark #projects [style*="background:#fafafa"],
+html.dark #projects [style*="background: #fafafa"] {
+  background: #252525 !important;
+  border-color: #444 !important;
+}
+
+/* Projects skill tags in cards */
+html.dark #projects span[style*="background: rgb(245, 245, 245)"],
+html.dark #projects span[style*="background:#f5f5f5"],
+html.dark #projects span[style*="background: #f5f5f5"] {
+  background: #2a2a2a !important;
+  border-color: #555 !important;
+  color: #e0e0e0 !important;
+}
+
+/* Projects action links */
+html.dark #projects a[style*="background: rgb(255, 255, 255)"],
+html.dark #projects a[style*="background:#fff"],
+html.dark #projects a[style*="background: #fff"] {
+  background: #252525 !important;
+  border-color: #555 !important;
+  color: #e0e0e0 !important;
+}
+
 /* Footer links dark */
 html.dark footer a {
   color: #FFD400 !important;
