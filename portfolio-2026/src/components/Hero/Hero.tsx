@@ -112,7 +112,7 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
               ? '0px 20px 40px'
               : isTablet
                 ? '0px 32px 48px'
-                : '0px 64px 80px',
+                : '0px 64px 48px',
         }}
       >
         <div
@@ -140,7 +140,7 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
           />
         </div>
 
-      <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', maxWidth: '1200px', width: '100%', display: 'grid', gridTemplateColumns: isDesktop ? '1fr 420px' : '1fr', alignItems: 'center', gap: isTablet ? '32px' : '40px', marginTop: isSmall ? '-16px' : '-24px' }}>
+      <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', maxWidth: '1200px', width: '100%', display: 'grid', gridTemplateColumns: isDesktop ? '1fr 420px' : '1fr', alignItems: 'center', gap: isTablet ? '32px' : '40px', marginTop: isDesktop ? '-32px' : isSmall ? '8px' : '16px' }}>
         <div>
         <h1
           ref={titleRef}
