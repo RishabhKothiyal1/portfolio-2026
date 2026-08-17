@@ -726,6 +726,21 @@ html.dark #skills svg polygon {
   stroke: #e0e0e0 !important;
 }
 
+/* Force h3 icons to white in Skills dark mode */
+html.dark #skills h3 {
+  color: #e0e0e0 !important;
+}
+
+html.dark #skills h3 svg {
+  stroke: #e0e0e0 !important;
+  color: #e0e0e0 !important;
+}
+
+/* Skills section overall dark */
+html.dark #skills {
+  background: #111111 !important;
+}
+
 /* Footer links dark */
 html.dark footer a {
   color: #FFD400 !important;
