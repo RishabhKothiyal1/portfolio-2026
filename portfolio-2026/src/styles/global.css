@@ -390,6 +390,7 @@ html.dark .page-card {
   background: #1a1a1a !important;
   border-color: #444 !important;
   color: #e0e0e0 !important;
+  box-shadow: 12px 12px 0px rgba(255, 212, 0, 0.2) !important;
 }
 
 html.dark .page-card h1 {
@@ -420,106 +421,130 @@ html.dark .page-shell {
   background: #111111 !important;
 }
 
-/* Blog page back button dark */
-html.dark .page-card button {
+/* Blog page button dark - target all buttons inside page-card */
+html.dark .page-card button,
+html.dark .page-content button {
   color: #ccc !important;
 }
 
-html.dark .page-card button:hover {
+html.dark .page-card button:hover,
+html.dark .page-content button:hover {
   color: #FFD400 !important;
 }
 
-/* Blog page session cards dark */
-html.dark .blog-session-card,
-html.dark .page-card [style*="background: rgb(255, 255, 255)"],
-html.dark .page-card [style*="background:#fff"] {
-  background: #252525 !important;
-  border-color: #444 !important;
+/* Blog page date span dark */
+html.dark .page-content span[style*="borderBottom"] {
+  color: #bbb !important;
 }
 
-/* Blog page blockquote dark */
-html.dark .page-card blockquote,
-html.dark .page-card [style*="background: rgb(250, 250, 250)"],
-html.dark .page-card [style*="background:#fafafa"] {
+/* Blog page session cards - target by inline background */
+html.dark .sessionCard,
+html.dark .blog-session-card {
   background: #252525 !important;
+  border-color: #444 !important;
   color: #e0e0e0 !important;
 }
 
-/* Blog page figure dark */
-html.dark .page-card figure {
+/* Target session card style objects */
+html.dark [style*="padding: 20px"][style*="marginBottom: 20px"][style*="background: rgb(255, 255, 255)"] {
+  background: #252525 !important;
   border-color: #444 !important;
 }
 
-html.dark .page-card figcaption {
+/* Blog page figure dark */
+html.dark .page-card figure,
+html.dark .page-content figure {
+  border-color: #444 !important;
+  background: #252525 !important;
+}
+
+html.dark .page-card figcaption,
+html.dark .page-content figcaption {
   color: #999 !important;
   border-color: #333 !important;
 }
 
-/* Blog page list items dark */
-html.dark .page-card li {
+/* Projects image dark */
+html.dark #projects img {
+  filter: brightness(0.8) contrast(1.1);
+}
+
+/* Projects section background dark */
+html.dark #projects {
+  background: #111111 !important;
+}
+
+html.dark #projects > div[style*="background: rgb(242, 241, 238)"],
+html.dark #projects > div[style*="background:#f2f1ee"],
+html.dark #projects > div[style*="background: #f2f1ee"] {
+  background: #111111 !important;
+}
+
+/* Blog page comprehensive overrides - catch all hardcoded colors */
+html.dark .page-content {
+  color: #e0e0e0 !important;
+}
+
+html.dark .page-content [style*="color: rgb(26, 26, 26)"] {
+  color: #e0e0e0 !important;
+}
+
+html.dark .page-content [style*="color: rgba(26, 26, 26"] {
   color: #bbb !important;
 }
 
-/* Doc page cards dark */
-html.dark .doc-section {
-  background: #1a1a1a !important;
+html.dark .page-content [style*="background: rgb(255, 255, 255)"],
+html.dark .page-content [style*="background:#fff"],
+html.dark .page-content [style*="background: #fff"] {
+  background: #252525 !important;
   border-color: #444 !important;
-  color: #e0e0e0 !important;
 }
 
-html.dark .doc-section h2,
-html.dark .doc-section h3 {
-  color: #e0e0e0 !important;
+html.dark .page-content [style*="background: rgb(250, 250, 250)"],
+html.dark .page-content [style*="background:#fafafa"],
+html.dark .page-content [style*="background: #fafafa"] {
+  background: #252525 !important;
 }
 
-html.dark .doc-section p {
-  color: #bbb !important;
-}
-
-/* Doc pages comprehensive dark */
-html.dark .page-card [style*="background: rgb(245, 245, 245)"],
-html.dark .page-card [style*="background:#f5f5f5"] {
+html.dark .page-content [style*="background: rgb(245, 245, 245)"],
+html.dark .page-content [style*="background:#f5f5f5"],
+html.dark .page-content [style*="background: #f5f5f5"] {
   background: #2a2a2a !important;
   border-color: #444 !important;
-  color: #e0e0e0 !important;
 }
 
-html.dark .page-card [style*="border-color: rgb(224, 224, 224)"],
-html.dark .page-card [style*="border-color:#e0e0e0"] {
+html.dark .page-content [style*="border-color: rgb(26, 26, 26)"],
+html.dark .page-content [style*="border-color:#1a1a1a"],
+html.dark .page-content [style*="border-color: #1a1a1a"] {
   border-color: #444 !important;
 }
 
-html.dark .page-card [style*="color: rgb(26, 26, 26)"] {
-  color: #e0e0e0 !important;
-}
-
-html.dark .page-card [style*="color: rgba(26, 26, 26"] {
-  color: #bbb !important;
-}
-
-html.dark .page-card [style*="border-color: rgb(26, 26, 26)"],
-html.dark .page-card [style*="border-color:#1a1a1a"] {
+html.dark .page-content [style*="border: 1.5px solid rgb(26, 26, 26)"],
+html.dark .page-content [style*="border:1.5px solid #1a1a1a"],
+html.dark .page-content [style*="border: 1.5px solid #1a1a1a"] {
   border-color: #444 !important;
 }
 
-/* Doc section cards dark */
-html.dark .doc-section,
-html.dark [style*="background: rgb(255, 255, 255)"][style*="border: 1.5px solid"] {
-  background: #1a1a1a !important;
+html.dark .page-content [style*="border: 2px solid rgb(26, 26, 26)"],
+html.dark .page-content [style*="border:2px solid #1a1a1a"],
+html.dark .page-content [style*="border: 2px solid #1a1a1a"] {
   border-color: #444 !important;
 }
 
-/* Doc page link buttons dark */
-html.dark .page-card a[style*="border: 1.5px solid"],
-html.dark .page-card a[style*="border:1.5px solid"] {
+html.dark .page-content [style*="border-bottom: 1.5px solid rgb(26, 26, 26)"],
+html.dark .page-content [style*="border-bottom:1.5px solid #1a1a1a"],
+html.dark .page-content [style*="border-bottom: 1.5px solid #1a1a1a"] {
+  border-color: #444 !important;
+}
+
+/* Blog page back to portfolio button at bottom */
+html.dark .page-content > div:last-child button {
+  color: #ccc !important;
   border-color: #555 !important;
-  color: #e0e0e0 !important;
 }
 
-html.dark .page-card a[style*="border: 1.5px solid"]:hover,
-html.dark .page-card a[style*="border:1.5px solid"]:hover {
-  background: #FFD400 !important;
-  color: #111 !important;
+html.dark .page-content > div:last-child button:hover {
+  color: #FFD400 !important;
   border-color: #FFD400 !important;
 }
 
