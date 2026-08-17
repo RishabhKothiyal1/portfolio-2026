@@ -413,3 +413,50 @@ html.dark .page-card code {
 html.dark .page-shell {
   background: #111111 !important;
 }
+
+/* Override all hardcoded #1a1a1a text in dark mode */
+html.dark #skills [style*="color: rgb(26, 26, 26)"],
+html.dark #skills [style*="color:#1a1a1a"],
+html.dark #skills [style*="color: #1a1a1a"],
+html.dark #certificates [style*="color: rgb(26, 26, 26)"],
+html.dark #certificates [style*="color:#1a1a1a"],
+html.dark #certificates [style*="color: #1a1a1a"],
+html.dark #projects [style*="color: rgb(26, 26, 26)"],
+html.dark #projects [style*="color:#1a1a1a"],
+html.dark #projects [style*="color: #1a1a1a"],
+html.dark #blogs [style*="color: rgb(26, 26, 26)"],
+html.dark #blogs [style*="color:#1a1a1a"],
+html.dark #blogs [style*="color: #1a1a1a"],
+html.dark footer [style*="color: rgb(26, 26, 26)"],
+html.dark footer [style*="color:#1a1a1a"],
+html.dark footer [style*="color: #1a1a1a"] {
+  color: #e0e0e0 !important;
+}
+
+/* Override borders */
+html.dark #skills [style*="border-color: rgb(26, 26, 26)"],
+html.dark #skills [style*="border-color:#1a1a1a"],
+html.dark #skills [style*="border-color: #1a1a1a"],
+html.dark #certificates [style*="border-color: rgb(26, 26, 26)"],
+html.dark #certificates [style*="border-color:#1a1a1a"],
+html.dark #certificates [style*="border-color: #1a1a1a"],
+html.dark #projects [style*="border-color: rgb(26, 26, 26)"],
+html.dark #projects [style*="border-color:#1a1a1a"],
+html.dark #projects [style*="border-color: #1a1a1a"],
+html.dark #blogs [style*="border-color: rgb(26, 26, 26)"],
+html.dark #blogs [style*="border-color:#1a1a1a"],
+html.dark #blogs [style*="border-color: #1a1a1a"] {
+  border-color: #444 !important;
+}
+
+/* Override backgrounds */
+html.dark #projects [style*="background: rgb(242, 241, 238)"],
+html.dark #projects [style*="background:#f2f1ee"],
+html.dark #projects [style*="background: #f2f1ee"] {
+  background: #111111 !important;
+}
+
+/* Override box shadows */
+html.dark [style*="box-shadow: 12px 12px 0px rgba(26, 26, 26"] {
+  box-shadow: 12px 12px 0px rgba(255, 212, 0, 0.3) !important;
+}
