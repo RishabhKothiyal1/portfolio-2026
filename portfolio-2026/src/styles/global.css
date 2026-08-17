@@ -610,6 +610,12 @@ html.dark .page-card strong {
   color: #FFD400 !important;
 }
 
+html.dark .page-card [style*="background: rgb(255, 212, 0)"],
+html.dark .page-card [style*="background:#FFD400"],
+html.dark .page-card [style*="background: #FFD400"] {
+  color: #1a1a1a !important;
+}
+
 /* Override all hardcoded #1a1a1a text in dark mode */
 html.dark #skills [style*="color: rgb(26, 26, 26)"],
 html.dark #skills [style*="color:#1a1a1a"],
