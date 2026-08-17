@@ -127,7 +127,7 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
             speed={90}
             direction="forward"
             separator="✦"
-            curviness={90}
+            curviness={60}
             fontSize={isSmall ? 20 : isMobile ? 28 : isTablet ? 36 : 42}
             fontWeight={800}
             letterSpacing={2}
@@ -135,7 +135,7 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
             color="#1a1a1a"
             ribbon
             ribbonColor="#FFD400"
-            ribbonWidth={isSmall ? 40 : 60}
+            ribbonWidth={isSmall ? 36 : 50}
             pauseOnHover
           />
         </div>

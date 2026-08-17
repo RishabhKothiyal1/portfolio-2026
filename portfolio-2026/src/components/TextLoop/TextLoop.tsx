@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import './TextLoop.css';
 
 const VIEW_W = 1200;
-const VIEW_H = 520;
+const VIEW_H = 280;
 const CX = VIEW_W / 2;
 const CY = VIEW_H / 2;
 const EDGE_PAD = 6;
