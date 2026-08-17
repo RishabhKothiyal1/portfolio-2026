@@ -4,7 +4,6 @@ import gsap from 'gsap'
 const greetings = [
   'HELLO',
   'नमस्ते',
-  'HOLA',
   'CIAO',
   'こんにちは',
 ]
