@@ -778,10 +778,7 @@ html.dark #skills span svg {
   color: #e0e0e0 !important;
 }
 
-/* Projects image fix - remove overflow hidden on parent */
-html.dark #projects img[style*="position: absolute"] {
-  filter: brightness(1.2) contrast(1.1);
-}
+
 
 /* Projects folder container dark */
 html.dark #projects .animate-item > div[style*="border: 1.5px solid"],

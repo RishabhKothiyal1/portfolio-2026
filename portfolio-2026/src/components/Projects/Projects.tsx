@@ -120,7 +120,7 @@ export default function Projects() {
             }}
           />
         )}
-        <div className="animate-item" style={{ marginBottom: '40px' }}>
+        <div className="animate-item" style={{ marginBottom: '40px', maxWidth: '70%' }}>
           <span
             style={{
               fontSize: '13px',
