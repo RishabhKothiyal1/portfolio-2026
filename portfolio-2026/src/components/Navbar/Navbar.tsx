@@ -2,6 +2,7 @@ import { useCallback } from 'react'
 import { navLinks } from '../../data'
 import { scrollToSection } from '../../utils'
 import { useActiveSection } from '../../hooks'
+import AnimatedThemeToggler from '../AnimatedThemeToggler/AnimatedThemeToggler'
 
 export default function Navbar() {
   const sectionIds = navLinks.map((l) => l.href.replace('#', ''))
@@ -36,7 +37,7 @@ export default function Navbar() {
             margin: '0 auto',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
+            justifyContent: 'space-between',
             height: '56px',
             overflowX: 'auto',
             WebkitOverflowScrolling: 'touch',
@@ -90,10 +91,25 @@ export default function Navbar() {
               )
             })}
           </ul>
+          <AnimatedThemeToggler
+            variant="circle"
+            fromCenter
+            style={{ flexShrink: 0, marginLeft: '8px' }}
+          />
         </div>
       </nav>
 
       <style>{`
+        .dark .main-navbar {
+          background: rgba(17, 17, 17, 0.9) !important;
+          border-bottom-color: #333 !important;
+        }
+        .dark .main-navbar .nav-link {
+          color: #e0e0e0 !important;
+        }
+        .dark .main-navbar .nav-link:hover {
+          background: #333 !important;
+        }
         @media (max-width: 600px) {
           .main-navbar .nav-link {
             padding: 5px 10px !important;

@@ -23,6 +23,32 @@ body {
   overflow-x: clip;
   width: 100%;
   max-width: 100vw;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.dark body,
+body.dark-mode {
+  background: #111111;
+  color: #e0e0e0;
+}
+
+html.dark {
+  background: #111111;
+}
+
+html.dark body {
+  background: #111111;
+  color: #e0e0e0;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+html[data-magicui-theme-vt="active"]::view-transition-group(root) {
+  animation-duration: var(--magicui-theme-toggle-vt-duration);
 }
 
 #root {
@@ -172,4 +198,159 @@ button {
 .revealed {
   opacity: 1;
   color: #1a1a1a;
+}
+
+/* Dark mode overrides */
+html.dark body {
+  background: #111111;
+  color: #e0e0e0;
+}
+
+html.dark ::selection {
+  background: #FFD400;
+  color: #111;
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #FFD400;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #e0c000;
+}
+
+html.dark .main-navbar {
+  background: rgba(17, 17, 17, 0.9) !important;
+  border-bottom-color: #333 !important;
+}
+
+html.dark .main-navbar .nav-link {
+  color: #e0e0e0 !important;
+}
+
+html.dark .main-navbar .nav-link:hover {
+  background: #333 !important;
+}
+
+html.dark #home {
+  background: #111111 !important;
+}
+
+html.dark #home > div:first-child {
+  background: radial-gradient(ellipse at 50% 50%, rgba(255, 212, 0, 0.06) 0%, transparent 70%) !important;
+}
+
+/* Hero box dark */
+html.dark .hero-box {
+  background: #1a1a1a !important;
+  border-color: #444 !important;
+  box-shadow: 12px 12px 0px rgba(255, 212, 0, 0.3) !important;
+}
+
+html.dark .hero-box h1 {
+  color: #FFD400 !important;
+  text-shadow: none !important;
+}
+
+html.dark .hero-box p {
+  color: #ccc !important;
+}
+
+html.dark .hero-box button {
+  border-color: #555 !important;
+}
+
+/* About section dark */
+html.dark #about {
+  background: #111111 !important;
+}
+
+html.dark #about > div {
+  background: #1a1a1a !important;
+  border-color: #444 !important;
+  box-shadow: 12px 12px 0px rgba(255, 212, 0, 0.3) !important;
+}
+
+html.dark #about h2 {
+  color: #FFD400 !important;
+  text-shadow: none !important;
+}
+
+html.dark #about h3 {
+  color: #e0e0e0 !important;
+}
+
+html.dark #about p {
+  color: #bbb !important;
+}
+
+html.dark #about span {
+  color: #ccc !important;
+}
+
+/* Skills section dark */
+html.dark #skills {
+  background: #111111 !important;
+}
+
+html.dark #skills > div {
+  background: #1a1a1a !important;
+  border-color: #444 !important;
+}
+
+/* Certificates section dark */
+html.dark #certificates {
+  background: #111111 !important;
+}
+
+html.dark #certificates > div {
+  background: #1a1a1a !important;
+  border-color: #444 !important;
+}
+
+/* Projects section dark */
+html.dark #projects {
+  background: #111111 !important;
+}
+
+html.dark #projects > div {
+  background: #1a1a1a !important;
+  border-color: #444 !important;
+}
+
+/* Blogs section dark */
+html.dark #blogs {
+  background: #111111 !important;
+}
+
+html.dark #blogs > div {
+  background: #1a1a1a !important;
+  border-color: #444 !important;
+}
+
+/* Footer dark */
+html.dark footer {
+  background: #0a0a0a !important;
+  border-top-color: #333 !important;
+  color: #bbb !important;
+}
+
+/* QR code tickets dark */
+html.dark .qr-ticket {
+  background: #1a1a1a !important;
+  border-color: #444 !important;
+  color: #e0e0e0 !important;
+}
+
+/* DecryptedText dark */
+html.dark .encrypted {
+  color: #888 !important;
+}
+
+html.dark .revealed {
+  color: #e0e0e0 !important;
 }

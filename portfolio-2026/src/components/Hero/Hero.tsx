@@ -81,6 +81,7 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
       />
 
       <div
+        className="hero-box"
         style={{
           position: 'relative',
           zIndex: 1,
