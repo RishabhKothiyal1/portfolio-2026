@@ -3,6 +3,7 @@ import gsap from 'gsap'
 import { scrollToSection } from '../../utils'
 import { useBreakpoint } from '../../hooks'
 import TextLoop from '../TextLoop/TextLoop'
+import DecryptedText from '../DecryptedText/DecryptedText'
 
 export default function Hero({ showLoader }: { showLoader: boolean }) {
   const sectionRef = useRef<HTMLElement>(null)
@@ -22,24 +23,10 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
     )
 
     if (titleRef.current) {
-      const chars = titleRef.current.textContent?.split('') || []
-      titleRef.current.textContent = ''
-      chars.forEach((char) => {
-        const span = document.createElement('span')
-        span.textContent = char === ' ' ? '\u00A0' : char
-        span.style.display = 'inline-block'
-        span.style.opacity = '0'
-        titleRef.current!.appendChild(span)
-      })
-
-      tl.to(
-        titleRef.current.children,
-        {
-          opacity: 1,
-          y: 0,
-          stagger: 0.03,
-          duration: 0.6,
-        },
+      tl.fromTo(
+        titleRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.8 },
         '-=0.8'
       )
     }
@@ -162,7 +149,15 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
             margin: '0 0 24px',
           }}
         >
-          Rishabh Kothiyal
+          <DecryptedText
+            text="Rishabh Kothiyal"
+            animateOn="view"
+            sequential
+            revealDirection="start"
+            speed={40}
+            className="revealed"
+            encryptedClassName="encrypted"
+          />
         </h1>
 
         <p
