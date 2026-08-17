@@ -1,36 +1,86 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 
+const greetings = [
+  'HELLO',
+  'नमस्ते',
+  'HOLA',
+  'CIAO',
+  'こんにちは',
+]
+
+const GREETING_DURATION = 0.8
+const TRANSITION_DURATION = 0.3
+const FINAL_HOLD = 0.5
+const OVERLAY_FADE = 0.6
+
 export default function Loader({ onComplete }: { onComplete: () => void }) {
-  const loaderRef = useRef<HTMLDivElement>(null)
-  const textRef = useRef<HTMLHeadingElement>(null)
-  const barRef = useRef<HTMLDivElement>(null)
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const overlayRef = useRef<HTMLDivElement>(null)
+  const textRef = useRef<HTMLSpanElement>(null)
+  const tlRef = useRef<gsap.core.Timeline | null>(null)
 
   useEffect(() => {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    if (prefersReduced) {
+      const timer = setTimeout(() => {
+        gsap.to(overlayRef.current, {
+          opacity: 0,
+          duration: 0.4,
+          onComplete,
+        })
+      }, 600)
+      return () => clearTimeout(timer)
+    }
+
     const tl = gsap.timeline({
       onComplete: () => {
-        gsap.to(loaderRef.current, {
+        tlRef.current = null
+      },
+    })
+    tlRef.current = tl
+
+    greetings.forEach((_, i) => {
+      const hold = i === greetings.length - 1 ? FINAL_HOLD : GREETING_DURATION
+
+      tl.fromTo(
+        textRef.current,
+        {
           opacity: 0,
-          duration: 0.5,
-          onComplete: onComplete,
-        })
-      },
-    })
+          y: 24,
+          scale: 0.96,
+          filter: 'blur(8px)',
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          filter: 'blur(0px)',
+          duration: TRANSITION_DURATION,
+          ease: 'power2.out',
+          onStart: () => setCurrentIndex(i),
+        },
+        i === 0 ? 0 : `>-${TRANSITION_DURATION}`
+      )
 
-    tl.to(barRef.current, {
-      width: '100%',
-      duration: 1.5,
-      ease: 'power2.inOut',
-    })
-
-    tl.to(
-      textRef.current,
-      {
+      tl.to(textRef.current, {
         opacity: 0,
-        duration: 0.3,
-      },
-      '-=0.3'
-    )
+        y: -24,
+        scale: 1.02,
+        filter: 'blur(8px)',
+        duration: TRANSITION_DURATION,
+        ease: 'power2.in',
+        delay: hold,
+      })
+    })
+
+    tl.to(overlayRef.current, {
+      opacity: 0,
+      duration: OVERLAY_FADE,
+      ease: 'power2.inOut',
+      onComplete,
+    })
 
     return () => {
       tl.kill()
@@ -39,50 +89,39 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
 
   return (
     <div
-      ref={loaderRef}
+      ref={overlayRef}
+      role="presentation"
+      aria-hidden="true"
       style={{
         position: 'fixed',
         inset: 0,
         zIndex: 9999,
         display: 'flex',
-        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         background: '#f2f1ee',
+        pointerEvents: 'none',
       }}
     >
-      <h1
+      <span
         ref={textRef}
         style={{
-          fontFamily: "'Playfair Display', serif",
-          fontSize: 'clamp(32px, 7vw, 48px)',
-          color: '#FFD400',
-          textShadow: '-1px -1px 0 #1a1a1a, 1px -1px 0 #1a1a1a, -1px 1px 0 #1a1a1a, 1px 1px 0 #1a1a1a',
-          marginBottom: '32px',
-          letterSpacing: '4px',
+          fontFamily: "'Inter', 'Noto Sans Devanagari', 'Noto Sans JP', sans-serif",
+          fontSize: 'clamp(3rem, 8vw, 8rem)',
+          fontWeight: 600,
+          color: '#1a1a1a',
+          letterSpacing: '0.06em',
+          lineHeight: 1,
+          textAlign: 'center',
+          whiteSpace: 'nowrap',
+          userSelect: 'none',
+          WebkitFontSmoothing: 'antialiased',
+          MozOsxFontSmoothing: 'grayscale',
+          willChange: 'transform, opacity, filter',
         }}
       >
-        portfolio
-      </h1>
-      <div
-        style={{
-          width: '200px',
-          height: '3px',
-          background: '#e0e0e0',
-          borderRadius: '2px',
-          overflow: 'hidden',
-        }}
-      >
-        <div
-          ref={barRef}
-          style={{
-            width: '0%',
-            height: '100%',
-            background: '#1a1a1a',
-            borderRadius: '2px',
-          }}
-        />
-      </div>
+        {greetings[currentIndex]}
+      </span>
     </div>
   )
 }
