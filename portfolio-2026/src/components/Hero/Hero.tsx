@@ -145,7 +145,7 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
         <h1
           ref={titleRef}
           style={{
-            fontFamily: "'Playfair Display', serif",
+            fontFamily: "'Instrument Sans', sans-serif",
             fontSize: isSmall
               ? 'clamp(22px, 8vw, 26px)'
               : isMobile
