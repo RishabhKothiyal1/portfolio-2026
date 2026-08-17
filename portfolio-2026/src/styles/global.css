@@ -714,6 +714,16 @@ html.dark #skills [style*="color: rgb(26, 26, 26)"] {
 
 html.dark #skills svg {
   stroke: #e0e0e0 !important;
+  color: #e0e0e0 !important;
+}
+
+html.dark #skills svg path,
+html.dark #skills svg circle,
+html.dark #skills svg rect,
+html.dark #skills svg line,
+html.dark #skills svg polyline,
+html.dark #skills svg polygon {
+  stroke: #e0e0e0 !important;
 }
 
 /* Footer links dark */
