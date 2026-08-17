@@ -151,7 +151,7 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
         >
           <DecryptedText
             text="Rishabh Kothiyal"
-            animateOn="view"
+            animateOn="hover"
             sequential
             revealDirection="start"
             speed={40}
