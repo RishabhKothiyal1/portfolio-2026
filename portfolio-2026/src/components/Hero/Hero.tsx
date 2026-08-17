@@ -140,7 +140,7 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
           />
         </div>
 
-      <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', maxWidth: '1200px', width: '100%', display: 'grid', gridTemplateColumns: isDesktop ? '1fr 420px' : '1fr', alignItems: 'center', gap: isTablet ? '32px' : '40px', marginTop: isDesktop ? '-48px' : isSmall ? '8px' : '16px' }}>
+      <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', maxWidth: '1200px', width: '100%', display: 'grid', gridTemplateColumns: isDesktop ? '1fr 420px' : '1fr', alignItems: 'center', gap: isTablet ? '32px' : '40px', marginTop: isDesktop ? '-48px' : isSmall ? '0px' : '4px' }}>
         <div>
         <h1
           ref={titleRef}
