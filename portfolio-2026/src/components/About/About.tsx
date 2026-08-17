@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { QRCodeSVG } from 'qrcode.react'
 import { aboutData } from '../../data'
 import { useBreakpoint } from '../../hooks'
+import DecryptedText from '../DecryptedText/DecryptedText'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -246,7 +247,16 @@ export default function About() {
                 lineHeight: 1.05,
               }}
             >
-              I'm Rishabh Kothiyal.
+              I'm{' '}
+              <DecryptedText
+                text="Rishabh Kothiyal."
+                animateOn="hover"
+                sequential
+                revealDirection="start"
+                speed={40}
+                className="revealed"
+                encryptedClassName="encrypted"
+              />
             </h3>
 
             <div className="about-animate" style={{ maxWidth: '600px', overflowWrap: 'break-word', wordBreak: 'break-word' }}>

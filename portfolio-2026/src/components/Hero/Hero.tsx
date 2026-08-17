@@ -3,7 +3,6 @@ import gsap from 'gsap'
 import { scrollToSection } from '../../utils'
 import { useBreakpoint } from '../../hooks'
 import TextLoop from '../TextLoop/TextLoop'
-import DecryptedText from '../DecryptedText/DecryptedText'
 
 export default function Hero({ showLoader }: { showLoader: boolean }) {
   const sectionRef = useRef<HTMLElement>(null)
@@ -149,15 +148,7 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
             margin: '0 0 24px',
           }}
         >
-          <DecryptedText
-            text="Rishabh Kothiyal"
-            animateOn="hover"
-            sequential
-            revealDirection="start"
-            speed={40}
-            className="revealed"
-            encryptedClassName="encrypted"
-          />
+          Rishabh Kothiyal
         </h1>
 
         <p
