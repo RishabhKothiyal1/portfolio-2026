@@ -999,6 +999,13 @@ html.dark #skills span img {
   filter: invert(1);
 }
 
+/* Exclude education logos from invert */
+html.dark #skills div[style*="background: rgb(250, 250, 250)"] img,
+html.dark #skills div[style*="background:#fafafa"] img,
+html.dark #skills div[style*="background: #fafafa"] img {
+  filter: none !important;
+}
+
 /* Skills SVG icons in tags */
 html.dark #skills span svg {
   stroke: #e0e0e0 !important;

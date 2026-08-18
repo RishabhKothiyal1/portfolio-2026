@@ -76,7 +76,7 @@ export default function Skills() {
       ref={sectionRef}
       style={{
         minHeight: isMobileView ? 'auto' : '100vh',
-        background: '#000',
+        background: '#fff',
         padding: isMobileView ? '32px 26px 40px' : isTablet ? '80px 16px 40px' : '80px 24px 40px',
         display: 'flex',
         alignItems: isMobileView ? 'flex-start' : 'center',
@@ -90,7 +90,7 @@ export default function Skills() {
             <span
               style={{
                 fontSize: '13px',
-                color: '#fff',
+                color: '#1a1a1a',
                 letterSpacing: '1px',
                 borderBottom: '2px solid #FFD400',
                 paddingBottom: '2px',
@@ -102,7 +102,7 @@ export default function Skills() {
               style={{
                 fontSize: 'clamp(32px, 8vw, 42px)',
                 fontWeight: 800,
-                color: '#fff',
+                color: '#1a1a1a',
                 margin: '12px 0 0',
                 lineHeight: 1.1,
               }}
@@ -152,7 +152,7 @@ export default function Skills() {
                     style={{
                       fontSize: '18px',
                       fontWeight: 700,
-                      color: '#fff',
+                      color: '#1a1a1a',
                       margin: 0,
                     }}
                   >
@@ -168,12 +168,12 @@ export default function Skills() {
                         alignItems: 'center',
                         gap: '6px',
                         padding: '6px 14px',
-                        border: '1.5px solid #fff',
+                        border: '1.5px solid #1a1a1a',
                         borderRadius: '20px',
                         fontSize: '13px',
                         fontWeight: 500,
-                        color: '#fff',
-                        background: 'transparent',
+                        color: '#1a1a1a',
+                        background: '#fff',
                       }}
                     >
                       {skill.type === 'image' ? (
@@ -192,7 +192,7 @@ export default function Skills() {
           </div>
 
           {/* Divider */}
-          <div style={{ borderTop: '1.5px dashed rgba(255,255,255,0.3)', margin: '0 0 36px' }} />
+          <div style={{ borderTop: '1.5px dashed #1a1a1a', margin: '0 0 36px' }} />
 
           {/* Mobile Education */}
           <div className="skill-animate" style={{ marginBottom: '36px' }}>
@@ -211,7 +211,7 @@ export default function Skills() {
               >
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5" /></svg>
               </div>
-              <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#fff', margin: 0 }}>Education</h3>
+              <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#1a1a1a', margin: 0 }}>Education</h3>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               {education.map((item: Education) => (
@@ -231,13 +231,13 @@ export default function Skills() {
                       width: '48px',
                       height: '48px',
                       borderRadius: '50%',
-                      border: '1.5px solid #333',
+                      border: '1.5px solid #e0e0e0',
                       overflow: 'hidden',
                       flexShrink: 0,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      background: '#1a1a1a',
+                      background: '#fafafa',
                     }}
                   >
                     <img
@@ -251,9 +251,9 @@ export default function Skills() {
                     />
                   </div>
                     <div>
-                      <p style={{ fontSize: '12px', color: '#fff', opacity: 0.5, margin: '0 0 2px' }}>{item.years}</p>
-                      <p style={{ fontSize: '15px', fontWeight: 700, color: '#fff', margin: '0 0 2px' }}>{item.school}</p>
-                      <p style={{ fontSize: '13px', color: '#fff', opacity: 0.6, margin: 0 }}>{item.description}</p>
+                      <p style={{ fontSize: '12px', color: '#1a1a1a', opacity: 0.5, margin: '0 0 2px' }}>{item.years}</p>
+                      <p style={{ fontSize: '15px', fontWeight: 700, color: '#1a1a1a', margin: '0 0 2px' }}>{item.school}</p>
+                      <p style={{ fontSize: '13px', color: '#1a1a1a', opacity: 0.6, margin: 0 }}>{item.description}</p>
                     </div>
                   </div>
                 ))}
@@ -277,7 +277,7 @@ export default function Skills() {
               >
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /></svg>
               </div>
-              <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#fff', margin: 0 }}>Experience</h3>
+              <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#1a1a1a', margin: 0 }}>Experience</h3>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               {experience.map((item: Experience) => (
@@ -289,9 +289,9 @@ export default function Skills() {
                   }}
                 >
                   <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '3px', background: '#FFD400', borderRadius: '2px' }} />
-                  <p style={{ fontSize: '12px', color: '#fff', opacity: 0.5, margin: '0 0 2px' }}>{item.date}</p>
-                  <p style={{ fontSize: '15px', fontWeight: 700, color: '#fff', margin: '0 0 2px' }}>{item.title}</p>
-                  <p style={{ fontSize: '13px', color: '#fff', opacity: 0.6, margin: 0 }}>{item.description}</p>
+                  <p style={{ fontSize: '12px', color: '#1a1a1a', opacity: 0.5, margin: '0 0 2px' }}>{item.date}</p>
+                  <p style={{ fontSize: '15px', fontWeight: 700, color: '#1a1a1a', margin: '0 0 2px' }}>{item.title}</p>
+                  <p style={{ fontSize: '13px', color: '#1a1a1a', opacity: 0.6, margin: 0 }}>{item.description}</p>
                 </div>
               ))}
             </div>
