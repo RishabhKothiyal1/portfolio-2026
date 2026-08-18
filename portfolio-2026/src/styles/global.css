@@ -914,6 +914,14 @@ html.dark #skills h3 svg {
   color: #e0e0e0 !important;
 }
 
+/* Keep category icons black in yellow circles */
+html.dark #skills div[style*="background: rgb(255, 212, 0)"] svg,
+html.dark #skills div[style*="background:#FFD400"] svg,
+html.dark #skills div[style*="background: #FFD400"] svg {
+  stroke: #1a1a1a !important;
+  color: #1a1a1a !important;
+}
+
 /* Skills section overall dark */
 html.dark #skills {
   background: #111111 !important;
