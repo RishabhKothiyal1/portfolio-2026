@@ -340,6 +340,29 @@ html.dark #about p {
   color: #bbb !important;
 }
 
+/* Mobile about dark - no card wrapper */
+html.dark #about > div > div {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+html.dark #about > div > div h2 {
+  color: #FFD400 !important;
+}
+
+html.dark #about > div > div p {
+  color: #bbb !important;
+}
+
+html.dark #about > div > div a {
+  color: #ccc !important;
+}
+
+html.dark #about > div > div span {
+  color: #ccc !important;
+}
+
 html.dark #about span {
   color: #ccc !important;
 }
