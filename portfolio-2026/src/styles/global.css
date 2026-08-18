@@ -322,6 +322,25 @@ html.dark #about a {
   color: #FFD400 !important;
 }
 
+html.dark #about .qr-scroll a {
+  color: inherit !important;
+  background: #fff !important;
+  border-color: #1a1a1a !important;
+}
+
+html.dark #about .qr-scroll span {
+  color: #1a1a1a !important;
+}
+
+html.dark #about .qr-scroll div[style*="border-radius: 50%"] {
+  background: #f2f1ee !important;
+  border-color: #1a1a1a !important;
+}
+
+html.dark #about .qr-scroll div[style*="border-top: 1.5px dashed"] {
+  border-color: #1a1a1a !important;
+}
+
 /* Skills section dark */
 html.dark #skills {
   background: #111111 !important;
