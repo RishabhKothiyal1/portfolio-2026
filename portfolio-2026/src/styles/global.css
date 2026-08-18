@@ -437,13 +437,20 @@ html.dark #about .qr-scroll svg {
 
 /* Skills section dark */
 html.dark #skills {
-  background: #111111 !important;
+  background: #000 !important;
 }
 
 html.dark #skills > div {
-  background: #1a1a1a !important;
-  border-color: #444 !important;
+  background: transparent !important;
+  border: none !important;
   color: #e0e0e0 !important;
+}
+
+@media (min-width: 769px) {
+  html.dark #skills > div {
+    background: #1a1a1a !important;
+    border-color: #444 !important;
+  }
 }
 
 /* Certificates section dark */
@@ -886,6 +893,15 @@ html.dark #skills [style*="background:#fff"] {
   border-color: #444 !important;
 }
 
+@media (max-width: 768px) {
+  html.dark #skills .animate-item,
+  html.dark #skills [style*="background: rgb(255, 255, 255)"],
+  html.dark #skills [style*="background:#fff"] {
+    background: transparent !important;
+    border: none !important;
+  }
+}
+
 html.dark #skills [style*="color: rgb(26, 26, 26)"] {
   color: #e0e0e0 !important;
 }
@@ -939,16 +955,26 @@ html.dark #skills div[style*="background: #FFD400"] svg polyline {
 
 /* Skills section overall dark */
 html.dark #skills {
-  background: #111111 !important;
+  background: #000 !important;
 }
 
 /* Skills tags dark mode */
 html.dark #skills span[style*="background: rgb(255, 255, 255)"],
 html.dark #skills span[style*="background:#fff"],
 html.dark #skills span[style*="background: #fff"] {
-  background: #2a2a2a !important;
-  border-color: #555 !important;
-  color: #e0e0e0 !important;
+  background: transparent !important;
+  border-color: #fff !important;
+  color: #fff !important;
+}
+
+@media (min-width: 769px) {
+  html.dark #skills span[style*="background: rgb(255, 255, 255)"],
+  html.dark #skills span[style*="background:#fff"],
+  html.dark #skills span[style*="background: #fff"] {
+    background: #2a2a2a !important;
+    border-color: #555 !important;
+    color: #e0e0e0 !important;
+  }
 }
 
 html.dark #skills span[style*="border-color: rgb(26, 26, 26)"],
