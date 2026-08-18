@@ -373,13 +373,6 @@ html.dark footer {
   color: #bbb !important;
 }
 
-/* QR code tickets dark */
-html.dark .qr-ticket {
-  background: #1a1a1a !important;
-  border-color: #444 !important;
-  color: #e0e0e0 !important;
-}
-
 /* DecryptedText dark */
 html.dark .encrypted {
   color: #888 !important;
