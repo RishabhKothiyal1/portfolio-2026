@@ -322,16 +322,6 @@ html.dark #about a {
   color: #FFD400 !important;
 }
 
-html.dark #about .qr-scroll,
-html.dark #about .qr-scroll *,
-html.dark #about .qr-scroll a,
-html.dark #about .qr-scroll span,
-html.dark #about .qr-scroll div,
-html.dark #about .qr-scroll svg,
-html.dark #about .qr-scroll svg path {
-  all: revert;
-}
-
 html.dark #about .qr-scroll {
   color-scheme: light only;
 }
@@ -343,27 +333,37 @@ html.dark #about .qr-scroll a {
   text-decoration: none !important;
 }
 
-html.dark #about .qr-scroll span {
+html.dark #about .qr-scroll a span {
   color: #1a1a1a !important;
+}
+
+html.dark #about .qr-scroll a div {
+  border-color: #1a1a1a !important;
+}
+
+html.dark #about .qr-scroll a > div:first-of-type {
+  background: #f2f1ee !important;
+}
+
+html.dark #about .qr-scroll a > div:last-of-type {
+  background: #fff !important;
+  border-top: 1.5px dashed #1a1a1a !important;
 }
 
 html.dark #about .qr-scroll svg {
   filter: none !important;
   opacity: 1 !important;
   mix-blend-mode: normal !important;
+  color: #000 !important;
+  fill: #000 !important;
+}
+
+html.dark #about .qr-scroll svg rect {
+  fill: #ffffff !important;
 }
 
 html.dark #about .qr-scroll svg path {
   fill: #000000 !important;
-}
-
-html.dark #about .qr-scroll div[style*="dashed"] {
-  border-color: #1a1a1a !important;
-}
-
-html.dark #about .qr-scroll div[style*="border-radius: 50%"] {
-  background: #f2f1ee !important;
-  border-color: #1a1a1a !important;
 }
 
 /* Skills section dark */
