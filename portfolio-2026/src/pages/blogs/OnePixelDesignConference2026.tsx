@@ -184,7 +184,7 @@ export default function OnePixelDesignConference2026() {
           {/* Content */}
           <div>
             <figure style={figure}>
-              <img src="/iiitD.jpeg" alt="1Pixel Design Conference 2026 venue" style={figImg} />
+              <img src="/iiitD.jpeg" alt="1Pixel Design Conference 2026 venue" loading="lazy" style={figImg} />
               <figcaption style={figCaption}>
                 1Pixel Design Conference 2026 at Indraprastha Institute of Technology, Delhi.
               </figcaption>
@@ -241,7 +241,7 @@ export default function OnePixelDesignConference2026() {
               </blockquote>
             </div>
             <figure style={figure}>
-              <img src="/peter.jpeg" alt="Peter Dohyung Lee speaking" style={figImg} />
+              <img src="/peter.jpeg" alt="Peter Dohyung Lee speaking" loading="lazy" style={figImg} />
               <figcaption style={figCaption}>
                 Peter Dohyung Lee sharing insights on product thinking and innovation.
               </figcaption>
@@ -270,7 +270,7 @@ export default function OnePixelDesignConference2026() {
               </p>
             </div>
             <figure style={figure}>
-              <img src="/mayur.jpeg" alt="Mayur Chaudhary during his session" style={figImg} />
+              <img src="/mayur.jpeg" alt="Mayur Chaudhary during his session" loading="lazy" style={figImg} />
               <figcaption style={figCaption}>
                 One of my favorite moments during the conference.
               </figcaption>
@@ -334,7 +334,7 @@ export default function OnePixelDesignConference2026() {
               </p>
             </div>
             <figure style={figure}>
-              <img src="/panel.jpeg" alt="Panel discussion" style={figImg} />
+              <img src="/panel.jpeg" alt="Panel discussion" loading="lazy" style={figImg} />
               <figcaption style={figCaption}>
                 Real industry experiences shared by experienced professionals.
               </figcaption>
@@ -346,7 +346,7 @@ export default function OnePixelDesignConference2026() {
               No conference experience is complete without picking up some merch, and 1Pixel did not disappoint. The design goodies, stickers, and conference kit were a nice touch &#8212; a tangible reminder of two incredible days.
             </p>
             <figure style={figure}>
-              <img src="/1pixel-merch.jpeg" alt="1Pixel Design Conference merch" style={figImg} />
+              <img src="/1pixel-merch.jpeg" alt="1Pixel Design Conference merch" loading="lazy" style={figImg} />
               <figcaption style={figCaption}>
                 The conference kit &#8212; stickers, a notebook, and some design swag to remember the experience.
               </figcaption>

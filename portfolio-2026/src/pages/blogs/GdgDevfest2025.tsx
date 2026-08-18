@@ -191,7 +191,7 @@ export default function GdgDevfest2025() {
             </p>
 
             <figure style={figure}>
-              <img src="/devfest 3.jpg" alt="Attendee name badges" style={figImg} />
+              <img src="/devfest 3.jpg" alt="Attendee name badges" loading="lazy" style={figImg} />
               <figcaption style={figCaption}>
                 Name badges of fellow attendees &#8212; every badge represented a story and a shared passion for tech.
               </figcaption>
@@ -212,7 +212,7 @@ export default function GdgDevfest2025() {
                 What I found most interesting was how practical the concept felt. The discussion around self-correcting workflows and human checkpoints made it easy to imagine how these systems could be used in real products.
               </p>
               <figure style={figure}>
-                <img src="/devfest ashish pahwa.jpg" alt="Aashish Pahwa presenting" style={figImg} />
+                <img src="/devfest ashish pahwa.jpg" alt="Aashish Pahwa presenting" loading="lazy" style={figImg} />
                 <figcaption style={figCaption}>
                   Aashish Pahwa breaking down how multiple AI agents can collaborate on complex tasks.
                 </figcaption>
@@ -245,7 +245,7 @@ export default function GdgDevfest2025() {
                 Instead of talking only about interfaces or design trends, Joy Banerjee shared how nature influences the way people think, behave, and interact with products.
               </p>
               <figure style={figure}>
-                <img src="/devfest joy banerjee.jpg" alt="Joy Banerjee presenting" style={figImg} />
+                <img src="/devfest joy banerjee.jpg" alt="Joy Banerjee presenting" loading="lazy" style={figImg} />
                 <figcaption style={figCaption}>
                   Joy Banerjee drawing unexpected parallels between natural patterns and product design.
                 </figcaption>
@@ -267,7 +267,7 @@ export default function GdgDevfest2025() {
               Since it was my first DevFest, I expected to feel a little nervous, but the community was incredibly welcoming. By the end of the day, I had met people who were just as passionate about building and learning as I was.
             </p>
             <figure style={figure}>
-              <img src="/devfest 4.jpg" alt="Group selfie at DevFest" style={figImg} />
+              <img src="/devfest 4.jpg" alt="Group selfie at DevFest" loading="lazy" style={figImg} />
               <figcaption style={figCaption}>
                 A group selfie with some of the amazing people I met &#8212; the community made the event unforgettable.
               </figcaption>
@@ -279,7 +279,7 @@ export default function GdgDevfest2025() {
               One of the most unexpected moments of the day was winning a <span style={highlight}>GDG Noida goodie bag</span>.
             </p>
             <figure style={figure}>
-              <img src="/goodie.jpeg" alt="GDG Noida goodie bag" style={figImg} />
+              <img src="/goodie.jpeg" alt="GDG Noida goodie bag" loading="lazy" style={figImg} />
               <figcaption style={figCaption}>
                 The goodie bag I won &#8212; a small surprise that made the day even more special.
               </figcaption>
@@ -292,7 +292,7 @@ export default function GdgDevfest2025() {
             <h2 style={heading}>What Was in the Swag Bag?</h2>
             <p style={paragraph}>Curiosity got the better of me, so I had to see what was inside.</p>
             <figure style={figure}>
-              <img src="/what was in goodie.jpeg" alt="Contents of the goodie bag" style={figImg} />
+              <img src="/what was in goodie.jpeg" alt="Contents of the goodie bag" loading="lazy" style={figImg} />
               <figcaption style={figCaption}>
                 The goodie bag contents &#8212; stickers, a notebook, a pen, and a lot of excitement.
               </figcaption>
@@ -310,7 +310,7 @@ export default function GdgDevfest2025() {
               It might seem like a small thing, but after seeing Mona on GitHub for years, it was exciting to see the mascot at the event. It was one of those little moments that made the day even more enjoyable.
             </p>
             <figure style={figure}>
-              <img src="/devfest2.jpg" alt="GitHub mascot Mona" style={figImg} />
+              <img src="/devfest2.jpg" alt="GitHub mascot Mona" loading="lazy" style={figImg} />
               <figcaption style={figCaption}>
                 Finally meeting Mona in person &#8212; a small but memorable highlight of the day.
               </figcaption>

@@ -8,16 +8,25 @@ interface GalleryImage {
 
 export default function ImageGallery({ images }: { images: GalleryImage[] }) {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [loadedMap, setLoadedMap] = useState<Record<number, boolean>>({})
 
   if (images.length === 0) return null
 
+  const handleLoad = (index: number) => {
+    setLoadedMap((prev) => ({ ...prev, [index]: true }))
+  }
+
   return (
     <div style={{ margin: '28px 0', border: '1.5px solid #1a1a1a', borderRadius: 10, overflow: 'hidden', background: '#fff' }}>
-      <div style={{ position: 'relative' }}>
+      <div style={{ position: 'relative', background: loadedMap[activeIndex] ? 'transparent' : 'linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%)', backgroundSize: '200% 100%', animation: loadedMap[activeIndex] ? 'none' : 'galleryShimmer 1.5s infinite', minHeight: 200 }}>
         <img
           src={images[activeIndex].src}
           alt={images[activeIndex].alt}
-          style={{ width: '100%', height: 'auto', display: 'block' }}
+          loading="lazy"
+          width={800}
+          height={450}
+          onLoad={() => handleLoad(activeIndex)}
+          style={{ width: '100%', height: 'auto', display: 'block', opacity: loadedMap[activeIndex] ? 1 : 0, transition: 'opacity 0.3s ease' }}
         />
         {images.length > 1 && (
           <>
@@ -103,6 +112,12 @@ export default function ImageGallery({ images }: { images: GalleryImage[] }) {
           </p>
         </div>
       )}
+      <style>{`
+        @keyframes galleryShimmer {
+          0% { background-position: -200% 0; }
+          100% { background-position: 200% 0; }
+        }
+      `}</style>
     </div>
   )
 }

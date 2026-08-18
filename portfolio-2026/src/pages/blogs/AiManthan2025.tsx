@@ -225,7 +225,7 @@ export default function AiManthan2025() {
               Each session built upon a different piece of the AI ecosystem, making the entire experience feel thoughtfully planned rather than a collection of unrelated talks.
             </p>
             <figure style={figure}>
-              <img src="/main stage google.jpg" alt="Main stage at AI Manthan 2025" style={figImg} />
+              <img src="/main stage google.jpg" alt="Main stage at AI Manthan 2025" loading="lazy" style={figImg} />
               <figcaption style={figCaption}>
                 The main stage &#8212; every session brought a fresh perspective on AI.
               </figcaption>
@@ -259,7 +259,7 @@ export default function AiManthan2025() {
               </p>
             </div>
             <figure style={figure}>
-              <img src="/nikhil sama.jpg" alt="Nikhil Sama's session" style={figImg} />
+              <img src="/nikhil sama.jpg" alt="Nikhil Sama's session" loading="lazy" style={figImg} />
               <figcaption style={figCaption}>
                 Nikhil Sama breaking down agent-based system design.
               </figcaption>
@@ -289,7 +289,7 @@ export default function AiManthan2025() {
               </p>
             </div>
             <figure style={figure}>
-              <img src="/joy sir google.jpg" alt="Joy Banerjee's design session" style={figImg} />
+              <img src="/joy sir google.jpg" alt="Joy Banerjee's design session" loading="lazy" style={figImg} />
               <figcaption style={figCaption}>
                 Joy Banerjee exploring the intersection of design and user behavior.
               </figcaption>
@@ -322,7 +322,7 @@ export default function AiManthan2025() {
               <p style={paragraph}>It was fascinating to see how rapidly this space is evolving.</p>
             </div>
             <figure style={figure}>
-              <img src="/ravian ai.jpg" alt="Ravian AI presentation" style={figImg} />
+              <img src="/ravian ai.jpg" alt="Ravian AI presentation" loading="lazy" style={figImg} />
               <figcaption style={figCaption}>
                 Lokesh Kumar and SuryaPratap Singh Rathore presenting the vision behind Ravian AI.
               </figcaption>
@@ -355,7 +355,7 @@ export default function AiManthan2025() {
               </p>
             </div>
             <figure style={figure}>
-              <img src="/aman and joy sir.jpg" alt="Panel discussion" style={figImg} />
+              <img src="/aman and joy sir.jpg" alt="Panel discussion" loading="lazy" style={figImg} />
               <figcaption style={figCaption}>
                 Aman Bandvi and Joy Banerjee sharing practical industry insights.
               </figcaption>
@@ -385,7 +385,7 @@ export default function AiManthan2025() {
               </p>
             </div>
             <figure style={figure}>
-              <img src="/saurabh sir.jpg" alt="Chrome DevTools workshop" style={figImg} />
+              <img src="/saurabh sir.jpg" alt="Chrome DevTools workshop" loading="lazy" style={figImg} />
               <figcaption style={figCaption}>
                 Saurabh Rajpal conducting the hands-on Chrome DevTools workshop.
               </figcaption>
@@ -434,7 +434,7 @@ export default function AiManthan2025() {
               Their efforts created an environment where learning felt effortless and enjoyable.
             </p>
             <figure style={figure}>
-              <img src="/networrking2.jpg" alt="AI Manthan organizers" style={figImg} />
+              <img src="/networrking2.jpg" alt="AI Manthan organizers" loading="lazy" style={figImg} />
               <figcaption style={figCaption}>
                 The team behind AI Manthan 2025 &#8212; their hard work made the event seamless.
               </figcaption>

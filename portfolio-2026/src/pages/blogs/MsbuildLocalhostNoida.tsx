@@ -214,7 +214,7 @@ export default function MsbuildLocalhostNoida() {
               Whether it was during the keynote sessions, networking breaks, or technical discussions, there was a shared enthusiasm for innovation. It was inspiring to see people from different backgrounds coming together with a common goal &#8212; to explore the future of technology.
             </p>
             <figure style={figure}>
-              <img src="/build intro 1.jpg" alt="Registration area" style={figImg} />
+              <img src="/build intro 1.jpg" alt="Registration area" loading="lazy" style={figImg} />
               <figcaption style={figCaption}>
                 The excitement began right from the registration area as developers and technology enthusiasts gathered for a day full of learning and innovation.
               </figcaption>
@@ -239,7 +239,7 @@ export default function MsbuildLocalhostNoida() {
               That shift in thinking completely changes how developers approach building software.
             </p>
             <figure style={figure}>
-              <img src="/build 4.jpg" alt="Technical sessions" style={figImg} />
+              <img src="/build 4.jpg" alt="Technical sessions" loading="lazy" style={figImg} />
               <figcaption style={figCaption}>
                 Technical sessions explored how AI is evolving from traditional assistants into intelligent systems capable of solving complex real-world problems.
               </figcaption>
@@ -295,7 +295,7 @@ export default function MsbuildLocalhostNoida() {
               </p>
             </div>
             <figure style={figure}>
-              <img src="/azure cobalt 200.jpeg" alt="Azure AI Foundry session" style={figImg} />
+              <img src="/azure cobalt 200.jpeg" alt="Azure AI Foundry session" loading="lazy" style={figImg} />
               <figcaption style={figCaption}>
                 Learning how Azure AI Foundry simplifies the development and deployment of enterprise-grade AI applications.
               </figcaption>
@@ -313,7 +313,7 @@ export default function MsbuildLocalhostNoida() {
               It was exciting to see AI being positioned as a catalyst for innovation in fields such as healthcare, biology, chemistry, and environmental science.
             </p>
             <figure style={figure}>
-              <img src="/build event 1.jpeg" alt="Microsoft Discovery session" style={figImg} />
+              <img src="/build event 1.jpeg" alt="Microsoft Discovery session" loading="lazy" style={figImg} />
               <figcaption style={figCaption}>
                 Exploring how AI is accelerating scientific research and opening new possibilities for innovation.
               </figcaption>
@@ -361,7 +361,7 @@ export default function MsbuildLocalhostNoida() {
               </p>
             </div>
             <figure style={figure}>
-              <img src="/agent1.jpeg" alt="Agentic AI architecture" style={figImg} />
+              <img src="/agent1.jpeg" alt="Agentic AI architecture" loading="lazy" style={figImg} />
               <figcaption style={figCaption}>
                 One of the most exciting concepts discussed at the event &#8212; Agentic AI, where intelligent agents reason, plan, retrieve information, and use tools before generating responses.
               </figcaption>
