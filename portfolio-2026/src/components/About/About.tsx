@@ -251,7 +251,7 @@ export default function About() {
               I'm{' '}
               <DecryptedText
                 text="Rishabh Kothiyal."
-                animateOn="view"
+                animateOn="hover"
                 sequential
                 revealDirection="start"
                 speed={40}
