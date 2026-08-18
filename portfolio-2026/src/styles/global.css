@@ -263,6 +263,32 @@ html.dark #home > div:first-child {
   background: radial-gradient(ellipse at 50% 50%, rgba(255, 212, 0, 0.06) 0%, transparent 70%) !important;
 }
 
+/* Hero mobile dark */
+html.dark .hero-title-mobile {
+  color: #FFD400 !important;
+}
+
+html.dark #home p {
+  color: #ccc !important;
+}
+
+html.dark #home button {
+  border-color: #555 !important;
+}
+
+html.dark #home button[style*="background: rgb(26, 26, 26)"],
+html.dark #home button[style*="background:#1a1a1a"] {
+  background: #FFD400 !important;
+  color: #111 !important;
+  border-color: #FFD400 !important;
+}
+
+html.dark #home button[style*="background: transparent"],
+html.dark #home button[style*="background:transparent"] {
+  color: #ccc !important;
+  border-color: #555 !important;
+}
+
 /* Hero box dark */
 html.dark .hero-box {
   background: #1a1a1a !important;

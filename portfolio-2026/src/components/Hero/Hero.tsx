@@ -116,11 +116,12 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
 
           <h1
             ref={titleRef}
+            className="hero-title-mobile"
             style={{
               fontFamily: "'Instrument Sans', sans-serif",
               fontSize: 'clamp(48px, 14vw, 72px)',
               fontWeight: 700,
-              color: '#1a1a1a',
+              color: '#FFD400',
               letterSpacing: '1px',
               lineHeight: 1.05,
               margin: '32px 0 0',
@@ -128,7 +129,7 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
           >
             Rishabh
             <br />
-            <span style={{ color: '#FFD400', position: 'relative', display: 'inline-block' }}>
+            <span style={{ position: 'relative', display: 'inline-block' }}>
               Kothiyal
               <svg
                 style={{ position: 'absolute', bottom: '-4px', left: '50%', transform: 'translateX(-50%)' }}
