@@ -922,6 +922,21 @@ html.dark #skills div[style*="background: #FFD400"] svg {
   color: #1a1a1a !important;
 }
 
+html.dark #skills div[style*="background: rgb(255, 212, 0)"] svg path,
+html.dark #skills div[style*="background:#FFD400"] svg path,
+html.dark #skills div[style*="background: #FFD400"] svg path,
+html.dark #skills div[style*="background: rgb(255, 212, 0)"] svg circle,
+html.dark #skills div[style*="background:#FFD400"] svg circle,
+html.dark #skills div[style*="background: #FFD400"] svg circle,
+html.dark #skills div[style*="background: rgb(255, 212, 0)"] svg rect,
+html.dark #skills div[style*="background:#FFD400"] svg rect,
+html.dark #skills div[style*="background: #FFD400"] svg rect,
+html.dark #skills div[style*="background: rgb(255, 212, 0)"] svg polyline,
+html.dark #skills div[style*="background:#FFD400"] svg polyline,
+html.dark #skills div[style*="background: #FFD400"] svg polyline {
+  stroke: #1a1a1a !important;
+}
+
 /* Skills section overall dark */
 html.dark #skills {
   background: #111111 !important;
