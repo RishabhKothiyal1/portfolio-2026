@@ -262,7 +262,6 @@ export default function AnimatedThemeToggler({
         .dark .animated-theme-toggle {
           background: rgba(30, 30, 30, 0.9) !important;
           border-color: #444 !important;
-          box-shadow: 4px 4px 0px rgba(68, 68, 68, 1) !important;
         }
       `}</style>
     </>

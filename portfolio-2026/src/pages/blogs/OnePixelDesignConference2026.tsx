@@ -111,7 +111,6 @@ export default function OnePixelDesignConference2026() {
           zIndex: 1000,
           background: 'rgba(255,255,255,0.9)',
           border: '1.5px solid #1a1a1a',
-          boxShadow: '4px 4px 0px #1a1a1a',
         }}
       />
       <div className="page-card" style={{ width: '100%', maxWidth: 1150,

@@ -76,7 +76,6 @@ export default function UrlShortenerDocs() {
     zIndex: 1000,
     background: 'rgba(255,255,255,0.9)',
     border: '1.5px solid #1a1a1a',
-    boxShadow: '4px 4px 0px #1a1a1a',
   }}
 />
       <div className="page-card" style={{ maxWidth: 800, margin: '0 auto', background: '#fff', border: '2px solid #1a1a1a', borderRadius: 16, boxShadow: '12px 12px 0px rgba(26,26,26,1)', padding: '56px 24px' }}>
