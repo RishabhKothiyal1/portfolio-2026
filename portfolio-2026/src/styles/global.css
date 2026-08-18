@@ -889,3 +889,21 @@ html.dark #projects a[style*="background: #fff"] {
 html.dark footer a {
   color: #FFD400 !important;
 }
+
+/* About contact icons dark */
+html.dark #about svg {
+  stroke: #e0e0e0 !important;
+}
+
+/* QR Ticket labels dark */
+html.dark .qr-ticket span,
+html.dark a[style*="border-radius: 10px"] span {
+  color: #1a1a1a !important;
+}
+
+/* QR Ticket dark mode */
+html.dark .qr-ticket,
+html.dark a[style*="border-radius: 10px"][style*="border: 1.5px solid"] {
+  background: #fff !important;
+  border-color: #444 !important;
+}
