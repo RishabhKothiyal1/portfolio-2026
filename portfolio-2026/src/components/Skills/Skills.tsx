@@ -76,7 +76,7 @@ export default function Skills() {
       ref={sectionRef}
       style={{
         minHeight: isMobileView ? 'auto' : '100vh',
-        background: isMobileView ? '#f2f1ee' : '#fff',
+        background: '#fff',
         padding: isMobileView ? '32px 26px 40px' : isTablet ? '80px 16px 40px' : '80px 24px 40px',
         display: 'flex',
         alignItems: isMobileView ? 'flex-start' : 'center',
