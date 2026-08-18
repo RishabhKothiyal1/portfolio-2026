@@ -146,9 +146,9 @@ export default function About() {
       id="about"
       ref={sectionRef}
       style={{
-        minHeight: '100vh',
+        minHeight: isMobileView ? 'auto' : '100vh',
         background: '#f2f1ee',
-        padding: isSmall ? '64px 12px 32px' : isMobile ? '80px 16px 40px' : '80px 24px 40px',
+        padding: isSmall ? '20px 26px 40px' : isMobile ? '28px 26px 40px' : '80px 24px 40px',
         display: 'flex',
         flexDirection: 'column',
       }}
