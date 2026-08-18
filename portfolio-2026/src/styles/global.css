@@ -322,8 +322,48 @@ html.dark #about a {
   color: #FFD400 !important;
 }
 
+html.dark #about .qr-scroll,
+html.dark #about .qr-scroll *,
+html.dark #about .qr-scroll a,
+html.dark #about .qr-scroll span,
+html.dark #about .qr-scroll div,
+html.dark #about .qr-scroll svg,
+html.dark #about .qr-scroll svg path {
+  all: revert;
+}
+
 html.dark #about .qr-scroll {
   color-scheme: light only;
+}
+
+html.dark #about .qr-scroll a {
+  background: #fff !important;
+  border: 1.5px solid #1a1a1a !important;
+  color: #1a1a1a !important;
+  text-decoration: none !important;
+}
+
+html.dark #about .qr-scroll span {
+  color: #1a1a1a !important;
+}
+
+html.dark #about .qr-scroll svg {
+  filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+}
+
+html.dark #about .qr-scroll svg path {
+  fill: #000000 !important;
+}
+
+html.dark #about .qr-scroll div[style*="dashed"] {
+  border-color: #1a1a1a !important;
+}
+
+html.dark #about .qr-scroll div[style*="border-radius: 50%"] {
+  background: #f2f1ee !important;
+  border-color: #1a1a1a !important;
 }
 
 /* Skills section dark */
@@ -888,6 +928,6 @@ html.dark footer a {
 }
 
 /* About contact icons dark */
-html.dark #about svg {
+html.dark #about svg:not(.qr-scroll svg) {
   stroke: #e0e0e0 !important;
 }

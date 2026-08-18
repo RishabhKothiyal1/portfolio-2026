@@ -24,10 +24,11 @@ function QRCodeTicket({ label, url }: { label: string; url: string }) {
         overflow: 'hidden',
         flexShrink: 0,
         textDecoration: 'none',
-        color: 'inherit',
+        color: '#1a1a1a',
         display: 'block',
         cursor: 'pointer',
         transition: 'all 0.2s ease',
+        colorScheme: 'light only',
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.boxShadow = '4px 4px 0px #FFD400'
@@ -77,15 +78,19 @@ function QRCodeTicket({ label, url }: { label: string; url: string }) {
           display: 'flex',
           justifyContent: 'center',
           padding: '10px 12px 12px',
+          background: '#fff',
         }}
       >
-        <QRCodeSVG
-          value={url}
-          size={80}
-          bgColor="#ffffff"
-          fgColor="#1a1a1a"
-          level="M"
-        />
+        <div style={{ background: '#ffffff', padding: '8px', borderRadius: '4px', lineHeight: 0 }}>
+          <QRCodeSVG
+            value={url}
+            size={80}
+            bgColor="#ffffff"
+            fgColor="#000000"
+            level="M"
+            style={{ display: 'block' }}
+          />
+        </div>
       </div>
     </a>
   )
