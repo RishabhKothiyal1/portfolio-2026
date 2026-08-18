@@ -337,10 +337,6 @@ html.dark #about .qr-scroll a span {
   color: #1a1a1a !important;
 }
 
-html.dark #about .qr-scroll a div {
-  border-color: #1a1a1a !important;
-}
-
 html.dark #about .qr-scroll a > div:first-of-type {
   background: #f2f1ee !important;
 }
@@ -354,16 +350,6 @@ html.dark #about .qr-scroll svg {
   filter: none !important;
   opacity: 1 !important;
   mix-blend-mode: normal !important;
-  color: #000 !important;
-  fill: #000 !important;
-}
-
-html.dark #about .qr-scroll svg rect {
-  fill: #ffffff !important;
-}
-
-html.dark #about .qr-scroll svg path {
-  fill: #000000 !important;
 }
 
 /* Skills section dark */

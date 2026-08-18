@@ -78,19 +78,15 @@ function QRCodeTicket({ label, url }: { label: string; url: string }) {
           display: 'flex',
           justifyContent: 'center',
           padding: '10px 12px 12px',
-          background: '#fff',
         }}
       >
-        <div style={{ background: '#ffffff', padding: '8px', borderRadius: '4px', lineHeight: 0 }}>
-          <QRCodeSVG
-            value={url}
-            size={80}
-            bgColor="#ffffff"
-            fgColor="#000000"
-            level="M"
-            style={{ display: 'block' }}
-          />
-        </div>
+        <QRCodeSVG
+          value={url}
+          size={80}
+          bgColor="#ffffff"
+          fgColor="#1a1a1a"
+          level="M"
+        />
       </div>
     </a>
   )
