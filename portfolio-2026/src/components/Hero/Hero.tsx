@@ -10,7 +10,7 @@ export default function Hero({ showLoader }: { showLoader: boolean }) {
   const subtitleRef = useRef<HTMLParagraphElement>(null)
   const ctaRef = useRef<HTMLDivElement>(null)
   const bgRef = useRef<HTMLDivElement>(null)
-  const { isSmall, isMobile, isTablet, isDesktop } = useBreakpoint()
+  const { isSmall, isMobile, isTablet } = useBreakpoint()
 
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' }, delay: showLoader ? 2.2 : 0 })
