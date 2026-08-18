@@ -175,6 +175,7 @@ export default function About() {
             <div className="about-animate" style={{ position: 'relative', flexShrink: 0 }}>
               {/* Yellow corner accent */}
               <div
+                className="about-yellow-accent"
                 style={{
                   position: 'absolute',
                   top: '-8px',

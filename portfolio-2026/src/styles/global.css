@@ -363,8 +363,30 @@ html.dark #about > div > div a {
   color: #ccc !important;
 }
 
+html.dark #about > div > div > div > div {
+  color: #ccc !important;
+  border-color: #555 !important;
+}
+
+html.dark #about > div > div > div > div svg {
+  stroke: #FFD400 !important;
+}
+
 html.dark #about > div > div span {
   color: #ccc !important;
+}
+
+html.dark #about > div > div > div > div > div:first-child {
+  background: transparent !important;
+  border-color: #555 !important;
+}
+
+html.dark #about .about-yellow-accent {
+  display: none !important;
+}
+
+html.dark #about h2 span svg {
+  display: none !important;
 }
 
 html.dark #about span {
