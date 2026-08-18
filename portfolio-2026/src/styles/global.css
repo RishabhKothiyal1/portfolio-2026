@@ -340,7 +340,15 @@ html.dark #about p {
   color: #bbb !important;
 }
 
-/* Mobile about dark - no card wrapper */
+/* Mobile about dark - no card wrapper, no shadow */
+@media (max-width: 768px) {
+  html.dark #about > div {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+}
+
 html.dark #about > div > div {
   background: transparent !important;
   border: none !important;
