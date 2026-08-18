@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import ImageGallery from '../../components/ImageGallery/ImageGallery'
+import AnimatedThemeToggler from '../../components/AnimatedThemeToggler/AnimatedThemeToggler'
 
 const heading: React.CSSProperties = {
   fontSize: 22,
@@ -100,6 +101,19 @@ export default function AiManthan2025() {
         fontFamily: "'Poppins', sans-serif",
       }}
     >
+      <AnimatedThemeToggler
+        variant="circle"
+        fromCenter
+        style={{
+          position: 'fixed',
+          top: 16,
+          right: 16,
+          zIndex: 1000,
+          background: 'rgba(255,255,255,0.9)',
+          border: '1.5px solid #1a1a1a',
+          boxShadow: '4px 4px 0px #1a1a1a',
+        }}
+      />
       <div className="page-card" style={{ width: '100%', maxWidth: 1150,
           background: '#fff',
           border: '2px solid #1a1a1a',
@@ -502,6 +516,46 @@ export default function AiManthan2025() {
           </div>
         </div>
       </div>
+      <style>{`
+        .dark .page-shell {
+          background: #111 !important;
+        }
+        .dark .page-card {
+          background: #1a1a1a !important;
+          border-color: #333 !important;
+          box-shadow: 12px 12px 0px rgba(51,51,51,1) !important;
+        }
+        .dark h1, .dark h2, .dark h3 {
+          color: #e0e0e0 !important;
+        }
+        .dark p, .dark li {
+          color: rgba(255,255,255,0.8) !important;
+        }
+        .dark .blog-session-card {
+          background: #222 !important;
+          border-color: #444 !important;
+        }
+        .dark figure {
+          background: #222 !important;
+          border-color: #444 !important;
+        }
+        .dark figcaption {
+          color: rgba(255,255,255,0.6) !important;
+          border-color: #444 !important;
+        }
+        .dark blockquote {
+          background: #222 !important;
+          border-left-color: #FFD400 !important;
+          color: #e0e0e0 !important;
+        }
+        .dark button[style*="color: rgb(26, 26, 26)"] {
+          color: #e0e0e0 !important;
+          border-color: #444 !important;
+        }
+        .dark svg {
+          color: #e0e0e0;
+        }
+      `}</style>
     </div>
   )
 }

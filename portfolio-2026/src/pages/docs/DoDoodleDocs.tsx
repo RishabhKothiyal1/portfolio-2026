@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import AnimatedThemeToggler from '../../components/AnimatedThemeToggler/AnimatedThemeToggler'
 
 const docSectionStyle = {
   border: '1.5px solid #1a1a1a',
@@ -93,6 +94,19 @@ export default function DoDoodleDocs() {
 
   return (
     <div className="page-shell" style={{ minHeight: '100vh', background: '#f2f1ee', padding: '32px 16px', fontFamily: "'Poppins', sans-serif" }}>
+      <AnimatedThemeToggler
+        variant="circle"
+        fromCenter
+        style={{
+          position: 'fixed',
+          top: 16,
+          right: 16,
+          zIndex: 1000,
+          background: 'rgba(255,255,255,0.9)',
+          border: '1.5px solid #1a1a1a',
+          boxShadow: '4px 4px 0px #1a1a1a',
+        }}
+      />
       <div className="page-card" style={{ maxWidth: 800, margin: '0 auto', background: '#fff', border: '2px solid #1a1a1a', borderRadius: 16, boxShadow: '12px 12px 0px rgba(26,26,26,1)', padding: '56px 24px' }}>
         <div style={{ marginBottom: 24 }}>
           <button onClick={() => navigate(-1)} style={{ ...linkBtnStyle, display: 'inline-flex', cursor: 'pointer', background: 'transparent' }}>
@@ -170,6 +184,37 @@ export default function DoDoodleDocs() {
           <button onClick={() => navigate(-1)} style={{ ...linkBtnStyle, display: 'inline-flex', cursor: 'pointer', background: 'transparent' }}>← Back to Portfolio</button>
         </div>
       </div>
+      <style>{`
+        .dark .page-shell {
+          background: #111 !important;
+        }
+        .dark .page-card {
+          background: #1a1a1a !important;
+          border-color: #333 !important;
+          box-shadow: 12px 12px 0px rgba(51,51,51,1) !important;
+        }
+        .dark h1, .dark h2, .dark h3 {
+          color: #e0e0e0 !important;
+        }
+        .dark p, .dark li {
+          color: rgba(255,255,255,0.8) !important;
+        }
+        .dark .doc-section {
+          background: #222 !important;
+          border-color: #444 !important;
+        }
+        .dark pre, .dark code {
+          background: #333 !important;
+          border-color: #555 !important;
+          color: #e0e0e0 !important;
+        }
+        .dark a {
+          color: #FFD400 !important;
+        }
+        .dark svg {
+          color: #e0e0e0;
+        }
+      `}</style>
     </div>
   );
 }
