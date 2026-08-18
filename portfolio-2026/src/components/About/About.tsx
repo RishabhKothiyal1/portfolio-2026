@@ -96,7 +96,7 @@ export default function About() {
   const sectionRef = useRef<HTMLElement>(null)
   const leftRef = useRef<HTMLDivElement>(null)
   const rightRef = useRef<HTMLDivElement>(null)
-  const { isSmall, isMobile, isTablet, isDesktop } = useBreakpoint()
+  const { isSmall, isMobile, isDesktop } = useBreakpoint()
 
   useEffect(() => {
     const ctx = gsap.context(() => {
