@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Playfair+Display:wght@700;900&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Kalam:wght@300;400;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Playfair+Display:wght@700;900&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&display=swap');
 
 *,
 *::before,
@@ -24,6 +24,10 @@ body {
   width: 100%;
   max-width: 100vw;
   transition: background 0.3s ease, color 0.3s ease;
+}
+
+p, li, span:not(h1 span):not(h2 span):not(h3 span):not(h4 span):not(.nav-link):not(.highlight):not(button span) {
+  font-family: 'Kalam', cursive;
 }
 
 .dark body,
