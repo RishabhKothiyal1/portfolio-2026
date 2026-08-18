@@ -322,23 +322,34 @@ html.dark #about a {
   color: #FFD400 !important;
 }
 
-html.dark #about .qr-scroll a {
-  color: inherit !important;
+html.dark #about .qr-scroll a,
+html.dark #about .qr-scroll a * {
+  color: #1a1a1a !important;
   background: #fff !important;
   border-color: #1a1a1a !important;
 }
 
-html.dark #about .qr-scroll span {
-  color: #1a1a1a !important;
+html.dark #about .qr-scroll a {
+  background: #fff !important;
+  border: 1.5px solid #1a1a1a !important;
 }
 
-html.dark #about .qr-scroll div[style*="border-radius: 50%"] {
+html.dark #about .qr-scroll a > div:first-of-type {
   background: #f2f1ee !important;
-  border-color: #1a1a1a !important;
 }
 
-html.dark #about .qr-scroll div[style*="border-top: 1.5px dashed"] {
-  border-color: #1a1a1a !important;
+html.dark #about .qr-scroll a > div:last-of-type {
+  background: #fff !important;
+  border-top: 1.5px dashed #1a1a1a !important;
+}
+
+html.dark #about .qr-scroll svg {
+  background: #ffffff !important;
+  filter: none !important;
+}
+
+html.dark #about .qr-scroll svg path {
+  fill: #1a1a1a !important;
 }
 
 /* Skills section dark */
