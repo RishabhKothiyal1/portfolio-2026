@@ -146,9 +146,9 @@ export default function About() {
       id="about"
       ref={sectionRef}
       style={{
-        minHeight: isMobileView ? 'auto' : '100vh',
+        minHeight: '100vh',
         background: '#f2f1ee',
-        padding: isSmall ? '20px 26px 40px' : isMobile ? '28px 26px 40px' : '80px 24px 40px',
+        padding: isSmall ? '64px 12px 32px' : isMobile ? '80px 16px 40px' : '80px 24px 40px',
         display: 'flex',
         flexDirection: 'column',
       }}
@@ -186,30 +186,6 @@ export default function About() {
                   zIndex: 0,
                 }}
               />
-              {/* Decorative dots */}
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '-20px',
-                  left: '-24px',
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(3, 6px)',
-                  gap: '5px',
-                  zIndex: 0,
-                }}
-              >
-                {[...Array(9)].map((_, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      width: '4px',
-                      height: '4px',
-                      borderRadius: '50%',
-                      background: '#d4c9a8',
-                    }}
-                  />
-                ))}
-              </div>
               <div
                 style={{
                   width: '140px',
@@ -319,20 +295,10 @@ export default function About() {
               </span>
               .
             </p>
-            <div style={{ position: 'relative' }}>
+            <div>
               <p style={{ fontSize: '14px', lineHeight: 1.8, color: '#1a1a1a', margin: 0, fontStyle: 'italic' }}>
                 I'm looking for new challenges and opportunities to broaden my horizons and tell meaningful stories with products.
               </p>
-              {/* Decorative quote marks */}
-              <svg
-                style={{ position: 'absolute', bottom: '-8px', right: '0', opacity: 0.25 }}
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="#1a1a1a"
-              >
-                <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
-              </svg>
             </div>
           </div>
 
