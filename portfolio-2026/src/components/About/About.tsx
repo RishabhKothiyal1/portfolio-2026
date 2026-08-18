@@ -250,14 +250,14 @@ export default function About() {
                   fontFamily: "'Instrument Sans', sans-serif",
                   fontSize: 'clamp(36px, 10vw, 48px)',
                   fontWeight: 700,
-                  color: '#FFD400',
+                  color: '#1a1a1a',
                   lineHeight: 1.05,
                   margin: 0,
                 }}
               >
                 Rishabh
                 <br />
-                <span style={{ position: 'relative', display: 'inline-block' }}>
+                <span style={{ color: '#FFD400', position: 'relative', display: 'inline-block' }}>
                   Kothiyal.
                   <svg
                     style={{ position: 'absolute', bottom: '-2px', left: '0', width: '100%' }}
