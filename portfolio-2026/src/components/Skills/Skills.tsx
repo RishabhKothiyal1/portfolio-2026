@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import type { ReactNode } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { skillCategories, education, experience } from '../../data'
@@ -7,7 +8,7 @@ import { useBreakpoint } from '../../hooks'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const categoryIcons: Record<string, JSX.Element> = {
+const categoryIcons: Record<string, ReactNode> = {
   Languages: (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" />
